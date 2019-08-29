@@ -69,10 +69,4 @@ public class ModuleServiceImpl implements ModuleService {
 	public Boolean deletes(String boxeditId) {
 		return dao.deletes(boxeditId) > 0 ? true : false;
 	}
-
-	@Override
-	public List<Module> getDataByRoleId(Map<String, Object> param) {
-		return dao.getDataByRoleId(param);
-	}
-
 }

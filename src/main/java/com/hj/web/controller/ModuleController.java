@@ -9,10 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hj.common.ControllerBase;
-import com.hj.utils.Configurations;
 import com.hj.web.entity.Module;
 import com.hj.web.entity.UserInfo;
 import com.hj.web.entity.UserRole;
@@ -69,11 +67,6 @@ public class ModuleController extends ControllerBase {
 			}
 			// 获取所有频道信息
 			List<Module> moduleList = moduleService.getDataMessge(map);
-			if (moduleList != null && moduleList.size() > 0) {
-				for (Module module : moduleList) {
-					urlManage(module);
-				}
-			}
 			// 所有信息数量
 			int listMessgeCount = moduleService.getDataMessgeCount(map);
 			// 获取页面信息
@@ -125,45 +118,4 @@ public class ModuleController extends ControllerBase {
 		return "redirect:getDataList";
 	}
 
-	// 处理图片访问地址
-	public Module urlManage(Module module) {
-		if (module != null) {
-			String picUrl = module.getPicUrl();
-			if (StringUtils.isNotEmpty(picUrl)) {
-				String path = Configurations.getAccessUrl();
-				if (StringUtils.isNotEmpty(path)) {
-					picUrl = path + picUrl;
-					module.setPicUrl(picUrl);
-				}
-			}
-		}
-		return module;
-	}
-
-	// 获取站点下所有的模块
-	@RequestMapping(value = "/module/getDataByRoleId")
-	@ResponseBody
-	public Map<String, Object> getDataByRoleId(ModelMap model) {
-		Map<String, Object> resultMap = new HashMap<String, Object>();
-		Map<String, Object> param = new HashMap<String, Object>();
-		String roleId = getTrimParameter("roleId");
-		String moduleType = getTrimParameter("moduleType");
-		try {
-			if (StringUtils.isNotEmpty(roleId)) {
-				param.put("roleId", roleId);
-				param.put("moduleType", moduleType);
-				List<Module> moduleList = moduleService.getDataByRoleId(param);
-				resultMap.put("code", "200");
-				resultMap.put("moduleList", moduleList);
-			} else {
-				resultMap.put("code", "201");
-				resultMap.put("msg", "站点信息为空");
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-			resultMap.put("code", "500");
-			resultMap.put("msg", "系统错误请联系管理员");
-		}
-		return resultMap;
-	}
 }

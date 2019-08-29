@@ -50,19 +50,16 @@
 										</button>
 									</span>
 								</div>
-								<div style="float: left; position: relative; margin-top: 16px; margin-left: 20px;">
-									<select name="roleId" id="roleId" class="btn" style="border:1px solid #ddd" onchange="seeAllMsg()"></select>
-								</div>
 								<div
 									style="float: left; position: relative; margin-top: 16px; margin-left: 20px;">
 									<a href="javascript:doRefresh();" class="btn mini btn-white"
 										title="刷新"><i class="icon-refresh"></i></a>
 								</div>
-								<div
+								<!-- <div
 									style="float: left; position: relative; margin-top: 16px; margin-left: 20px;">
 									<a href="javascript:doAdd();" class="btn mini btn-white"><i
 										class="icon-plus"></i></a>
-								</div>
+								</div> -->
 
 								<div
 									style="float: left; position: relative; margin-top: 16px; margin-left: 20px;">
@@ -478,29 +475,6 @@
 			addUserRole();
 		});
 
-		function addUserRole(){
-			$.ajax({
-        type : 'post',
-        data : "",
-        url : '${appRoot}/role/getAllList',
-        dataType : 'json',
-        success : function(data) {
-          if (data.msg == 0) {
-            var html = '<option value="">全部站点</option>';
-            var roleList = data.roleList;
-            for(var i=0;i<roleList.length;i++){
-            	if(roleList[i].id == '${roleId}'){
-	         	    html += '<option value="'+ roleList[i].id +'"  selected>'+ roleList[i].roleName +'</option>'
-            	}else{
-           	    html += '<option value="'+ roleList[i].id +'">'+ roleList[i].roleName +'</option>'
-            	}
-            }
-          } 
-          $("#roleId").html(html);
-        }
-      });
-		}
-		
 		function doRefresh() {
 			location.reload();
 		}

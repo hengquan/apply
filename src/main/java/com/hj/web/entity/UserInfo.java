@@ -42,9 +42,19 @@ public class UserInfo {
   
   private String parentId;
   
+  private String moduleId;
+  
   private List<UserInfo> userList;
 
-  public List<UserInfo> getUserList() {
+  public String getModuleId() {
+	return moduleId;
+}
+
+public void setModuleId(String moduleId) {
+	this.moduleId = moduleId;
+}
+
+public List<UserInfo> getUserList() {
 		return userList;
 	}
 

@@ -20,13 +20,11 @@ import com.hj.utils.HashSessions;
 import com.hj.utils.JsonUtils;
 import com.hj.web.dao.SysItemRoleDao;
 import com.hj.web.dao.SysRoleDao;
-import com.hj.web.entity.Language;
 import com.hj.web.entity.SysRole;
 import com.hj.web.entity.UserInfo;
 import com.hj.web.entity.UserRole;
 import com.hj.web.mapping.SysRoleMapper;
 import com.hj.web.services.IKeyGen;
-import com.hj.web.services.LanguageService;
 import com.hj.web.services.SysRoleService;
 import com.hj.web.services.UserRoleService;
 
@@ -56,8 +54,6 @@ public class SysRoleController extends ControllerBase {
 	SysItemRoleDao sysItemRoleDao;
 	@Autowired
 	SysRoleService roleService;
-	@Autowired
-	LanguageService languageService;
 
 	public String Userid() {
 		try {
@@ -94,40 +90,9 @@ public class SysRoleController extends ControllerBase {
 				role = super.getParentRoleData(role);
 				roleList = roleService.findParentById(id);
 			}
-			if (roleList != null && roleList.size() > 0) {
-				for (SysRole sysRole : roleList) {
-					// 处理语言
-					sysRole = manage(sysRole);
-					String roleId = sysRole.getId();
-					List<SysRole> dataList = roleService.findParentById(roleId);
-					if (dataList != null && dataList.size() > 0) {
-						for (SysRole ziRole : dataList) {
-							// 处理语言
-							ziRole = manage(ziRole);
-						}
-						sysRole.setRoleList(dataList);
-					}
-				}
-			}
 		}
 		model.addAttribute("roleList", roleList);
 		return "role/list";
-	}
-
-	private SysRole manage(SysRole sysRole) {
-		String languageNames = "";
-		String languageId = sysRole.getLanguageId();
-		List<Language> languageList = languageService.getByIds(languageId);
-		if (languageList != null && languageList.size() > 0) {
-			for (Language language : languageList) {
-				String name = language.getName();
-				if (StringUtils.isNotEmpty(name))
-					languageNames += " " + name;
-			}
-		}
-		if (StringUtils.isNotEmpty(languageNames))
-			sysRole.setLanguageName(languageNames);
-		return sysRole;
 	}
 
 	/**
@@ -267,36 +232,5 @@ public class SysRoleController extends ControllerBase {
 			}
 		}
 		return JsonUtils.map2json(map);
-	}
-
-	@RequestMapping("/getLanguageData")
-	@ResponseBody
-	private Map<String, Object> getLanguageData() throws Exception {
-		Map<String, Object> map = new HashMap<String, Object>();
-		List<Language> languageList = new ArrayList<Language>();
-		String roleId = getTrimParameter("roleId");
-		if (StringUtils.isNotEmpty(roleId)) {
-			SysRole sysRole = roleService.findById(roleId);
-			if (sysRole != null) {
-				String languageId = sysRole.getLanguageId();
-				languageList = languageService.getByIds(languageId);
-			}
-		} else {
-			SysRole userRole = super.getUserRole();
-			if (userRole != null) {
-				String logogram = userRole.getLogogram();
-				if (logogram.equals("0")) {
-					languageList = languageService.getAllData();
-				} else {
-					String languageId = userRole.getLanguageId();
-					languageList = languageService.getByIds(languageId);
-				}
-			}
-		}
-		if (languageList != null && languageList.size() > 0) {
-			map.put("msg", "0");
-			map.put("dataList", languageList);
-		}
-		return map;
 	}
 }

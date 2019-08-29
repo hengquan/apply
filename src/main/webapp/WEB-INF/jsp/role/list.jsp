@@ -38,16 +38,15 @@
 				<div class="row">
 					<div class="col-lg-12">
 						<section class="panel">
-							<header class="panel-heading">站点管理 </header>
+							<header class="panel-heading">角色管理 </header>
 							<table class="table table-striped border-top" id="sample_1">
 								<thead>
 									<tr>
 										<th style="width: 8px;"><input type="checkbox" name="box"
 											class="group-checkable" data-set="#sample_1 .checkboxes"
 											value="" /></th>
-										<th>站点名称</th>
+										<th>角色名称</th>
 										<th class="hidden-phone">拼音</th>
-										<th class="hidden-phone">站点语言</th>
 										<th class="hidden-phone">操作</th>
 									</tr>
 								</thead>
@@ -58,10 +57,9 @@
 												value="${info.id}" /></td>
 											<td>${info.roleName}</td>
 											<td class="hidden-phone">${info.pinyin}</td>
-											<td class="hidden-phone">${info.languageName }</td>
 											<td class="hidden-phone">
 												<button class="btn btn-primary btn-xs"
-													onclick="doEdit('${info.id}','${info.roleName}','${info.pinyin}','${info.remark}','${info.languageId }','${info.languages }')">
+													onclick="doEdit('${info.id}','${info.roleName}','${info.pinyin}','${info.remark}')">
 													<i class="icon-pencil"></i>
 												</button> &nbsp;
 												<button class="btn btn-danger btn-xs"
@@ -70,7 +68,7 @@
 												</button> &nbsp; <a
 												href="${appRoot}/roleItem/listItem?roleId=${info.id}&roleName=${info.roleName}&itemId=${itemId}&id=${positionId}">
 													<button class="btn btn-danger btn-xs">
-														<i class="icon-eye-open">查看站点权限</i>
+														<i class="icon-eye-open">查看角色权限</i>
 													</button>
 											</a>
 											</td>
@@ -93,7 +91,7 @@
                         </button> &nbsp; <a
                         href="${appRoot}/roleItem/listItem?roleId=${role.id}&roleName=${role.roleName}&itemId=${itemId}&id=${positionId}">
                           <button class="btn btn-danger btn-xs">
-                            <i class="icon-eye-open">查看站点权限</i>
+                            <i class="icon-eye-open">查看角色权限</i>
                           </button>
                       </a>
                       </td>
@@ -116,28 +114,26 @@
 					<div class="modal-header">
 						<button type="button" class="close" data-dismiss="modal"
 							aria-hidden="true">&times;</button>
-						<h4 class="modal-title" id="modal-title">添加站点</h4>
+						<h4 class="modal-title" id="modal-title">添加角色</h4>
 					</div>
 					<div class="modal-body">
 						<form class="form-horizontal" role="form" id="roleForm"
 							name="roleForm">
 							<input type="hidden" name="editId" id="editId">
-							<input type="hidden" name="languageId" id="languageId"> 
-							<input type="hidden" name="languages" id="languages"> 
 							<div class="form-group">
-								<label class="col-lg-2 control-label pd-r5">站点名称<font
+								<label class="col-lg-2 control-label pd-r5">角色名称<font
 									style="color: red;">*</font></label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" id="roleName"
-										name="roleName" placeholder="请输入站点名称">
+										name="roleName" placeholder="请输入角色名称">
 								</div>
 							</div>
 							<div class="form-group">
-								<label class="col-lg-2 control-label pd-r5">站点拼音<font
+								<label class="col-lg-2 control-label pd-r5">角色拼音<font
 									style="color: red;">*</font></label>
 								<div class="col-lg-10">
 									<input type="text" class="form-control" id="pinyin"
-										name="pinyin" placeholder="请输入站点拼音">
+										name="pinyin" placeholder="请输入角色拼音">
 								</div>
 							</div>
 							<div class="form-group">
@@ -146,12 +142,6 @@
 								<div class="col-lg-10">
 									<input type="text" class="form-control" id="remark"
 										name="remark" placeholder="请输入备注">
-								</div>
-							</div>
-							<div class="form-group">
-								<label class="col-lg-2 control-label pd-r5">站点语言<font
-									style="color: red;"></font></label>
-								<div class="col-lg-10" id="thisChannelLanguage">
 								</div>
 							</div>
 							<div class="form-group">
@@ -226,7 +216,7 @@
 					<h4 class="modal-title">重置警告</h4>
 				</div>
 				<div class="modal-body">
-					确定重置站点密码？</br>重置后密码为:123456
+					确定重置角色密码？</br>重置后密码为:123456
 				</div>
 				<div class="modal-footer">
 					<button data-dismiss="modal" class="btn btn-default" type="button"
@@ -258,8 +248,6 @@
 	<script src="${appRoot}/static/js/dialog_alert.js"></script>
 	<script type="text/javascript">
 		function doAdd() {
-			$("#thisChannelLanguage").html();
-			addLanguage();
 			//添加
 			$("#editId").val('');
 			$('#roleName').val('');
@@ -269,64 +257,14 @@
 			$modal.modal();
 		}
 
-		function doEdit(id, roleName, pinyin, remark,languageId,languages) {
-			$("#thisChannelLanguage").html();
-			$.ajax({
-        type : 'post',
-        data : "",
-        url : '${appRoot}/role/getLanguageData',
-        dataType : 'json',
-        success : function(data) {
-          if (data.msg == "0") {
-           var html = '';
-           var dataList = data.dataList;
-           for(var i=0;i<dataList.length;i++){
-             if(languageId.indexOf(dataList[i].id) != -1){
-               html += '<span class="btn thisLanguageArea">'
-               +'<input type="checkbox" checked="true" class="languageIds btn" value="'+ dataList[i].id +'"><label class="btn">' + dataList[i].name + '</label>'
-               +'<input type="hidden" class="languageTab" value="'+ dataList[i].tab +'">'
-               +'<input type="hidden" class="languageName" value="'+ dataList[i].name +'">';
-               if(languages!=""){
-	               var languageList = languages.split(",");
-	               for(var y=0; y<languageList.length; y++){
-	                 var zu = languageList[y];
-	                 var xiang = zu.split(":");
-	                 var xiangTab = xiang[1];
-	                 var xiangName = xiang[2];
-	                 if(xiangTab == dataList[i].tab){
-	                	 html += '<input type="text" style="text-align:center;font-family: mFont;" class="form-control roleLanguageName" value="'+ xiangName +'" placeholder="请输入'+ dataList[i].name +'名称">'
-	                   +'</span>';
-	                 }
-	               }
-               }else{
-            	   html += '<input type="text" style="text-align:center;font-family: mFont;" class="form-control roleLanguageName" placeholder="请输入'+ dataList[i].name +'名称">'
-                 +'</span>';
-               }
-             }else{
-               html += '<span class="btn thisLanguageArea">'
-                   +'<input type="checkbox" class="languageIds btn" value="'+ dataList[i].id +'"><label class="btn">' + dataList[i].name + '</label>'
-                   +'<input type="hidden" class="languageTab" value="'+ dataList[i].tab +'">'
-                   +'<input type="hidden" class="languageName" value="'+ dataList[i].name +'">'
-                   +'<input type="text" style="text-align:center;font-family: mFont;" class="form-control roleLanguageName" placeholder="请输入'+ dataList[i].name +'名称">'
-                   +'</span>';
-             }
-           }
-           $("#thisChannelLanguage").html(html);
-           $('#editId').val(id);
-           $('#roleName').val(roleName);
-           $('#pinyin').val(pinyin);
-           $('#remark').val(remark);
-           var $modal = $('#myModal');
-           $('#modal-title').text("修改站点信息");
-           $modal.modal();
-          } else {
-            windowShow("语言列表为空");
-          }
-        },
-        error : function(data) {
-          windowShow("获取语言列表信息失败", "");
-        }
-      });
+		function doEdit(id, roleName, pinyin, remark) {
+			$('#editId').val(id);
+      $('#roleName').val(roleName);
+      $('#pinyin').val(pinyin);
+      $('#remark').val(remark);
+      var $modal = $('#myModal');
+      $('#modal-title').text("修改角色信息");
+      $modal.modal();
 		}
 
 		function submitData() {
@@ -334,26 +272,6 @@
 			if(!result){
 				return;
 			}
-			var languages = "";
-			var languageId = "";
-			$("#thisChannelLanguage").find(".thisLanguageArea").each(function (index,obj){
-				var languageIds = $(obj).find(".languageIds");
-				if (languageIds.is(':checked')) {
-					var language = languageIds.val();
-					languageId += "," + language;
-					//组串串
-					var languageName = $(obj).find(".languageName").val();
-					var languageTab = $(obj).find(".languageTab").val();
-					var roleLanguageName = $(obj).find(".roleLanguageName").val();
-					languages += ","+languageName+":"+languageTab+":"+roleLanguageName;
-        }
-			})
-			if(languageId != "") 
-				languageId = languageId.substr(1);
-			$("#languageId").val(languageId);
-			if(languages != "") 
-				languages = languages.substr(1);
-      $("#languages").val(languages);
 			//开始提交
 			$.ajax({
         type : 'post',
@@ -362,15 +280,15 @@
         dataType : 'json',
         success : function(data) {
           if (data.msg == "iscz") {
-            windowShow("该站点名称已存在!请重新输入站点名称", "");
+            windowShow("该角色名称已存在!请重新输入角色名称", "");
             return false;
           } else if (data.msg == "isc") {
             $('#myModal').modal('hide');
-            windowShow("添加站点成功", "");
+            windowShow("添加角色成功", "");
             location.reload();
           } else if (data.msg == "isupdate") {
             $('#myModal').modal('hide');
-            windowShow("修改站点成功", "");
+            windowShow("修改角色成功", "");
             location.reload();
           } else {
             $('#myModal').modal('hide');
@@ -431,60 +349,20 @@
 			//addLanguage();
 		})
 		
-		function addLanguage(){
-			$.ajax({
-        type : 'post',
-        data : "",
-        url : '${appRoot}/role/getLanguageData',
-        dataType : 'json',
-        success : function(data) {
-          if (data.msg == "0") {
-        	 var html = '';
-           var dataList = data.dataList;
-           for(var i=0;i<dataList.length;i++){
-        	   html += '<span class="btn thisLanguageArea">'
-        	   +'<input type="checkbox" class="languageIds btn" value="'+ dataList[i].id +'"><label class="btn">' + dataList[i].name + '</label>'
-        	   +'<input type="hidden" class="languageTab" value="'+ dataList[i].tab +'">'
-        	   +'<input type="hidden" class="languageName" value="'+ dataList[i].name +'">'
-        	   +'<input type="text" style="text-align:center" class="form-control roleLanguageName" placeholder="请输入'+ dataList[i].name +'名称">'
-        	   +'</span>';
-           }
-					 $("#thisChannelLanguage").html(html);
-          } else {
-            windowShow("语言列表为空");
-          }
-        },
-        error : function(data) {
-          windowShow("获取语言列表信息失败", "");
-        }
-      });
-		}
-		
 		//验证
 		function yanZheng(){
 			var result = true;
       var result1 = true;
 			if ($('#roleName').val() == null || $('#roleName').val() == '') {
-        windowShow("站点名称不能为空", "");
+        windowShow("角色名称不能为空", "");
         result = false;
       }
       if ($('#pinyin').val() == null || $('#pinyin').val() == '') {
-        windowShow("站点拼音不能为空", "");
+        windowShow("角色拼音不能为空", "");
         result = false;
       }
-      $("#thisChannelLanguage").find(".thisLanguageArea").each(function (index,obj){
-        var languageIds = $(obj).find(".languageIds");
-        if (languageIds.is(':checked')) {
-          var languageName = $(obj).find(".languageName").val();
-          var languageTab = $(obj).find(".languageTab").val();
-          var roleLanguageName = $(obj).find(".roleLanguageName").val();
-          if (languageName == null || languageName == '' || languageTab == null || languageTab == '' || roleLanguageName == null || roleLanguageName == '') {
-            result1 = false;
-          }
-        }
-      })
       if(!result1)
-    	  windowShow("站点语言不允许为空，请仔细检查！", "");
+    	  windowShow("角色语言不允许为空，请仔细检查！", "");
       return result && result1;
 		}
 	</script>

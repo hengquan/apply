@@ -5,18 +5,11 @@
 		<id column="id" property="id" jdbcType="VARCHAR" />
 		<result column="moduleName" property="moduleName" jdbcType="VARCHAR" />
 		<result column="sort" property="sort" jdbcType="INTEGER" />
-		<result column="roleId" property="roleId" jdbcType="VARCHAR" />
 		<result column="isValidate" property="isValidate" jdbcType="INTEGER" />
 		<result column="cTime" property="cTime" jdbcType="TIMESTAMP" />
-		<result column="languages" property="languages" jdbcType="VARCHAR" />
-		<result column="picUrl" property="picUrl" jdbcType="VARCHAR" />
-		<result column="hrefUrl" property="hrefUrl" jdbcType="VARCHAR" />
-		<result column="moduleType" property="moduleType" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
-		id, moduleName, sort, roleId, isValidate, cTime, languages,moduleType,
-		picUrl,
-		hrefUrl
+		id, moduleName, sort,  isValidate, cTime
 	</sql>
 	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
@@ -41,26 +34,11 @@
 			<if test="sort != null">
 				sort,
 			</if>
-			<if test="roleId != null">
-				roleId,
-			</if>
 			<if test="isValidate != null">
 				isValidate,
 			</if>
 			<if test="cTime != null">
 				cTime,
-			</if>
-			<if test="languages != null">
-				languages,
-			</if>
-			<if test="picUrl != null">
-				picUrl,
-			</if>
-			<if test="hrefUrl != null">
-				hrefUrl,
-			</if>
-			<if test="moduleType != null">
-				moduleType,
 			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -73,26 +51,11 @@
 			<if test="sort != null">
 				#{sort,jdbcType=INTEGER},
 			</if>
-			<if test="roleId != null">
-				#{roleId,jdbcType=VARCHAR},
-			</if>
 			<if test="isValidate != null">
 				#{isValidate,jdbcType=INTEGER},
 			</if>
 			<if test="cTime != null">
 				#{cTime,jdbcType=TIMESTAMP},
-			</if>
-			<if test="languages != null">
-				#{languages,jdbcType=VARCHAR},
-			</if>
-			<if test="picUrl != null">
-				#{picUrl,jdbcType=VARCHAR},
-			</if>
-			<if test="hrefUrl != null">
-				#{hrefUrl,jdbcType=VARCHAR},
-			</if>
-			<if test="moduleType != null">
-				#{moduleType,jdbcType=VARCHAR},
 			</if>
 		</trim>
 	</insert>
@@ -105,44 +68,21 @@
 			<if test="sort != null">
 				sort = #{sort,jdbcType=INTEGER},
 			</if>
-			<if test="roleId != null">
-				roleId = #{roleId,jdbcType=VARCHAR},
-			</if>
 			<if test="isValidate != null">
 				isValidate = #{isValidate,jdbcType=INTEGER},
 			</if>
 			<if test="cTime != null">
 				cTime = #{cTime,jdbcType=TIMESTAMP},
 			</if>
-			<if test="languages != null">
-				languages = #{languages,jdbcType=VARCHAR},
-			</if>
-			<if test="picUrl != null and picUrl != ''">
-				picUrl = #{picUrl,jdbcType=VARCHAR},
-			</if>
-			<if test="hrefUrl != null">
-				hrefUrl = #{hrefUrl,jdbcType=VARCHAR},
-			</if>
-			<if test="moduleType != null">
-				moduleType = #{moduleType,jdbcType=VARCHAR},
-			</if>
 		</set>
 		where id = #{id,jdbcType=VARCHAR}
 	</update>
 
 	<select id="getDataMessge" resultMap="BaseResultMap">
-		SELECT
-		a.*, b.role_name roleName
-		FROM
-		cms_module a
-		JOIN sys_role b ON
-		a.roleId = b.id
-		where a.isValidate = 1
-		<if test="roleId !='' and roleId != null">
-			and a.roleId = #{roleId}
-		</if>
+		SELECT * from cms_module
+		where isValidate = 1
 		<if test="moduleName !='' and moduleName != null">
-			and instr(a.moduleName,#{moduleName})
+			and instr(moduleName,#{moduleName})
 		</if>
 		order by sort desc,cTime desc
 		limit #{page},#{pageSize}
@@ -152,21 +92,12 @@
 		SELECT
 		count(1)
 		FROM
-		cms_module a
-		JOIN sys_role b ON a.roleId = b.id
+		cms_module
 		where
-		a.isValidate = 1
-		<if test="roleId !='' and roleId != null">
-			and a.roleId = #{roleId}
-		</if>
+		isValidate = 1
 		<if test="moduleName !='' and moduleName != null">
-			and instr(a.moduleName,#{moduleName})
+			and instr(moduleName,#{moduleName})
 		</if>
-	</select>
-
-	<select id="getDataByRoleId" resultMap="BaseResultMap">
-		select * from cms_module
-		where roleId = #{roleId} and isValidate = 1 and instr(moduleType,#{moduleType})
 	</select>
 
 	<update id="deletes">

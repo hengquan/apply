@@ -19,13 +19,14 @@
 		<result column="remark" property="remark" jdbcType="VARCHAR" />
 		<result column="descn" property="descn" jdbcType="LONGVARCHAR" />
 		<result column="parentId" property="parentId" jdbcType="VARCHAR" />
+		<result column="moduleId" property="moduleId" jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		id, loginName, password, realName, age, sex, phone,
 		headimgurl, district,
 		address,
 		language, selfProjAuth, cTime,
-		isValidate, remark,descn,parentId
+		isValidate, remark,descn,parentId,moduleId
 	</sql>
 	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String">
 		select
@@ -92,6 +93,9 @@
 			<if test="parentId != null">
 				parentId,
 			</if>
+			<if test="parentId != null">
+				moduleId,
+			</if>
 		</trim>
 		<trim prefix="values (" suffix=")" suffixOverrides=",">
 			<if test="id != null">
@@ -145,6 +149,9 @@
 			<if test="parentId != null">
 				#{parentId,jdbcType=VARCHAR},
 			</if>
+			<if test="moduleId != null">
+				#{moduleId,jdbcType=VARCHAR},
+			</if>
 		</trim>
 	</insert>
 	<update id="update" parameterType="com.hj.web.entity.UserInfo">
@@ -197,6 +204,9 @@
 			</if>
 			<if test="parentId != null">
 				parentId = #{parentId,jdbcType=VARCHAR},
+			</if>
+			<if test="moduleId != null">
+				moduleId = #{moduleId,jdbcType=VARCHAR},
 			</if>
 		</set>
 		where id = #{id,jdbcType=VARCHAR}
