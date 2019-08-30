@@ -44,9 +44,19 @@ public class UserInfo {
   
   private String moduleId;
   
+  private String moduleName;
+  
   private List<UserInfo> userList;
 
-  public String getModuleId() {
+  public String getModuleName() {
+	return moduleName;
+}
+
+public void setModuleName(String moduleName) {
+	this.moduleName = moduleName;
+}
+
+public String getModuleId() {
 	return moduleId;
 }
 

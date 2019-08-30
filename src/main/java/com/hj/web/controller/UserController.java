@@ -117,48 +117,17 @@ public class UserController extends ControllerBase {
 		Integer listMessgeCount = 0;
 		Map<String, Object> map = new HashMap<String, Object>();
 		String userName = getTrimParameter("userName");
-		String roleId = getTrimParameter("roleId");
-		String userId = "";
 		map.put("userName", userName);
-		map.put("roleId", roleId);
-		// 获取用户顶级上司数据
-		UserInfo userData = super.getUserInfo();
-		if (userData != null) {
-			String parentId = userData.getParentId();
-			if (parentId.equals("0")) {
-				map.put("parentId", "");
-			} else {
-				userData = super.getParentUserData(userData);
-				userId = userData.getId();
-				map.put("parentId", userId);
-			}
-		}
 		// 存页面起始位置信息
 		pageService.getPageLocation(page, map);
 		try {
 			// 获取用户所有的信息
 			List<UserInfo> selectList = userInfoService.getDataList(map);
-			// 获取用户所对应项目的信息和角色信息
-			for (UserInfo userinfo : selectList) {
-				// 处理图片
-				userinfo = urlManage(userinfo);
-				// 处理子级
-				String parentId = userinfo.getId();
-				List<UserInfo> userList = userInfoService.getParentId(parentId);
-				if (userList != null && userList.size() > 0) {
-					for (UserInfo user : userList) {
-						// 处理图片
-						user = urlManage(user);
-					}
-					userinfo.setUserList(userList);
-				}
-			}
 			listMessgeCount = userInfoService.getDataListCount(map);
 			// 获取页面信息
 			pageService.getPageData(listMessgeCount, model, page);
 			model.put("userName", userName);
 			model.addAttribute("userList", selectList);
-			model.put("roleId", roleId);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

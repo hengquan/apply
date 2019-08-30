@@ -42,7 +42,7 @@
 									style="float: left; position: relative; margin-top: 16px; margin-left: 20px;">
 									<input type="text" class="btn"
 										style="width: 500px; border: 1px solid #ddd; text-align: left;"
-										placeholder="请输入需要查询的用户姓名/昵称/电话号码" name="userName"
+										placeholder="请输入需要查询的用户姓名/电话号码" name="userName"
 										value="${userName }"><span>
 										<button class="btn sr-btn-imp" style="float: right"
 											onclick="seeAllMsg()">
@@ -61,12 +61,6 @@
 										class="icon-plus"></i></a>
 								</div> -->
 
-								<div
-									style="float: left; position: relative; margin-top: 16px; margin-left: 20px;">
-									<a href="javascript:doDelete();" class="btn mini btn-white"
-										title="删除"><i class="icon-trash"></i></a>
-								</div>
-
 								<input type="hidden" value="${nowPage}" id="nowPageNumber"
 									name="nowPage"> <input type="hidden"
 									value="${totalPageNum }">
@@ -78,82 +72,26 @@
 										<th style="width: 8px;"><input type="checkbox" name="box"
 											class="group-checkable" data-set="#sample_1 .checkboxes"
 											value="" /></th>
-										<th class="hidden-phone">头像</th>
 										<th class="hidden-phone">姓名</th>
-										<th class="hidden-phone">性别</th>
-										<th class="hidden-phone">年龄</th>
 										<th class="hidden-phone">电话</th>
-										<th class="hidden-phone">用户权限</th>
-										<th class="hidden-phone">区域语言</th>
-										<th class="hidden-phone">所在地区</th>
-										<th class="hidden-phone">详细地址</th>
-										<th class="hidden-phone">操作</th>
+										<th class="hidden-phone">所属部门</th>
+										<th class="hidden-phone">自否自驾</th>
+										<th class="hidden-phone">班车信息</th>
 									</tr>
 								</thead>
 								<tbody>
 									<c:forEach items="${userList}" var="u" varStatus="s">
-										<c:if test="${!empty u.realname }">
 											<tr class="odd gradeX">
 												<td><input type="checkbox" name="box" class="checkboxes" value="${u.id}" /></td>
-												<td class="hidden-phone">
-	                        <c:choose>
-	                          <c:when test="${empty u.headimgurl }">
-	                            <img src="${appRoot }/static/img/zanwu1.png" style="height: 50px;">
-	                          </c:when>
-	                          <c:otherwise>
-	                            <img src="${u.headimgurl }" style="height: 50px;" onerror="excptionUrl(this)">
-	                          </c:otherwise>
-	                        </c:choose>
-	                      </td>
 												<td class="hidden-phone">${u.realname}</td>
-												<td class="hidden-phone"  style="width:60px">
-												  <c:if test="${u.sex==1}">男</c:if>
-													<c:if test="${u.sex==2}">女</c:if>
-												</td>
-												<td class="hidden-phone"  style="width:60px">${u.age}</td>
 												<td class="hidden-phone">${u.phone}</td>
-												<td class="hidden-phone">${u.roleName}</td>
-												<td class="hidden-phone">${u.language}</td>
-												<td class="hidden-phone">${u.district}</td>
-												<td class="hidden-phone">${u.address}</td>
-												<td>
-														<button type="button" class="btn btn-send"
-															onclick="doUpdate('${u.id}','${u.roleName}')">修改</button>
+												<td class="hidden-phone">${u.moduleName}</td>
+												<td class="hidden-phone">
+													<c:if test="${u.selfprojauth eq '0' }">非自驾</c:if>
+													<c:if test="${u.selfprojauth eq '1' }">自驾</c:if>
 												</td>
+												<td class="hidden-phone">${u.descn}</td>
 											</tr>
-										</c:if>
-											<c:forEach items="${u.userList}" var="user" varStatus="s">
-	                    <c:if test="${!empty user.realname }">
-	                      <tr class="odd gradeX">
-	                        <td><input type="checkbox" name="box" class="checkboxes" value="${user.id}" /></td>
-	                        <td class="hidden-phone">
-	                          <c:choose>
-	                            <c:when test="${empty user.headimgurl }">
-	                              <img src="${appRoot }/static/img/zanwu1.png" style="height: 50px;">
-	                            </c:when>
-	                            <c:otherwise>
-	                              <img src="${user.headimgurl }" style="height: 50px;" onerror="excptionUrl(this)">
-	                            </c:otherwise>
-	                          </c:choose>
-	                        </td>
-	                        <td class="hidden-phone">----${user.realname}</td>
-	                        <td class="hidden-phone"  style="width:60px">
-	                          <c:if test="${user.sex==1}">男</c:if>
-	                          <c:if test="${user.sex==2}">女</c:if>
-	                        </td>
-	                        <td class="hidden-phone"  style="width:60px">${user.age}</td>
-	                        <td class="hidden-phone">${user.phone}</td>
-	                        <td class="hidden-phone">${user.roleName}</td>
-	                        <td class="hidden-phone">${user.language}</td>
-	                        <td class="hidden-phone">${user.district}</td>
-	                        <td class="hidden-phone">${user.address}</td>
-	                        <td>
-	                            <button type="button" class="btn btn-send"
-	                              onclick="delOne('${user.id}')">删除</button>
-	                        </td>
-	                      </tr>
-	                    </c:if>
-	                  </c:forEach>
 									</c:forEach>
 								</tbody>
 							</table>

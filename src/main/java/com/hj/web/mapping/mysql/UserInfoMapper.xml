@@ -223,28 +223,17 @@
 	<select id="getDataList" resultMap="BaseResultMap"
 		parameterType="map">
 		SELECT
-		a.*,
-		c.role_name roleName
+		a.*,b.moduleName
 		FROM
 		plat_user a
-		JOIN cms_userrole b ON
-		a.id = b.userId
-		JOIN sys_role c ON b.roleId = c.id
+		left JOIN cms_module b ON a.moduleId = b.id
 		WHERE
-		a.isValidate=1
+		a.isValidate=1 
+		and a.remark != 'admin'
 		<if test="userName != null and userName != '' ">
 			and instr(a.realName ,#{userName})
 			or instr(a.phone
 			,#{userName})
-		</if>
-		<if test="parentId != null and parentId != '' ">
-			and a.parentId = #{parentId}
-		</if>
-		<if test="parentId == null or parentId == '' ">
-			and a.parentId = '1'
-		</if>
-		<if test="roleId != null and roleId != '' ">
-			and c.id = #{roleId}
 		</if>
 		limit #{page},#{pageSize}
 	</select>
@@ -254,20 +243,14 @@
 		count(1)
 		FROM
 		plat_user a
-		JOIN cms_userrole b ON a.id = b.userId
-		JOIN sys_role c ON b.roleId = c.id
+		left JOIN cms_module b ON a.moduleId = b.id
 		WHERE
 		a.isValidate=1
+		and a.remark != 'admin'
 		<if test="userName != null and userName != '' ">
 			and instr(a.realName ,#{userName})
 			or instr(a.phone
 			,#{userName})
-		</if>
-		<if test="parentId != null and parentId != '' ">
-			and a.parentId = #{parentId}
-		</if>
-		<if test="roleId != null and roleId != '' ">
-			and c.id = #{roleId}
 		</if>
 	</select>
 
