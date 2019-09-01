@@ -7,17 +7,27 @@
 	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <title>威视</title>
 <link type="text/css" rel="stylesheet" href="css/main.css">
-<link type="text/css" rel="stylesheet" href="css/style.css">
 
 <!-- bootstrap -->
 <link href="http://cdn.staticfile.org/twitter-bootstrap/3.3.1/css/bootstrap.min.css" rel="stylesheet">
 <!-- bootstrap-select -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/css/bootstrap-select.min.css">
 
+<link type="text/css" rel="stylesheet" href="css/style.css">
+
 <style type="text/css">
 	.bootstrap-select>.dropdown-toggle {    
 		height: 36px;
 	}
+	.radio, .checkbox{
+		margin-top: -0.4rem;
+	}
+	.bootstrap-select, .btn-default, .dropdown-toggle, 	.dropdown-menu {
+		background: transparent !important;
+	    border: 0;
+	    color: #fff !important;
+	}
+	
 </style>
 </head>
 <body>
@@ -82,11 +92,11 @@
 							<span>是否乘坐班车</span>
 							<div class="checkout-box">
 								<div class="checkbox">
-									<span>是</span> <input type="checkbox" name="selfProjAuth"
+									<span>是</span> <input type="radio" name="selfProjAuth"
 										checked value="1"><label for="btn1"></label>
 								</div>
 								<div class="checkbox">
-									<span>否</span> <input type="checkbox" name="selfProjAuth"
+									<span>否</span> <input type="radio" name="selfProjAuth"
 										value="2"><label for="btn1"></label>
 
 								</div>
@@ -99,7 +109,7 @@
 								<option value="9月20日发车8:30,返程12:30">9月20日发车8:30,返程12:30</option>
 							</select> <span class="triangle-right triangle-down"></span>
 						</div>
-						<div class="btn" onclick="subData()">提交</div>
+						<div class="btn-save" onclick="subData()">提交</div>
 					</div>
 				</div>
 			</div>
