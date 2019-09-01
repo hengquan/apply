@@ -54,4 +54,6 @@ public interface ModuleService {
 	public Integer getDataMessgeCount(Map<String, Object> map);
 
 	public Boolean deletes(String boxeditId);
+
+	public List<Module> getDataAll();
 }

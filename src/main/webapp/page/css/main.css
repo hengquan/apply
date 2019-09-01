@@ -1,0 +1,52 @@
+@charset "utf-8";
+body, div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, code, form, fieldset, legend, input, textarea, p, blockquote, th, td { padding: 0; margin: 0; }
+body, button, input, select, textarea { font: 0.64rem/1.7 "microsoft yahei", "simsun", \5b8b\4f53, arial; color: #000; }
+ul, ol, li { list-style: none; }
+i, em { font-style: normal }
+img { vertical-align: top; border: 0; }
+a { color: #000; text-decoration: none; }
+a:hover { color: #000; }
+table { border-collapse: collapse; border-spacing: 0; }
+table td { padding: 0; margin: 0; }
+table th { vertical-align: top; }
+
+section, article, aside, header, footer, nav, dialog, figure { display: block; padding: 0; margin: 0; }
+/*com*/
+.wrap, { position: relative; clear: both; overflow: hidden; }
+html, body, .wrap, .area, .swiper-container, .swiper-slide { height: 100%; }
+body { font-family: 'lbt'; }
+.wrap, .d2, .a_ks { background-position: 0 0; background-repeat: no-repeat; -webkit-background-size: cover; background-size: cover; }
+.wrap { background-image: url("../images/page3-bg.png"); -webkit-background-size: 100% 100%; background-size: 100% 100%; }
+.pic img { max-width: 100%; max-height: 100%; }
+.P1 .inn { height: 100%; padding: 0 0.8rem; }
+.a_ks { position: absolute; bottom: 0; left: 0; display: block; width: 2.747rem; height: 2.84rem; line-height: 20rem; overflow: hidden; }
+
+/*media*/
+@media (max-width:481px) {
+html { font-size: 48px; }
+}
+
+@media (max-width:480px) {
+html { font-size: 48px; }
+}
+
+@media (max-width:414px) {
+html { font-size: 41.4px; }
+}
+
+@media (max-width:384px) {
+html { font-size: 38.4px; }
+}
+
+@media (max-width:375px) {
+html { font-size: 37.5px; }
+}
+
+@media (max-width:360px) {
+html { font-size: 36px; }
+}
+
+@media (max-width:320px) {
+html { font-size: 32px; }
+}
+

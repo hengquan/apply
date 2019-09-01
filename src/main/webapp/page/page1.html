@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	<title>威视</title>
+	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
+	<link type="text/css" rel="stylesheet" href="css/main.css">
+	<link type="text/css" rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="wrap page1">
+	<div class="door max-door">
+		<div class="door middle-door">
+			<div class="door mix-door">
+				<p class="word" id="onFuture">点击未来</p>
+			</div>
+		</div>
+	</div>
+	<img class="wangge" src="images/page-wangge.png">
+</div>
+
+<script type="text/javascript" src="js/jquery.min.js"></script> 
+<script type="text/javascript" src="js/main.js"></script> 
+<script type="text/javascript">
+	 $(window).load(function() {
+        var counter = 30;
+	    var c = 30;
+	    var i = setInterval(function() {
+	     
+	      $(".wangge").css("width", c + "%");
+	     
+	      counter++;
+	      c++;
+
+	      if (counter == 101) {
+	        clearInterval(i);
+	      }
+	    }, 50);
+    });
+</script>
+</body>
+</html>

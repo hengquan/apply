@@ -1,0 +1,393 @@
+@charset "utf-8";
+/* public */
+.word {
+   color: #fff;
+  text-shadow: 0 0 0.2em #FFF, 0 0 1em #FFF;
+}
+.wrap,{ background-position: 0 0; background-repeat: no-repeat; -webkit-background-size: cover; background-size: cover; }
+.wrap { background-color: #fff; -webkit-background-size: 100% 100%; background-size: 100% 100%; }
+
+/*loading*/
+.loading-page {
+  background-image: url("../images/loading-bg.png"); 
+  -webkit-background-size: 100% 100%; 
+  background-size: 100% 100%; 
+  width: 100vw;
+  /*height: 100vh;*/
+  height: 110%;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+.loading-page .counter {
+  text-align: center;
+}
+.loading-page .counter p {
+  font-size: 24px;
+  margin-top: -14%;
+}
+.loading-page .counter h1 {
+  color: white;
+  font-size: 60px;
+  margin-top: -10px;
+}
+.loading-page .counter hr {
+  width: 100%;
+  background: #fff;
+  border: none;
+  height: 2px;
+  box-shadow: 0 0 6px 0.8px #fff;
+  margin-bottom: 3.6%;
+}
+.loading-page .counter {
+  position: relative;
+  width: 100%;
+  top: 35%;
+}
+.loading-page .counter h1.abs {
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+.loading-page .counter .color {
+  width: 0px;
+  overflow: hidden;
+  color: #f60d54;
+}
+.line{
+  margin-top: -8%;
+  display: flex;
+  align-items: flex-end;
+}
+.loading-car {
+  float: right;
+  width: 88px;
+}
+.loading-door {
+  width: 70px;
+  margin: 0 auto;
+}
+
+/*第一页*/
+.page1 {
+  background-image: url("../images/page1-bg.png"); 
+  padding-top: 6rem;
+}
+.door{
+  width: 80%;
+  height: 70%;
+  border: 5px solid #fff;
+  margin: auto;
+  border-radius: 4px;
+  animation: spin 1.2s ease-in-out infinite;
+}
+@keyframes spin {
+  0% {
+    transform: scaleX();
+  }
+  50% {
+    box-shadow: 0 -2px 4px rgba(255, 255, 255, 0.6);
+    opacity: .7;
+  }
+  100% {
+    transform: scaleX();
+  }
+}
+.max-door{
+  box-shadow: 0 0 30px #261555;
+  -webkit-box-shadow: 0 0 5px rgba(0,113,241,1);
+}
+.middle-door{
+  box-shadow: 0 0 30px #0191d3;
+  margin-top: 20px;
+}
+.mix-door{
+  box-shadow: 0 0 30px #d81671;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.page1 .wangge {
+    position: absolute;
+    /*width: 100%;*/
+    /*top: 100px;*/
+    bottom: 0;
+    transform: translate3d(0, 0, 150px);
+    -ms-transform: translate3d(0, 150px, 0);
+    -webkit-transform: translate3d(0, 150px, 0);
+    -o-transform: translate3d(0, 150px, 0);
+    -moz-transform: translate3d(0, 150px, 0);
+    opacity: 1;
+    transition: transform 1s ease 0s, opacity 1s ease 0s;
+    -moz-transition: -moz-transform 1s ease 0s, opacity 1s ease 0s;
+    -webkit-transition: -webkit-transform 1s ease 0s, opacity 1s ease 0s;
+    -o-transition: -o-transform 1s ease 0s, opacity 1s ease 0s;
+    -ms-transition: -ms-transform 1s ease 0s, opacity 1s ease 0s;
+}
+
+/*报名*/
+.page3 {
+  background-image: url("../images/page3-bg.png"); 
+  /*position: relative;*/
+}
+.page3 .top {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+.page3 .top .img img{
+  width: 60px;
+}
+.page3 .top .img:first-child {
+  margin-top: 10px;
+}
+.content-des {
+  color: #fff;
+}
+.content-des .title{
+  color: #fff;
+  font-size: 17px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.content-des  table {
+  font-size: 14px;
+  color: #00B2DB;
+  margin: auto;
+  width: 90%;
+}
+.content-des table tr {
+  height: 30px;
+}
+.content-des  table tr td{
+  vertical-align: top;
+  text-align: left;
+}
+.content-des  table tr td span{
+  float: left;
+  margin-right: 10px;
+  
+}
+.triangle-right {
+    display:block;
+    width:0;
+    height:0;
+    border-width:7px 0 7px 7px;
+    border-style:solid;
+    border-color:transparent transparent transparent #00b2d8;/*透明 透明 透明 黄*/
+    margin-top: 3px;
+}
+.page-center {
+  width: 90%;
+  margin: auto;
+}
+.content-des hr {
+  margin-top: 4px;
+  box-shadow: 0 0  10px 1px #00B2DB;
+}
+.sign-up {
+  font-size: 12px;
+  color: #60c4db;
+  margin: auto;
+  padding: 10px 20px;
+  text-align: center;
+}
+.sign-up p {
+  font-size: 20px;
+  color: #60c4db;
+  font-weight: bold;
+  margin: 6px 0;
+}
+.inp {
+  width: 92%;
+  border: 1px solid #60c4db;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin: 12px auto;
+  background-color: #010915;
+  text-align: left;
+}
+.inp span {
+  margin-left: 10px;
+}
+.inp input, select{
+  background-color: transparent;
+  color: #fff;
+  border: none;
+  font-size: 16px;
+  padding: 6px 0;
+  width: 5.2rem;
+  margin-left: 2%;
+}
+.tips {
+  display: block;
+  text-align: left;
+  margin-left: 10px;
+  font-size: 4px;
+  margin-top: -12px;
+}
+.checkb {
+    display: flex;
+    padding: 10px 0;
+}
+.inp select {
+  overflow:hidden; 
+  white-space:nowrap; 
+  text-overflow:ellipsis;
+  margin: 6px 0;
+}
+.checkbox {
+  width: 50px;
+  float: left;
+  display: flex;
+}
+.checkbox input {
+  -webkit-appearance: none; 
+  border: none; 
+  width: 16px; 
+  height: 16px; 
+  background: url("../images/page3-checkbox.png");
+}
+.checkout-box {
+  position: absolute;
+  right: 10%;
+}
+.btn {
+  width: 100px;
+  height: 60px;
+  background-image: url("../images/page3-btn.png"); 
+  -webkit-background-size: 100% 100%; 
+  background-size: 100% 100%; 
+  color: #0a1019;
+  font-size: 20px;
+  text-shadow:5px 2px 6px #60c4db;
+  line-height: 60px;
+  margin: auto;
+}
+
+
+input[type="checkbox"]{
+  width:14px;
+  height:14px;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle; 
+  line-height: 18px;
+  position: relative;
+  margin-top: 2px;
+  margin-left: 3px;
+}
+input[type="checkbox"]::before{
+  content: "";
+  position: absolute;
+  top: 0;left: 0;
+  background: #0a1a27;
+  width: 100%;
+  height: 100%;
+  border: 1px solid #60c4db
+}
+input[type="checkbox"]:checked::before{
+  content: "\2713";
+  background-color: #0a1a27;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width:100%;
+  color:#fff;
+  font-size: 20px;
+  font-weight: bold;
+}
+.triangle-down {
+  position: absolute;
+  top: 16px;
+  right: 12px;
+  border-top: 7px solid #00b2d8 ;
+  border-left: 7px solid transparent;
+  border-right: 7px solid transparent;
+}
+/*phone图标旋转*/
+.view { position: relative; width: 100%;height: 100%;overflow: hidden;}
+.big-bg {  height: 100%;position: relative; display: inline-block; }
+.big-bg img {  height: 100%;}
+.phone-more {
+  position: absolute;
+  bottom: 1rem;
+  left: 8.9rem;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+}
+
+.phone-img{
+  width: 60px;
+  -webkit-animation: rockit .8s ease infinite alternate;
+  animation: rockit .8s ease infinite alternate;
+  -moz-animation: rockit .8s ease infinite alternate;
+  -o-animation:  rockit .8s ease infinite alternate;
+}
+.xiaoshou {
+  display: none;
+}
+@-webkit-keyframes rockit {
+  from {
+    -webkit-transform: translatey(30px) rotate(50deg);
+            transform: translatey(30px) rotate(50deg);
+  }
+  to {
+    -webkit-transform: translatey(30px) rotate(-10deg);
+            transform: translatey(30px) rotate(-100deg);
+  }
+  }
+
+  @keyframes rockit {
+  from {
+    -webkit-transform: translatey(30px) rotate(-45deg);
+            transform: translatey(30px) rotate(-45deg);
+  }
+  to {
+    -webkit-transform: translatey(30px) rotate(60deg);
+            transform: translatey(30px) rotate(60deg);
+  }
+
+
+
+/*logo渐入*/
+.site-logo{
+  position: relative;
+  overflow: hidden;
+}
+.site-logo:before {
+    content: "";
+    position: absolute;
+    width: 150px;
+    height: 10px;
+    background-color: rgba(255, 255, 255, 0.5);
+    -webkit-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+    -webkit-animation: blink 1s ease-in 1s infinite;
+    animation: blink 1s ease-in 1s infinite;
+}
+@-webkit-keyframes blink {
+    from {left: 10px;top: 0;}
+    to {left: 320px;top: 0;}
+}
+@-o-keyframes blink {
+    from {left: 10px;top: 0;}
+    to {left: 320px;top: 0;}
+}
+@-moz-keyframes blink {
+    from {left: 10px;top: 0;}
+    to {left: 320px;top: 0;}
+}
+@keyframes blink {
+    from {left: -100px;top: 0;}
+    to {left: 320px;top: 0;}
+}
+

@@ -103,4 +103,8 @@
 	<update id="deletes">
 		update cms_module set isValidate = 0 where instr(#{boxeditId},id)
 	</update>
+	
+	<select id="getDataAll" resultMap="BaseResultMap">
+		select * from cms_module where isValidate = 1
+	</select>
 </mapper>

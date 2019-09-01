@@ -19,4 +19,6 @@ public interface ModuleMapper {
 	Integer getDataMessgeCount(Map<String, Object> map);
 
 	Integer deletes(String boxeditId);
+
+	List<Module> getDataAll();
 }
