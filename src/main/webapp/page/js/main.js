@@ -1,9 +1,6 @@
 var _url = location.href.split('#')[0];
 
 $(function(){
-  $("#onFuture").click(function() {
-    window.location.href="page2.html"
-  })
    // weixinShare()
 });
 function signUp() {

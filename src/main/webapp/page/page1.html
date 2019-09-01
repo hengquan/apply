@@ -9,37 +9,44 @@
 	<link type="text/css" rel="stylesheet" href="css/main.css">
 	<link type="text/css" rel="stylesheet" href="css/style.css">
 </head>
-<body>
+<body style="overflow: hidden;">
 
 <div class="wrap page1">
-	<div class="door max-door">
-		<div class="door middle-door">
-			<div class="door mix-door">
-				<p class="word" id="onFuture">点击未来</p>
+	<div class="doorcnt">
+		<div class="door max-door">
+			<div class="door middle-door">
+				<div class="door mix-door">
+					<a href="./page2.html" class="word" style="margin-top: -3rem;">点击未来</a>
+				</div>
 			</div>
 		</div>
 	</div>
+	
 	<img class="wangge" src="images/page-wangge.png">
 </div>
 
 <script type="text/javascript" src="js/jquery.min.js"></script> 
 <script type="text/javascript" src="js/main.js"></script> 
+
 <script type="text/javascript">
-	 $(window).load(function() {
-        var counter = 30;
-	    var c = 30;
+	$(window).load(function() {
+        var counter = 0;
+	    var c = 0;
+
 	    var i = setInterval(function() {
-	     
 	      $(".wangge").css("width", c + "%");
 	     
 	      counter++;
 	      c++;
-
+	      if (counter == 5) {
+	      	$(".wangge").css("display", "block");
+	      }
 	      if (counter == 101) {
 	        clearInterval(i);
 	      }
 	    }, 50);
     });
+
 </script>
 </body>
 </html>
