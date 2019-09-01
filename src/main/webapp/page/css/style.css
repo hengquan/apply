@@ -76,15 +76,30 @@
 /*第一页*/
 .page1 {
   background-image: url("../images/page1-bg.png"); 
-  padding-top: 6rem;
+  position: relative;
+  animation: bounceInLeft 1.5s ease-out;
+  
+}
+.doorcnt {
+   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .door{
+  position: absolute;
+  bottom: 0.8rem;
   width: 80%;
-  height: 70%;
-  border: 5px solid #fff;
+  height: 90%;
+  border-left: 5px solid #fff;
+  border-top: 5px solid #fff;
+  border-right: 5px solid #fff;
+
   margin: auto;
   border-radius: 4px;
   animation: spin 1.2s ease-in-out infinite;
+  display: flex;
+  justify-content: center;
+   align-items: center;
 }
 @keyframes spin {
   0% {
@@ -100,25 +115,26 @@
 }
 .max-door{
   box-shadow: 0 0 30px #261555;
-  -webkit-box-shadow: 0 0 5px rgba(0,113,241,1);
+  -webkit-box-shadow: 0 0 30px #261555;
+  height: 74%;
+   animation: bounceInLeft 1.5s ease-out;
 }
 .middle-door{
   box-shadow: 0 0 30px #0191d3;
-  margin-top: 20px;
+  -webkit-box-shadow: 0 0 30px #0191d3;
+  height: 90%;
+   animation: bounceInLeft 2s ease-out;
 }
 .mix-door{
   box-shadow: 0 0 30px #d81671;
-  margin-top: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-shadow: 0 0 30px #d81671;
+  height: 85%;
+  animation: bounceInLeft 2.5s ease-out;
 }
 
 .page1 .wangge {
     position: absolute;
-    /*width: 100%;*/
-    /*top: 100px;*/
-    bottom: 0;
+    bottom: 4rem;
     transform: translate3d(0, 0, 150px);
     -ms-transform: translate3d(0, 150px, 0);
     -webkit-transform: translate3d(0, 150px, 0);
@@ -130,22 +146,24 @@
     -webkit-transition: -webkit-transform 1s ease 0s, opacity 1s ease 0s;
     -o-transition: -o-transform 1s ease 0s, opacity 1s ease 0s;
     -ms-transition: -ms-transform 1s ease 0s, opacity 1s ease 0s;
+    display: none;
 }
 
 /*报名*/
 .page3 {
   background-image: url("../images/page3-bg.png"); 
+   animation: bounceInLeft 1.5s ease-out;
   /*position: relative;*/
 }
-.page3 .top {
+.top {
   display: flex;
   justify-content: space-between;
-  margin-top: 20px;
+  padding-top: 20px;
 }
-.page3 .top .img img{
+.top .img img{
   width: 60px;
 }
-.page3 .top .img:first-child {
+.top .img:first-child {
   margin-top: 10px;
 }
 .content-des {
