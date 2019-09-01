@@ -93,7 +93,7 @@
 			<if test="parentId != null">
 				parentId,
 			</if>
-			<if test="parentId != null">
+			<if test="moduleId != null">
 				moduleId,
 			</if>
 		</trim>
@@ -229,7 +229,9 @@
 		left JOIN cms_module b ON a.moduleId = b.id
 		WHERE
 		a.isValidate=1 
-		and a.remark != 'admin'
+		and a.remark != 'admin' 
+		and a.realName != ''
+		and a.realName is not null
 		<if test="userName != null and userName != '' ">
 			and instr(a.realName ,#{userName})
 			or instr(a.phone
@@ -247,6 +249,8 @@
 		WHERE
 		a.isValidate=1
 		and a.remark != 'admin'
+		and a.realName != ''
+		and a.realName is not null
 		<if test="userName != null and userName != '' ">
 			and instr(a.realName ,#{userName})
 			or instr(a.phone
