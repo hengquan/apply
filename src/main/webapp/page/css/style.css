@@ -9,7 +9,7 @@
 
 /*loading*/
 .loading-page {
-  background-image: url("../images/loading-bg.png"); 
+  background-image: url("../images/loading-bg.jpg"); 
   -webkit-background-size: 100% 100%; 
   background-size: 100% 100%; 
   width: 100vw;
@@ -91,16 +91,21 @@
   bottom: 0;
   position: absolute;
   z-index: 1;
-  padding-bottom: 1.1rem;
+  bottom: -11%;
 }
 .zhezhao {
   z-index: 3;
-  background-color: #fff;
+  background-color: #000;
   height: 40px;
+  position: absolute;            
+   /*//相对于img-container定位，*/
+  bottom:0;
+  width: 101%;
+  opacity: 0.2
 }
 .door{
   position: absolute;
-  bottom: 0.8rem;
+  bottom: 0.4rem;
   width: 80%;
   height: 90%;
   border-left: 5px solid #fff;
@@ -129,7 +134,7 @@
 .max-door{
   box-shadow: 0 0 30px #261555;
   -webkit-box-shadow: 0 0 30px #261555;
-  height: 74%;
+  height: 60%;
    animation: bounceInLeft 1.5s ease-out;
 }
 .middle-door{
@@ -145,7 +150,7 @@
   animation: bounceInLeft 2.5s ease-out;
 }
 
-.page1 .wangge {
+.wangge {
     position: absolute;
     bottom: 4rem;
     width: 100%;
@@ -166,7 +171,7 @@
 
 /*报名*/
 .page3 {
-  background-image: url("../images/page3-bg.png"); 
+  background-image: url("../images/page3-bg.jpg"); 
    animation: bounceInLeft 1.5s ease-out;
   /*position: relative;*/
 }
@@ -175,12 +180,7 @@
   justify-content: space-between;
   padding-top: 20px;
 }
-.wl{
-    position: absolute;
-    width: 100%;
-    top: 10rem;
-    animation: bounceInLeft 2s ease;
-}
+
 .top .img img{
   width: 60px;
 }
@@ -373,6 +373,13 @@ input[type="radio"]:checked::before{
 }
 .xiaoshou {
   display: none;
+}
+.wl{
+    position: absolute;
+    height: 8rem !important;
+    top: 10rem;
+    left: 41%;
+    animation: bounceInLeft 2s ease;
 }
 @-webkit-keyframes rockit {
   from {

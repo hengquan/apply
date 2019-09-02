@@ -4,23 +4,23 @@ $(function(){
   // 加载中
   var c = 0, counter = 0;;
 
-  // var mainfest = [
-  // { src: "images/bg_fdj.png" },
-  // { src: "images/loading-bg.png" },
-  // { src: "images/loading-car.png" },
-  // { src: "images/loading-car0.png" },
-  // { src: "images/loading-door.png" },
-  // { src: "images/loading-line.png" },
-  // { src: "images/loading-zi.png" },
-  // { src: "images/page-wangge.png" },
-  // { src: "images/page03a.jpg" },
-  // { src: "images/page1-bg.png" },
-  // { src: "images/page3-bg.png" },
-  // { src: "images/page3-btn.png" },
-  // { src: "images/page3-logo.png" },
-  // { src: "images/page3-logo1.png" },
-  // { src: "images/page3-phone.png" },
-  // ];
+  var mainfest = [
+  { src: "images/bg_fdj.png" },
+  { src: "images/loading-bg.jpg" },
+  { src: "images/loading-car.png" },
+  { src: "images/loading-car0.png" },
+  { src: "images/loading-door.png" },
+  { src: "images/loading-line.png" },
+  { src: "images/loading-zi.png" },
+  { src: "images/page-wangge.png" },
+  { src: "images/page03a.jpg" },
+  { src: "images/page1-bg.jpg" },
+  { src: "images/page3-bg.png" },
+  { src: "images/page3-btn.png" },
+  { src: "images/page3-logo.png" },
+  { src: "images/page3-logo1.png" },
+  { src: "images/page3-phone.png" },
+  ];
    
   // var preload = {
   //   // 预加载函数
@@ -51,19 +51,20 @@ $(function(){
   // }
   // preload.startPreload();
 
-      var i = setInterval(function() {
-        $(".wangge").css("width", c + "%");
-       
-        counter++;
-        c++;
-        if(counter == 60) {
-         $(".loading-car").attr("src", "images/loading-car.png");
-        }
-        $(".loading-page .counter .line").css("width", c + "%");
-          if (counter == 101) {
-            clearInterval(i);
-          }
-      }, 50);
+  var i = setInterval(function() {
+    $(".wangge").css("width", c + "%");
+   
+    counter++;
+    c++;
+    if(counter == 60) {
+     $(".loading-car").attr("src", "images/loading-car.png");
+    }
+    $(".loading-page .counter .line").css("width", c + "%");
+      if (counter == 101) {
+        window.location.href='page1.html';
+        clearInterval(i);
+      }
+  }, 50);
 
 
 });
