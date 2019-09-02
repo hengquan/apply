@@ -8,9 +8,17 @@
 	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
 	<link type="text/css" rel="stylesheet" href="css/main.css">
 	<link type="text/css" rel="stylesheet" href="css/style.css">
+	<style type="text/css">
+		@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
+		  .shan {
+		        bottom: -8%;
+		    }
+
+		}
+	</style>
 </head>
-<body style="background-color: #000; ">
-	<div class="wrap page1" style="bottom: 17%;">
+<body>
+	<div class="wrap page1" style="bottom: 14%; background-color: #000;">
 		<div class="shan">
 			<img src="images/shan.png" style="width: 100%" >
 		</div>
@@ -31,19 +39,19 @@
 
 <script type="text/javascript">
 	$(window).load(function() {
-        var counter = 0;
-	    var c = 0;
-	    var i = setInterval(function() {
-	      $(".wangge").css("width", c + "%");
-	      counter++;
-	      c++;
-	      if (counter == 5) {
-	      	$(".wangge").css("display", "block");
-	      }
-	      if (counter == 101) {
-	        clearInterval(i);
-	      }
-	    }, 50);
+     //    var counter = 0;
+	    // var c = 0;
+	    // var i = setInterval(function() {
+	    //   $(".wangge").css("width", c + "%");
+	    //   counter++;
+	    //   c++;
+	    //   if (counter == 10) {
+	    //   	$(".wangge").css("display", "block");
+	    //   }
+	    //   if (counter == 101) {
+	    //     clearInterval(i);
+	    //   }
+	    // }, 50);
     });
 
 </script>
