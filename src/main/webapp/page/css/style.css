@@ -241,7 +241,7 @@
   border: none;
   font-size: 16px;
   padding: 6px 0;
-  width: 5.2rem;
+  width: 60%;
   margin-left: 2%;
 }
 .tips {
@@ -262,7 +262,7 @@
   margin: 6px 0;
 }
 .checkbox {
-  width: 50px;
+  width: 60px;
   float: left;
   display: flex;
 }
@@ -277,7 +277,7 @@
   position: absolute;
   right: 10%;
 }
-.btn {
+.btn-save {
   width: 100px;
   height: 60px;
   background-image: url("../images/page3-btn.png"); 
@@ -291,7 +291,7 @@
 }
 
 
-input[type="checkbox"]{
+input[type="radio"]{
   width:14px;
   height:14px;
   display: inline-block;
@@ -302,7 +302,7 @@ input[type="checkbox"]{
   margin-top: 2px;
   margin-left: 3px;
 }
-input[type="checkbox"]::before{
+input[type="radio"]::before{
   content: "";
   position: absolute;
   top: 0;left: 0;
@@ -311,7 +311,7 @@ input[type="checkbox"]::before{
   height: 100%;
   border: 1px solid #60c4db
 }
-input[type="checkbox"]:checked::before{
+input[type="radio"]:checked::before{
   content: "\2713";
   background-color: #0a1a27;
   position: absolute;
