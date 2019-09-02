@@ -25,15 +25,18 @@
 	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 	<style>
-	    body {margin: 0; padding: 0;}
+
+	    * {margin: 0; padding: 0;}
 	    html, body { height: 100%;  }
 	  
 	    .top{
-	    	position: absolute;
-		    left: 1.9rem;
-		    z-index: 3;
+	    	position: fixed;
+	    	top: 0;
+		    left: 0;
+		    z-index: 999;
 		    animation: bounceInDown 2.5s ease;
     		opacity: 1;
+	    	width: 100%;
 	    }
 	    .top .img:first-child {
 		    margin-right: 12rem;
@@ -43,17 +46,17 @@
 <body>
 	<div class="view">
 		<div class="top">
-			<div class="img">
+			<div class="img" style="margin-left: 2rem;">
 				<img src="images/page3-logo.png">
 			</div>
-			<div class="img">
+			<div class="img" style="margin-right: 2rem;">
 				<img src="images/page3-logo1.png">
 			</div>
 		</div>
-	    <div class="big-bg" style="top: -0.5rem;left: -40.6rem;">
+	    <div class="big-bg" >
 	        <img src="./images/page03a.png" alt="" onload="readyFn();">
 	        <img src="./images/page-wl.png" class="wl">
-	        <p class="wl word" style="top: 18rem">同方威视高能产品本部2019年产品推介会</p>
+	        <p class="wl word" style="top: 18rem">同方威视高能产品本部2019年产品推介会1111</p>
 	    </div>
 	</div>
 
@@ -73,6 +76,9 @@
 	      WIN_H = document.documentElement.clientHeight;
 	  var timefragment = 0,               // 时间片计时
 	      nowts = 0;                      // 当前时间
+	      console.log('WIN_H:', WIN_H, WIN_W)
+	       console.log('IMG_H:', IMG_H, IMG_W)
+
 	  // 设置默认的left/top
 	  dom.style.top = -(IMG_H - WIN_H) / 2 + 'px';
 	  dom.style.left = -(IMG_W - WIN_W) / 2 + 'px';
@@ -104,7 +110,6 @@
 
 	  //重力感应
 	  window.addEventListener('deviceorientation', function (evt) {
-	    console.log('===deviceorientation=', evt)
 	      nowts = new Date().getTime();
 	      // 控制时间片
 	      if (nowts  - timefragment > 37) {

@@ -235,7 +235,7 @@
   font-size: 12px;
   color: #60c4db;
   margin: auto;
-  padding: 10px 20px;
+  padding: 1px 20px;
   text-align: center;
 }
 .sign-up p {
@@ -268,8 +268,8 @@
 .tips {
   display: block;
   text-align: left;
-  margin-left: 10px;
-  font-size: 4px;
+  margin-left: 2rem;
+  font-size: 10px;
   margin-top: -12px;
 }
 .checkb {
@@ -356,15 +356,16 @@ input[type="radio"]:checked::before{
 .big-bg {  height: 100%;position: relative; display: inline-block; }
 .big-bg img {  height: 100%;}
 .phone-more {
-  position: absolute;
-  bottom: 1rem;
-  left: 8.9rem;
+  position: fixed;
+  bottom: 2rem;
+  left: 8.3rem;
   text-align: center;
   color: #fff;
   font-size: 16px;
 }
 
 .phone-img{
+  margin-bottom: 1.5rem;
   width: 60px;
   -webkit-animation: rockit .8s ease infinite alternate;
   animation: rockit .8s ease infinite alternate;
