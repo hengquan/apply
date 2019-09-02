@@ -22,103 +22,95 @@
 	.radio, .checkbox{
 		margin-top: -0.4rem;
 	}
-	.bootstrap-select, .btn-default {
-		background: transparent;
+	.bootstrap-select, .btn-default, .dropdown-toggle, 	.dropdown-menu {
+		background: transparent !important;
 	    border: 0;
 	    color: #fff !important;
 	}
-	.dropdown-menu {
-		background-color: #dedede !important;
-		color: #fff !important;
-		opacity:0.4;
-	}
+	
 </style>
 </head>
 <body>
 
-	<div class="wrap">
-		<div class="swiper-container">
-			<div class="swiper-wrapper">
-				<div class="swiper-slide loading-page page3">
-					<div class="page-center">
-						<div class="top">
-							<div class="img">
-								<img src="images/page3-logo.png">
-							</div>
-							<div class="img">
-								<img src="images/page3-logo1.png">
-							</div>
-						</div>
-
-						<div class="content-des">
-							<p class="title">同方威视高能产品本部2019年新产品推介会</p>
-							<table>
-								<tr>
-									<td><span class="triangle-right"></span> <span>
-											活动时间： </span></td>
-									<td>
-										<p>9月19日 下午13:00-17:00</p>
-										<p>9月20日 上午09:30-12:00</p>
-									</td>
-								</tr>
-								<tr>
-									<td><span class="triangle-right"></span> <span>活动地点：</span>
-
-									</td>
-									<td>同方威视密云厂区9号厂房</td>
-								</tr>
-								<tr>
-									<td><span class="triangle-right"></span> <span>活动地址：</span>
-									</td>
-									<td>北京市密云区园林路18号</td>
-								</tr>
-							</table>
-							<hr />
-						</div>
-					</div>
-
-					<div class="sign-up">
-						<p>预定报名</p>
-						<div class="inp">
-							<span>姓名</span> <input type="text" name="realName" id="realName">
-						</div>
-
-						<div class="inp">
-							<span>部门</span> <select class="selectpicker glyphicon glyphicon-search" name="moduleId" id="moduleId" data-live-search="true"></select>
-						</div>
-						<span class="tips">˙(请输入区域中心/事业部/职能部门)</span>
-
-						<div class="inp">
-							<span>电话</span> <input type="text" name="phone" id="phone">
-						</div>
-
-						<div class="inp checkb">
-							<span>是否乘坐班车</span>
-							<div class="checkout-box">
-								<div class="checkbox">
-									<span>是</span> <input type="radio" name="selfProjAuth"
-										checked value="1"><label for="btn1"></label>
-								</div>
-								<div class="checkbox">
-									<span>否</span> <input type="radio" name="selfProjAuth"
-										value="2"><label for="btn1"></label>
-
-								</div>
-							</div>
-							<div style="clear: both;"></div>
-						</div>
-						<div class="inp" style="position: relative;">
-							<span>您想乘坐哪班车</span> <select name="descn" id="descn">
-								<option value="9月19日发车13:00,返程17:00">9月19日发车13:00,返程17:00</option>
-								<option value="9月20日发车8:30,返程12:30">9月20日发车8:30,返程12:30</option>
-							</select> <span class="triangle-right triangle-down"></span>
-						</div>
-						<div class="btn-save" onclick="subData()">提交</div>
-					</div>
+	<div class="swiper-slide loading-page page3">
+		<div class="page-center">
+			<div class="top">
+				<div class="img">
+					<img src="images/page3-logo.png">
+				</div>
+				<div class="img">
+					<img src="images/page3-logo1.png">
 				</div>
 			</div>
+
+			<div class="content-des">
+				<p class="title">同方威视高能产品本部2019年新产品推介会</p>
+				<table>
+					<tr>
+						<td><span class="triangle-right"></span> <span>
+								活动时间： </span></td>
+						<td>
+							<p>9月19日 下午13:00-17:00</p>
+							<p>9月20日 上午09:30-12:00</p>
+						</td>
+					</tr>
+					<tr>
+						<td><span class="triangle-right"></span> <span>活动地点：</span>
+
+						</td>
+						<td>同方威视密云厂区9号厂房</td>
+					</tr>
+					<tr>
+						<td><span class="triangle-right"></span> <span>活动地址：</span>
+						</td>
+						<td>北京市密云区园林路18号</td>
+					</tr>
+				</table>
+				<hr />
+			</div>
+		</div>
+
+		<div class="sign-up">
+			<p>预定报名</p>
+			<div class="inp">
+				<span>姓名</span> <input type="text" name="realName" id="realName">
+			</div>
+
+			<div class="inp">
+				<span>部门</span> <select class="selectpicker" name="moduleId" id="moduleId" data-live-search="true"></select>
+			</div>
+			<span class="tips">˙(请输入区域中心/事业部/职能部门)</span>
+
+			<div class="inp">
+				<span>电话</span> <input type="text" name="phone" id="phone">
+			</div>
+
+			<div class="inp checkb">
+				<span>是否乘坐班车</span>
+				<div class="checkout-box">
+					<div class="checkbox">
+						<span>是</span> <input type="radio" name="selfProjAuth"
+							checked value="1"><label for="btn1"></label>
+					</div>
+					<div class="checkbox">
+						<span>否</span> <input type="radio" name="selfProjAuth"
+							value="2"><label for="btn1"></label>
+
+					</div>
+				</div>
+				<div style="clear: both;"></div>
+			</div>
+			<div class="inp" style="position: relative;">
+				<span>您想乘坐哪班车</span> <select name="descn" id="descn">
+					<option value="9月19日发车13:00,返程17:00">9月19日发车13:00,返程17:00</option>
+					<option value="9月20日发车8:30,返程12:30">9月20日发车8:30,返程12:30</option>
+				</select> <span class="triangle-right triangle-down"></span>
+			</div>
+			<div class="btn-save" onclick="subData()">提交</div>
 		</div>
 	</div>
+
+
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	
 	<!-- bootstrap -->

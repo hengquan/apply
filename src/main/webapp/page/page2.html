@@ -27,9 +27,7 @@
 	<style>
 	    body {margin: 0; padding: 0;}
 	    html, body { height: 100%;  }
-	    .view { position: relative; width: 100%;height: 100%;overflow: hidden; animation: bounceInLeft 1.5s ease-out;}
-	    .big-bg {  height: 100%;position: relative; display: inline-block; }
-	    .big-bg img {  height: 100%;}
+	  
 	    .top{
 	    	position: absolute;
 		    left: 1.9rem;
@@ -52,17 +50,18 @@
 				<img src="images/page3-logo1.png">
 			</div>
 		</div>
-
-	    <div class="big-bg" style="top: -0.5rem;left: -39.6rem;">
-	        <img src="./images/page03a.jpg" alt="" onload="readyFn();">
-	    </div>
-	     <div class="phone-more">
-	    	 <img class="phone-img shouji" src="./images/bg_fdj.png" alt="">
-	    	 <img class="phone-img xiaoshou" src="./images/loading-car.png" alt="" onclick="signUp()">
-
-	    	 <p>旋转观看更多</p>
+	    <div class="big-bg" style="top: -0.5rem;left: -40.6rem;">
+	        <img src="./images/page03a.png" alt="" onload="readyFn();">
+	        <img src="./images/page-wl.png" class="wl">
+	        <p class="wl word" style="top: 18rem">同方威视高能产品本部2019年产品推介会</p>
 	    </div>
 	</div>
+
+	 <div class="phone-more">
+    	 <img class="phone-img shouji" src="./images/bg_fdj.png" alt="">
+    	 <p class="page3-tips">旋转观看更多</p>
+     </div>
+
 <script type="text/javascript">
 	function readyFn() {
 	  'use strict';
@@ -77,8 +76,35 @@
 	  // 设置默认的left/top
 	  dom.style.top = -(IMG_H - WIN_H) / 2 + 'px';
 	  dom.style.left = -(IMG_W - WIN_W) / 2 + 'px';
+
+	  //手动滑动
+	  window.addEventListener('touchstart', function(evt) {
+	  	nowts = new Date().getTime();
+	      // 控制时间片
+	      if (nowts  - timefragment > 37) {
+	          timefragment = nowts;
+	          var beta = evt.touches[0].clientX,            //横向 X 轴 -180 ~ 180
+	              gamma = evt.touches[0].clientY;          //纵向 Y 轴 -90 ~ 90
+	          var top = parseInt(dom.style.top, 10) || 0,
+	              left = parseInt(dom.style.left, 10) || 0;
+	          var _top, _left;
+	          _top = top + (beta / 180 * 30);
+	          _left = left + (gamma / 90 * 30);
+	          _top = _top >= 0 ? 0 : (_top < (WIN_H - IMG_H) ? (WIN_H - IMG_H) : _top);
+	          _left = _left >= 0 ? 0 : (_left < (WIN_W - IMG_W) ? (WIN_W - IMG_W) : _left);
+	          dom.style.top = _top + 'px';
+	          dom.style.left = _left + 'px';
+	      }
+	      
+	      $('.shouji').attr('src', './images/page3-dianji.png')
+	      $('.shouji').attr('onclick', `signUp()`)
+	      $('.page3-tips').html("速速报名")
+
+	  }, false)
+
+	  //重力感应
 	  window.addEventListener('deviceorientation', function (evt) {
-	    console.log('====')
+	    console.log('===deviceorientation=', evt)
 	      nowts = new Date().getTime();
 	      // 控制时间片
 	      if (nowts  - timefragment > 37) {
@@ -96,11 +122,13 @@
 	          dom.style.top = _top + 'px';
 	          dom.style.left = _left + 'px';
 	      }
-	      $('.shouji').css('display', 'none')
-	      $('.xiaoshou').css('display', 'block')
+	      $('.shouji').attr('src', './images/page3-dianji.png')
+	      $('.shouji').attr('onclick', `signUp()`)
+	      $('.page3-tips').html("速速报名")
 
 	  }, false);
 	}
+
 </script>
 <script type="text/javascript" src="js/jquery.min.js"></script> 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
