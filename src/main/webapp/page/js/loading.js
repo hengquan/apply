@@ -2,7 +2,8 @@ var _url = location.href.split('#')[0];
 
 $(function(){
   // 加载中
-  var c = 0, counter = 0;;
+  var c = 0, counter = 0;
+  // var isLoading = false;
 
   var mainfest = [
   { src: "images/bg_fdj.png" },
@@ -37,34 +38,38 @@ $(function(){
       //为preloaded添加当队列完成全部加载后触发事件
       preload.addEventListener("complete", this.loadComplete);
       //设置最大并发连接数  最大值为10
-      preload.setMaxConnections(1);
+      preload.setMaxConnections(2);
       preload.loadManifest(mainfest);
     },
     // 当整个队列变化时展示的进度事件的处理函数
     handleFileProgress: function (event) {
       c = Math.ceil(event.loaded * 100)
-      if(counter == 50) {
-         $(".loading-car").attr("src", "loading-car");
+      if(counter > 50) {
+         $(".loading-car").attr("src", "images/loading-car.png");
       }
       $(".loading-page .counter .line").css("width", c + "%");
+      
+      counter++;
+   
     },
     // 处理preload添加当队列完成全部加载后触发事件
     loadComplete: function () {
+      console.log("--===--=-=---===---")
       window.location.href='page1.html';
+         // isLoading = true
     }
   }
   preload.startPreload();
 
   // var i = setInterval(function() {
   //   $(".wangge").css("width", c + "%");
-   
-  //   counter++;
-  //   c++;
+  //   // c++;
   //   if(counter == 60) {
   //    $(".loading-car").attr("src", "images/loading-car.png");
   //   }
   //   $(".loading-page .counter .line").css("width", c + "%");
-  //     if (counter == 101) {
+  //     if (isLoading) {
+
   //       window.location.href='page1.html';
   //       clearInterval(i);
   //     }

@@ -8,41 +8,41 @@ function signUp() {
 }
 
 function weixinShare() {
-//   $.ajax({
-//       type:"GET",
-//       url:"http://wei.k618.cn/share.php",
-//       dataType:"json", 
-//       data: {url: _url},
-//       success:function(data){
-//           console.log('ajax success: ', data)
-//       if(JSON.stringify(data) != '{}'){
-//         wx.config({
-//           debug:false,// 是否开启调试模式
-//           appId:data.appId,//appid
-//           timestamp:data.timestamp,// 时间戳
-//           nonceStr:data.nonceStr,// 随机字符串
-//           signature:data.signature,// 签名
-//           jsApiList:[
-//             'onMenuShareTimeline',   
-//             'onMenuShareAppMessage',   
-//             'onMenuShareQQ', 
-//             'onMenuShareQZone'
-//           ]// 需要使用的JS接口列表
-//         })
+  $.ajax({
+      type:"GET",
+      url:"../api/getWxData",
+      dataType:"json", 
+      data: {url: _url},
+      success:function(data){
+          console.log('ajax success: ', data)
+      if(JSON.stringify(data) != '{}'){
+        wx.config({
+          debug:false,// 是否开启调试模式
+          appId:data.appId,//appid
+          timestamp:data.timestamp,// 时间戳
+          nonceStr:data.nonceStr,// 随机字符串
+          signature:data.signature,// 签名
+          jsApiList:[
+            'onMenuShareTimeline',   
+            'onMenuShareAppMessage',   
+            'onMenuShareQQ', 
+            'onMenuShareQZone'
+          ]// 需要使用的JS接口列表
+        })
 
-//         wx.ready(function(){
-//           share();
-//         })
-//         wx.error(function(res){
-//               // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
-//             console.log("wx.error", res);
-//         });
-//       }
-//      },
-//      error:function(e){
-//        console.log("ajax error："+ e.status);
-//      }
-//   });
+        wx.ready(function(){
+          share();
+        })
+        wx.error(function(res){
+              // config信息验证失败会执行error函数，如签名过期导致验证失败，具体错误信息可以打开config的debug模式查看，也可以在返回的res参数中查看，对于SPA可以在这里更新签名。
+            console.log("wx.error", res);
+        });
+      }
+     },
+     error:function(e){
+       console.log("ajax error："+ e.status);
+     }
+  });
 }
 
 // method 判断是否为微信浏览器
