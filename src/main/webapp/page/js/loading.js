@@ -44,8 +44,8 @@ $(function(){
     // 当整个队列变化时展示的进度事件的处理函数
     handleFileProgress: function (event) {
       c = Math.ceil(event.loaded * 100)
-      if(counter == 50) {
-         $(".loading-car").attr("src", "loading-car");
+      if(counter > 50) {
+         $(".loading-car").attr("src", "images/loading-car.png");
       }
       $(".loading-page .counter .line").css("width", c + "%");
       
