@@ -152,7 +152,7 @@
 
 .wangge {
     position: absolute;
-    bottom: 4rem;
+    bottom: 3.8rem;
     width: 100%;
     z-index: 2;
     transform: translate3d(0, 0, 150px);
@@ -166,7 +166,7 @@
     -webkit-transition: -webkit-transform 1s ease 0s, opacity 1s ease 0s;
     -o-transition: -o-transform 1s ease 0s, opacity 1s ease 0s;
     -ms-transition: -ms-transform 1s ease 0s, opacity 1s ease 0s;
-
+    display: none;
 }
 
 /*报名*/
