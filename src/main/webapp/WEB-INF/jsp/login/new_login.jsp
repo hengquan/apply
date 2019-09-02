@@ -25,7 +25,7 @@
 
 <div class="loginbox">
 	<div class="carent-logo" style="font-family:楷体;font-size:45px;">
-		<b>CMS管理系统</b>
+		<b>活动报名管理系统</b>
 	</div>
 	<div class="login-content" style="margin-top:-20px;">
 		<form action="${appRoot}/login.ky" id="myForm" name="myForm" method="post">
