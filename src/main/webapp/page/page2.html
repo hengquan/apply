@@ -124,7 +124,6 @@
 	          _left = left + (gamma / 90 * 30);
 	          _top = _top >= 0 ? 0 : (_top < (WIN_H - IMG_H) ? (WIN_H - IMG_H) : _top);
 	          _left = _left >= 0 ? 0 : (_left < (WIN_W - IMG_W) ? (WIN_W - IMG_W) : _left);
-	          console.log('left:', _left)
 
 	          if(_left < -30 ) {
 	          	$(".feiji").addClass("feijixg");
@@ -163,8 +162,7 @@
 	          _left = left + (gamma / 90 * 30);
 	          _top = _top >= 0 ? 0 : (_top < (WIN_H - IMG_H) ? (WIN_H - IMG_H) : _top);
 	          _left = _left >= 0 ? 0 : (_left < (WIN_W - IMG_W) ? (WIN_W - IMG_W) : _left);
-	          alert(_left)
-
+	      
 	           if(_left < -30 ) {
 	          	$(".feiji").addClass("feijixg");
 	          	$(".fade-in-words-box").css("display", "block");
