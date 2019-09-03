@@ -163,9 +163,17 @@
 	          _left = left + (gamma / 90 * 30);
 	          _top = _top >= 0 ? 0 : (_top < (WIN_H - IMG_H) ? (WIN_H - IMG_H) : _top);
 	          _left = _left >= 0 ? 0 : (_left < (WIN_W - IMG_W) ? (WIN_W - IMG_W) : _left);
+	          alert(_left)
 
-	          if(_left < 30) {
+	           if(_left < -30 ) {
 	          	$(".feiji").addClass("feijixg");
+	          	$(".fade-in-words-box").css("display", "block");
+	          } else {
+	          	// $(".feiji").removeClass("feijixg");
+	          	// $(".fade-in-words-box").css("display", "none");
+	          }
+	          if(_left > -20) {
+	          	$(".fade-in-words-right-box").css("display", "block");
 	          }
 
 	          dom.style.top = _top + 'px';

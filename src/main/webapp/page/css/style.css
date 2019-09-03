@@ -326,8 +326,12 @@
   background: url("../images/page3-checkbox.png");
 }
 .checkout-box {
-  position: absolute;
-  right: 10%;
+  position: relative;
+  width: 70%;
+  /*right: 10%;*/
+}
+.checkout-box .checkbox{
+  position: absolute !important;
 }
 .btn-save {
   width: 100px;
@@ -414,7 +418,7 @@ input[type="radio"]:checked::before{
     position: absolute;
     height: 8rem !important;
     top: 10rem;
-    left: 44.5%;
+    left: 41%;
     animation: bounceInLeft 2s ease;
 }
 .feiji {
@@ -635,7 +639,7 @@ input[type="radio"]:checked::before{
   letter-spacing: 0.1rem;
 }
 .small-words {
-  font-size: 0.2rem;
+  font-size: 0.4rem;
 }
 
 /*适配iphonex*/
