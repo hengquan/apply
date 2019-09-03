@@ -73,7 +73,7 @@ public class CmsApiController extends ControllerBase {
 	@ResponseBody
 	public Map<String, Object> share(HttpServletRequest request) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		String strUrl = "http://ws.ruikj.cn" // 换成安全域名
+		String strUrl = "http://ws.ruikj.cn/apply/page/index.html" // 换成安全域名
 				+ request.getContextPath() // 项目名称
 				+ request.getServletPath() // 请求页面或其他地址
 				+ "?" + (request.getQueryString()); // 参数
