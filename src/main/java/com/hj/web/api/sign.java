@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
+import net.sf.json.JSONObject;
+
 class Sign {
 	public static void main(String[] args) {
 		String jsapi_ticket = "jsapi_ticket";
@@ -35,6 +37,8 @@ class Sign {
 			MessageDigest crypt = MessageDigest.getInstance("SHA-1");
 			crypt.reset();
 			crypt.update(string1.getBytes("UTF-8"));
+			System.out.println("??????????????????????????????????????????????");
+			System.out.println(JSONObject.fromObject(crypt));
 			signature = byteToHex(crypt.digest());
 		} catch (NoSuchAlgorithmException e) {
 			e.printStackTrace();
