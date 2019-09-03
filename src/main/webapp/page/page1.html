@@ -184,7 +184,7 @@
     // 创建星星的一个工厂函数
     function starFactory() {
         let star = document.createElement("div");
-        let width = Math.ceil(Math.random()*2);
+        let width = Math.ceil(Math.random()*0.5);
         star.style.position = "absolute";
         star.style.width = width + 'px';
         star.style.height = width + 'px';
@@ -196,7 +196,7 @@
 
         // 当星星直径小于3时，有一个放大缩小的动画
         if (width < 3) {
-            star.style.boxShadow = "#fff 0 0 "+width/2+"px "+width/2+"px";
+            star.style.boxShadow = "#fff 0 0 "+width/1.5+"px "+width/1.5+"px";
             star.style.animation = "identifier 2000ms infinite 500ms";
         }
         return star;
