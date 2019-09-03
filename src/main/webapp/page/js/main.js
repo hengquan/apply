@@ -1,7 +1,7 @@
 var _url = location.href.split('#')[0];
 
 $(function(){
-   // weixinShare()
+   weixinShare()
 });
 function signUp() {
   window.location.href="sign.html";
@@ -15,13 +15,14 @@ function weixinShare() {
       data: {url: _url},
       success:function(data){
           console.log('ajax success: ', data)
-      if(JSON.stringify(data) != '{}'){
+      var _data = data.data
+      if(JSON.stringify(_data) != '{}'){
         wx.config({
           debug:false,// 是否开启调试模式
-          appId:data.appId,//appid
-          timestamp:data.timestamp,// 时间戳
-          nonceStr:data.nonceStr,// 随机字符串
-          signature:data.signature,// 签名
+          appId:_data.appId,//appid
+          timestamp:_data.timestamp,// 时间戳
+          nonceStr:_data.nonceStr,// 随机字符串
+          signature:_data.signature,// 签名
           jsApiList:[
             'onMenuShareTimeline',   
             'onMenuShareAppMessage',   
@@ -53,10 +54,10 @@ let isWeixin = () => {
 
 function share() {
   console.log("share")
-  var title="圣者无疆 狂猜草书",
-  desc = "以下几组草书，你能猜出它的现代字么？",
-  link = location.href.split('#')[0],
-  imgUrl = _url + "/images/logo.jpeg";
+  var title="同方威视",
+  desc = "高能产品本部2019年您产品推介会",
+  link = "http://ws.ruikj.cn/page/index.html",
+  imgUrl = "http://ws.ruikj.cn/apply/page/images/page3-checkbox.png";
 
   // 分享给好友
   wx.onMenuShareAppMessage({

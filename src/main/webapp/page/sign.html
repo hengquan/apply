@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
-	content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+	content="widt=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 <title>威视</title>
 <link type="text/css" rel="stylesheet" href="css/main.css">
 
@@ -19,9 +19,6 @@
 	.bootstrap-select>.dropdown-toggle {    
 		height: 36px;
 	}
-	.radio, .checkbox{
-		margin-top: -0.4rem;
-	}
 	.bootstrap-select, .btn-default, .dropdown-toggle, 	.dropdown-menu {
 		background: transparent !important;
 	    border: 0;
@@ -35,10 +32,24 @@
 		-moz-appearance:none; /* Firefox */
 		-webkit-appearance:none; /* Safari 和 Chrome */
 	}
-	
+	.bootstrap-select.btn-group .dropdown-menu li a span.text{
+		color: #fff;
+	}
+	.bootstrap-select.btn-group .dropdown-menu.inner {
+		background-color: rgba(0,0,0,0.5) !important;
+	}
+	.checkboxleft{
+		right: 3rem;
+    	top: -1rem;
+    	margin-right: 10px;
+	}
+	.checkboxright{
+		right: 0;
+    	margin: -0.1rem !important;
+	}
 </style>
 </head>
-<body>
+<body onresize="document.activeElement.scrollIntoView(true);">
 
 	<div class="swiper-slide loading-page page3">
 		<div class="page-center">
@@ -96,11 +107,12 @@
 			<div class="inp checkb">
 				<span>是否乘坐班车</span>
 				<div class="checkout-box">
-					<div class="checkbox">
-						<span>是</span> <input type="radio" name="selfProjAuth"
-							checked value="1"><label for="btn1"></label>
+					<div class="checkbox checkboxleft" onclick="showIsbusTime()">
+						<span>是</span> 
+						<input type="radio" name="selfProjAuth" value="1">
+							<label for="btn1"></label>
 					</div>
-					<div class="checkbox">
+					<div class="checkbox checkboxright" onclick="hideIsbusTime()">
 						<span>否</span> <input type="radio" name="selfProjAuth"
 							value="2"><label for="btn1"></label>
 
@@ -108,7 +120,7 @@
 				</div>
 				<div style="clear: both;"></div>
 			</div>
-			<div class="inp" style="position: relative;">
+			<div class="inp isbus" style="position: relative;">
 				<span>您想乘坐哪班车</span> 
 				<select name="descn" id="descn">
 					<option value="9月19日发车13:00,返程17:00">9月19日发车13:00,返程17:00</option>
@@ -190,6 +202,14 @@
 				}
 			});
 		}
+
+		function showIsbusTime() {
+			$(".isbus").css("display", "block");
+		}
+		function hideIsbusTime() {
+			$(".isbus").css("display", "none");
+		}
+
 	</script>
 </body>
 </html>

@@ -9,18 +9,98 @@
 	<link type="text/css" rel="stylesheet" href="css/main.css">
 	<link type="text/css" rel="stylesheet" href="css/style.css">
 	<style type="text/css">
-		@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
-		  .shan {
-		        bottom: -8%;
-		    }
-		    .wangge{
-		    	bottom: 3rem;
-		    }
+		<style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
 
-		}
+        html,body {
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+        .star-animation {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        /*动画设计*/
+        @-webkit-keyframes identifier {
+            25% {
+                transform: scale(1.5);
+            }
+            50% {
+                transform: scale(2);
+            }
+            75% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        @-o-keyframes identifier {
+            25% {
+                transform: scale(1.5);
+            }
+            50% {
+                transform: scale(2);
+            }
+            75% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        @-moz-keyframes identifier {
+            25% {
+                transform: scale(1.5);
+            }
+            50% {
+                transform: scale(2);
+            }
+            75% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+
+        }
+
+        @keyframes identifier {
+            25% {
+                transform: scale(1.5);
+            }
+            50% {
+                transform: scale(2);
+            }
+            75% {
+                transform: scale(1.5);
+            }
+            100% {
+                transform: scale(1);
+            }
+
+        }
+    </style>
 	</style>
+
 </head>
-<body style="background-color: #000;">
+<body style="background-color: #000;"> 
+	<div></div>
+	<!-- <div class="star-animation"></div> -->
 	<div class="wrap page1" style="bottom: 14%; background-color: #000;">
 		<div class="shan">
 			<img src="images/shan.png" style="width: 100%" >
@@ -29,33 +109,98 @@
 			<div class="door max-door">
 				<div class="door middle-door">
 					<div class="door mix-door">
-						<a href="./page2.html" class="word" style="margin-top: -3rem;">点击未来</a>
+						<div class="wordss word" onclick="onfuture()">
+							点击未来
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 	<img class="wangge" src="images/page-wangge1.png">
-	<!-- <div class="zhezhao"></div> -->
 <script type="text/javascript" src="js/jquery.min.js"></script> 
 <script type="text/javascript" src="js/main.js"></script> 
 
 <script type="text/javascript">
+	var dInterval;
 	$(window).load(function() {
-        var counter = 0;
-	    var c = 0;
+
+		//网格飘逸
+        var counter = 100;
+	    var c = 100;
 	    var i = setInterval(function() {
-	      $(".wangge").css("width", c + "%");
-	      counter++;
-	      c++;
-	      if (counter == 10) {
+	      $(".wangge").css("right", c + "%");
+	      counter--;
+	      c--;
+	      if (counter == 90) {
 	      	$(".wangge").css("display", "block");
 	      }
-	      if (counter == 101) {
+	      if (counter == -1) {
 	        clearInterval(i);
 	      }
 	    }, 50);
+
+
+	    // 门闪烁
+	    var _door = 0;
+	    dInterval = setInterval(function() {
+	    	_door++;
+	      if(_door == 1) {
+	      	$(".max-door").css("box-shadow", "0 0 30px #261555");
+	        $(".max-door").css("-webkit-box-shadow", "0 0 30px #261555");
+	      }else if (_door == 2) {
+	        $(".middle-door").css("box-shadow", "0 0 30px #0191d3");
+	        $(".middle-door").css("-webkit-box-shadow", "0 0 30px #0191d3");
+	      } else if (_door == 3) {
+ 			$(".mix-door").css("box-shadow", "0 0 30px #d81671");
+	        $(".mix-door").css("-webkit-box-shadow", "0 0 30px #d81671");
+	      } else if(_door == 4) {
+	      	$(".max-door").css("box-shadow", "");
+	        $(".max-door").css("-webkit-box-shadow", "");
+
+	        $(".middle-door").css("box-shadow", "");
+	        $(".middle-door").css("-webkit-box-shadow", "");
+
+	        $(".mix-door").css("box-shadow", "");
+	        $(".mix-door").css("-webkit-box-shadow", "");
+			_door = 0
+	      }
+	    }, 400);
     });
+    
+    function onfuture() {
+    	clearInterval(dInterval);
+    	window.location.href="./page2.html"
+    }
+    // 星星
+    // 自调用函数，在加载该文件时就开始工作
+    (function(container) {
+        // window.innerWidth 控制星星的密度
+        for (var i = 0; i < window.innerWidth/5; i++) {
+            container.append(starFactory());
+        }
+    })(document.getElementsByClassName("page1")[0]);
+
+    // 创建星星的一个工厂函数
+    function starFactory() {
+        let star = document.createElement("div");
+        let width = Math.ceil(Math.random()*0.5);
+        star.style.position = "absolute";
+        star.style.width = width + 'px';
+        star.style.height = width + 'px';
+        star.style.backgroundColor = '#fff';
+        star.style.top = Math.ceil(Math.random()*window.innerHeight) + 'px';
+        star.style.left = Math.ceil(Math.random()*window.innerWidth) + 'px';
+        star.style.boxShadow = "#fff 0 0 "+1+"px "+1+"px";
+        star.style.borderRadius = width + 'px';
+
+        // 当星星直径小于3时，有一个放大缩小的动画
+        if (width < 3) {
+            star.style.boxShadow = "#fff 0 0 "+width/1.5+"px "+width/1.5+"px";
+            star.style.animation = "identifier 2000ms infinite 500ms";
+        }
+        return star;
+    }
 
 </script>
 </body>
