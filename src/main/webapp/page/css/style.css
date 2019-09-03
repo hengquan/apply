@@ -41,9 +41,9 @@
   width: 100%;
   background: #fff;
   border: none;
-  height: 2px;
+  height: 3px;
   box-shadow: 0 0 6px 0.8px #fff;
-  margin-bottom: 3.6%;
+  margin-bottom: 0.35rem;;
 }
 .loading-page .counter {
   position: relative;
@@ -73,7 +73,6 @@
   width: 70px;
   margin: 0 auto;
 }
-
 /*第一页*/
 .page1 {
   background-image: url("../images/page1-bg.png"); 
@@ -114,7 +113,6 @@
 
   margin: auto;
   border-radius: 4px;
-  animation: spin 1.2s ease-in-out infinite;
   display: flex;
   justify-content: center;
    align-items: center;
@@ -132,41 +130,72 @@
   }
 }
 .max-door{
-  box-shadow: 0 0 30px #261555;
-  -webkit-box-shadow: 0 0 30px #261555;
+ /* box-shadow: 0 0 30px #261555;
+  -webkit-box-shadow: 0 0 30px #261555;*/
   height: 60%;
-   animation: bounceInLeft 1.5s ease-out;
+  animation: bounceInLeft 1.5s ease-out;
+
 }
 .middle-door{
-  box-shadow: 0 0 30px #0191d3;
-  -webkit-box-shadow: 0 0 30px #0191d3;
+  /*box-shadow: 0 0 30px #0191d3;
+  -webkit-box-shadow: 0 0 30px #0191d3;*/
   height: 90%;
-   animation: bounceInLeft 2s ease-out;
+  animation: bounceInLeft 2s ease-out;
 }
 .mix-door{
-  box-shadow: 0 0 30px #d81671;
-  -webkit-box-shadow: 0 0 30px #d81671;
+  /*box-shadow: 0 0 30px #d81671;
+  -webkit-box-shadow: 0 0 30px #d81671;*/
   height: 85%;
   animation: bounceInLeft 2.5s ease-out;
 }
+.wordss {
+  animation: spin 1.2s ease-in-out infinite; 
+  margin-top: -3rem;
+}
+.wordss { 
+    font-size: 24px; 
+    color:#fff; 
+    margin: 10px;
+    animation: changeshadow 1s  ease-in  infinite ;
+    /* 其它浏览器兼容性前缀 */
+    -webkit-animation: changeshadow 1s linear infinite;
+    -moz-animation: changeshadow 1s linear infinite;
+    -ms-animation: changeshadow 1s linear infinite;
+    -o-animation: changeshadow 1s linear infinite;
+  }  
+  @keyframes changeshadow {  
+      0%{ text-shadow: 0 0 4px #fff}  
+      50%{ text-shadow: 0 0 40px #fff}  
+      100%{ text-shadow: 0 0 4px #fff}  
+  }
+    /* 添加兼容性前缀 */
+  @-webkit-keyframes changeshadow {
+    0%{ text-shadow: 0 0 4px #fff}  
+    50%{ text-shadow: 0 0 40px #fff}  
+    100%{ text-shadow: 0 0 4px #fff}  
+  }
+  @-moz-keyframes changeshadow {
+      0%{ text-shadow: 0 0 4px #fff}  
+      50%{ text-shadow: 0 0 40px #fff}  
+      100%{ text-shadow: 0 0 4px #fff}  
+  }
+  @-ms-keyframes changeshadow {
+      0%{ text-shadow: 0 0 4px #fff}  
+      50%{ text-shadow: 0 0 40px #fff}  
+      100%{ text-shadow: 0 0 4px #fff}  
+  }
+  @-o-keyframes changeshadow {
+      0%{ text-shadow: 0 0 4px #fff}  
+      50%{ text-shadow: 0 0 40px #fff}  
+      100%{ text-shadow: 0 0 4px #fff}  
+  }
 
 .wangge {
     position: absolute;
-    bottom: 3.8rem;
+    bottom: -0.6rem;
     width: 100%;
     z-index: 2;
-    transform: translate3d(0, 0, 150px);
-    -ms-transform: translate3d(0, 150px, 0);
-    -webkit-transform: translate3d(0, 150px, 0);
-    -o-transform: translate3d(0, 150px, 0);
-    -moz-transform: translate3d(0, 150px, 0);
     opacity: 1;
-    transition: transform 1s ease 0s, opacity 1s ease 0s;
-    -moz-transition: -moz-transform 1s ease 0s, opacity 1s ease 0s;
-    -webkit-transition: -webkit-transform 1s ease 0s, opacity 1s ease 0s;
-    -o-transition: -o-transform 1s ease 0s, opacity 1s ease 0s;
-    -ms-transition: -ms-transform 1s ease 0s, opacity 1s ease 0s;
-    display: none;
 }
 
 /*报名*/
@@ -259,11 +288,13 @@
 .inp input, select{
   background-color: transparent;
   color: #fff;
-  border: none;
   font-size: 16px;
   padding: 6px 0;
   width: 15.6rem;
   margin-left: 2%;
+  border: 0px;
+  outline: none;
+  cursor: pointer;
 }
 .tips {
   display: block;
@@ -309,6 +340,9 @@
   text-shadow:5px 2px 6px #60c4db;
   line-height: 60px;
   margin: auto;
+}
+.isbus{
+  display: none;
 }
 
 
@@ -356,9 +390,10 @@ input[type="radio"]:checked::before{
 .big-bg {  height: 100%;position: relative; display: inline-block; }
 .big-bg img {  height: 100%;}
 .phone-more {
+  width: 10rem;
   position: fixed;
   bottom: 2rem;
-  left: 8.3rem;
+  left: 7rem;
   text-align: center;
   color: #fff;
   font-size: 16px;
@@ -391,9 +426,9 @@ input[type="radio"]:checked::before{
     -webkit-transform: translatey(30px) rotate(-10deg);
             transform: translatey(30px) rotate(-100deg);
   }
-  }
+}
 
-  @keyframes rockit {
+@keyframes rockit {
   from {
     -webkit-transform: translatey(30px) rotate(-45deg);
             transform: translatey(30px) rotate(-45deg);
@@ -402,39 +437,51 @@ input[type="radio"]:checked::before{
     -webkit-transform: translatey(30px) rotate(60deg);
             transform: translatey(30px) rotate(60deg);
   }
+}
 
-/*logo渐入*/
-.site-logo{
-  position: relative;
-  overflow: hidden;
+/*适配iphonex*/
+@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
+    .shan {
+        bottom: -8%;
+    }
+    .wangge{
+      bottom: 0.2rem;
+    }
+    .loading-page .counter hr{
+      margin-bottom: 0.32rem;
+    }
 }
-.site-logo:before {
-    content: "";
-    position: absolute;
-    width: 150px;
-    height: 10px;
-    background-color: rgba(255, 255, 255, 0.5);
-    -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
-    -webkit-animation: blink 1s ease-in 1s infinite;
-    animation: blink 1s ease-in 1s infinite;
+/*plus*/
+@media only screen and (device-width:414px) and (device-height:736px) {
+    .loading-page .counter hr{
+      margin-bottom: 0.16rem;
+    }
+    .loading-car-box{
+
+    }
+    .shan {
+        bottom: -8%;
+    }
+    .wangge{
+      bottom: -0.1rem;
+    } 
 }
-@-webkit-keyframes blink {
-    from {left: 10px;top: 0;}
-    to {left: 320px;top: 0;}
+
+/*iphone 5*/
+@media only screen and (device-width:320px) and (device-height:568px) {
+   .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
+      width: 18rem !important;
+   }
+   .inp input, select {
+      width: 11.3rem;
+   }
+   .loading-page {
+      height: 120%;
+   }
 }
-@-o-keyframes blink {
-    from {left: 10px;top: 0;}
-    to {left: 320px;top: 0;}
-}
-@-moz-keyframes blink {
-    from {left: 10px;top: 0;}
-    to {left: 320px;top: 0;}
-}
-@keyframes blink {
-    from {left: -100px;top: 0;}
-    to {left: 320px;top: 0;}
-}
+
+
+
 
 
 
