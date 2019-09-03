@@ -115,7 +115,7 @@
   border-radius: 4px;
   display: flex;
   justify-content: center;
-   align-items: center;
+  align-items: center;
 }
 @keyframes spin {
   0% {
@@ -414,9 +414,37 @@ input[type="radio"]:checked::before{
     position: absolute;
     height: 8rem !important;
     top: 10rem;
-    left: 41%;
+    left: 44.5%;
     animation: bounceInLeft 2s ease;
 }
+.feiji {
+    position: absolute;
+    left: 6rem;
+    top: 3rem;
+    width: 9rem;
+    height: auto !important;
+    
+}
+.feijixg {
+  animation-name: oDiv;
+    animation-delay: 0.5s;/*延迟时间*/
+    /*循环次数*/
+    /*animation-iteration-count: 2;*/
+    animation-duration: 3s;
+    /*反向播放动画*/
+    /*animation-direction: reverse;*/
+}
+
+/*飞机飞入效果*/
+@-webkit-keyframes oDiv{
+  0%{left: 180px;top: -200px;opacity: 0;}
+  100%{left: 200px;top: 50px;opacity: 1;}
+}
+@keyframes oDiv{
+  0%{left: 180px;top: -200px;opacity: 0;}
+  2100%{left: 200px;top: 50px;opacity: 1;}
+}
+
 @-webkit-keyframes rockit {
   from {
     -webkit-transform: translatey(30px) rotate(50deg);
@@ -439,6 +467,177 @@ input[type="radio"]:checked::before{
   }
 }
 
+/*文字淡入*/
+.fade-in-words-box, .fade-in-words-right-box {
+  display: none;
+}
+.fade-in-words{
+    margin: 0 auto;
+    text-align: right;
+    position: absolute;
+    left: 6rem;
+    top: 12rem;
+    width: 27rem;
+    color: #fff;
+    text-shadow: 0 0 0.2em #FFF, 0 0 1em #FFF;
+    letter-spacing: 0.3rem;
+    line-height: 1.5rem;
+}
+.fade-in-words-right {
+    margin: 0 auto;
+    text-align: right;
+    position: absolute;
+    right: 6rem;
+    top: 14rem;
+    width: 15rem;
+    color: #fff;
+    text-shadow: 0 0 0.2em #FFF, 0 0 1em #FFF;
+    letter-spacing: 0.3rem;
+    line-height: 2.5rem;
+}
+.fade-in-words-right .first-words {
+  text-align: center;
+  margin-left: -5rem;
+}
+.fade-in-words-right .second-words{
+  margin-left: -13rem;
+  margin-top: -0.5rem;
+}
+.fade-in-words-right .four-words{
+  text-align: left;
+}
+/*自定义一个透明度从0到1的动画，它的名称是fade-in*/
+@keyframes fade-in{  
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-webkit-keyframes fade-in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-ms-keyframes fade-in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-o-keyframes fade-in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+@-moz-keyframes fade-in{
+    0%{ opacity: 0;}
+    100%{opacity:1;}
+}
+.first-words{ 
+    margin-left: 2rem;
+    text-align: left;
+    opacity: 0;      /*实先规定文字的状态是不显示的*/
+    animation: fade-in 4s ease 0s 1;    /*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*/
+    -webkit-animation: fade-in 4s ease 0s 1;
+    -moz-animation: fade-in 4s ease 0s 1;
+    -o-animation: fade-in 4s ease 0s 1;
+    -ms-animation: fade-in 4s ease 0s 1;
+    
+    /*规定动画的最后状态为结束状态*/
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;  
+      -o-animation-fill-mode: forwards; 
+      -ms-animation-fill-mode: forwards;   
+      -moz-animation-fill-mode: forwards; 
+}
+.second-words{ 
+    text-align: center;
+    opacity: 0;    
+    animation: fade-in 4s ease 2s 1;
+    -webkit-animation: fade-in 4s ease 2s 1;
+    -moz-animation: fade-in 4s ease 2s 1;
+    -o-animation: fade-in 4s ease 2s 1;
+    -ms-animation: fade-in 4s ease 2s 1;
+    
+    /*规定动画的最后状态为结束状态*/
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;  
+      -o-animation-fill-mode: forwards; 
+      -ms-animation-fill-mode: forwards;   
+      -moz-animation-fill-mode: forwards; 
+}
+.third-words{ 
+    opacity: 0;    
+    animation: fade-in 4s ease 4s 1;
+    -webkit-animation: fade-in 4s ease 4s 1;
+    -moz-animation: fade-in 4s ease 4s 1;
+    -o-animation: fade-in 4s ease 4s 1;
+    -ms-animation: fade-in 4s ease 4s 1;
+    
+    /*规定动画的最后状态为结束状态*/
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;  
+      -o-animation-fill-mode: forwards; 
+      -ms-animation-fill-mode: forwards;   
+      -moz-animation-fill-mode: forwards; 
+}
+.four-words{ 
+    margin-right: -3rem;
+    margin-top: 1rem;
+    opacity: 0;    
+    animation: fade-in 4s ease 6s 1;
+    -webkit-animation: fade-in 4s ease 6s 1;
+    -moz-animation: fade-in 4s ease 6s 1;
+    -o-animation: fade-in 4s ease 6s 1;
+    -ms-animation: fade-in 4s ease 6s 1;
+    
+    /*规定动画的最后状态为结束状态*/
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;  
+      -o-animation-fill-mode: forwards; 
+      -ms-animation-fill-mode: forwards;   
+      -moz-animation-fill-mode: forwards; 
+}
+.five-words{ 
+    margin-right: -4rem;
+    opacity: 0;    
+    animation: fade-in 4s ease 8s 1;
+    -webkit-animation: fade-in 4s ease 8s 1;
+    -moz-animation: fade-in 4s ease 8s 1;
+    -o-animation: fade-in 4s ease 8s 1;
+    -ms-animation: fade-in 4s ease 8s 1;
+    
+    /*规定动画的最后状态为结束状态*/
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;  
+      -o-animation-fill-mode: forwards; 
+      -ms-animation-fill-mode: forwards;   
+      -moz-animation-fill-mode: forwards; 
+}
+.six-words{ 
+    opacity: 0;    
+    animation: fade-in 4s ease 10s 1;
+    -webkit-animation: fade-in 4s ease 10s 1;
+    -moz-animation: fade-in 4s ease 10s 1;
+    -o-animation: fade-in 4s ease 10s 1;
+    -ms-animation: fade-in 4s ease 10s 1;
+    
+    /*规定动画的最后状态为结束状态*/
+    animation-fill-mode:forwards;
+    -webkit-animation-fill-mode: forwards;  
+      -o-animation-fill-mode: forwards; 
+      -ms-animation-fill-mode: forwards;   
+      -moz-animation-fill-mode: forwards; 
+}
+
+.big-words{
+  font-size: 1.3rem;
+}
+.bold-words {
+  font-weight: bold;
+}
+.middle-words {
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+}
+.small-words {
+  font-size: 0.2rem;
+}
+
 /*适配iphonex*/
 @media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
     .shan {
@@ -449,6 +648,24 @@ input[type="radio"]:checked::before{
     }
     .loading-page .counter hr{
       margin-bottom: 0.32rem;
+    }
+    .four-words {
+      margin-top: 3rem;          
+    }
+    .fade-in-words{
+      top: 14rem;
+    }
+   .fade-in-words-right {
+      top: 17.5rem;
+      width: 15rem;
+      margin-right: 3rem;
+    }
+    .fade-in-words-right .four-words {
+          margin-top: 0;
+        margin-left: -2rem;
+    }
+    .wl {
+      left: 43%;
     }
 }
 /*plus*/
@@ -465,6 +682,16 @@ input[type="radio"]:checked::before{
     .wangge{
       bottom: -0.1rem;
     } 
+    .fade-in-words{
+      line-height: 2rem;
+    }
+    .fade-in-words-right {
+      line-height: 3rem;
+    }
+    .fade-in-words-right .second-words {
+        margin-left: -15.5rem;
+        margin-top: 0.5rem;
+    } 
 }
 
 /*iphone 5*/
@@ -478,9 +705,27 @@ input[type="radio"]:checked::before{
    .loading-page {
       height: 120%;
    }
+   .wl {
+    left: 40%;
+   }
+   .view .top .img {
+    margin-left: 1rem !important;
+   }
+   .top .img:first-child {
+      margin-right: 9.5rem !important;
+   }
+   .phone-more {
+      left: 5.5rem;
+   }
+   .fade-in-words {
+      top: 9rem;
+      width: 22rem;
+      line-height: 1.5rem;
+   }
+   .fade-in-words-right {
+        top: 10.5rem;
+   }
 }
-
-
 
 
 

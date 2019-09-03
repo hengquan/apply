@@ -55,8 +55,33 @@
 		</div>
 	    <div class="big-bg" >
 	        <img src="./images/page03a.png" alt="" onload="readyFn();">
+	        <img src="./images/page2-feiji.png" class="feiji feijixg">
+	        <!-- 文字淡入 -->
+	        <div class="fade-in-words-box">
+	        	<div class="fade-in-words">
+		            <div class="first-words small-words">高能产品本部 <span class="middlewords middle-words">诚邀您亲临</span></div>
+		            <div class="second-words big-words bold-words">2019年新产品推介会，</div>
+		            <div class="third-words small-words">届时可现场体验与参观：</div>
+		            <div class="four-words middle-words">新产品实物发布区及展示区<span class="">（9号厂房北侧）</span></div>
+		            <div class="five-words middle-words " style="margin-top: 1rem;">职能制造全流程<span class="">（10号厂房脉动生产线 —></span> </div>
+		            <div class="five-words middle-words">4号厂加速器车间 —> </div>
+		            <div class="five-words middle-words">9号厂房探测器车间） </div>
+		            <div class="six-words middle-words">宽能谱展示中心 <span class="">（9号厂房南侧）</span></div>
+		        </div>
+	        </div>
+
+	        <div class="fade-in-words-right-box">
+	        	<div class="fade-in-words-right">
+		            <div class="first-words small-words">多款产品 <span class="middlewords big-words">首次发布</span></div>
+		             <div class="second-words big-words">智能创造 <span class="middlewords small-words">流程展示</span></div>
+		            <div class="third-words small-words">产品实物 <span class="middlewords big-words">操作演示</span></div>
+
+		            <div class="four-words big-words">技术专家 <span class="middlewords small-words">现场交流</span></div>  
+		        </div>
+	        </div>
+	        
 	        <img src="./images/page-wl.png" class="wl">
-	        <p class="wl word" style="top: 18rem">同方威视高能产品本部2019年产品推介会1111</p>
+	        <p class="wl word" style="top: 18rem">同方威视高能产品本部2019年产品推介会</p>
 	    </div>
 	</div>
 
@@ -76,12 +101,13 @@
 	      WIN_H = document.documentElement.clientHeight;
 	  var timefragment = 0,               // 时间片计时
 	      nowts = 0;                      // 当前时间
-	      console.log('WIN_H:', WIN_H, WIN_W)
-	       console.log('IMG_H:', IMG_H, IMG_W)
+
 
 	  // 设置默认的left/top
 	  dom.style.top = -(IMG_H - WIN_H) / 2 + 'px';
 	  dom.style.left = -(IMG_W - WIN_W) / 2 + 'px';
+
+	  // dom.style.left = '0px';
 
 	  //手动滑动
 	  window.addEventListener('touchstart', function(evt) {
@@ -98,6 +124,19 @@
 	          _left = left + (gamma / 90 * 30);
 	          _top = _top >= 0 ? 0 : (_top < (WIN_H - IMG_H) ? (WIN_H - IMG_H) : _top);
 	          _left = _left >= 0 ? 0 : (_left < (WIN_W - IMG_W) ? (WIN_W - IMG_W) : _left);
+	          console.log('left:', _left)
+
+	          if(_left < -30 ) {
+	          	$(".feiji").addClass("feijixg");
+	          	$(".fade-in-words-box").css("display", "block");
+	          } else {
+	          	$(".feiji").removeClass("feijixg");
+	          	// $(".fade-in-words-box").css("display", "none");
+	          }
+	          if(_left > -20) {
+	          	$(".fade-in-words-right-box").css("display", "block");
+	          }
+
 	          dom.style.top = _top + 'px';
 	          dom.style.left = _left + 'px';
 	      }
@@ -124,6 +163,11 @@
 	          _left = left + (gamma / 90 * 30);
 	          _top = _top >= 0 ? 0 : (_top < (WIN_H - IMG_H) ? (WIN_H - IMG_H) : _top);
 	          _left = _left >= 0 ? 0 : (_left < (WIN_W - IMG_W) ? (WIN_W - IMG_W) : _left);
+
+	          if(_left < 30) {
+	          	$(".feiji").addClass("feijixg");
+	          }
+
 	          dom.style.top = _top + 'px';
 	          dom.style.left = _left + 'px';
 	      }

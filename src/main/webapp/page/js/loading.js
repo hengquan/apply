@@ -63,12 +63,13 @@ $(function(){
 
   // var i = setInterval(function() {
   //   $(".wangge").css("width", c + "%");
-  //   // c++;
+  //   c++;
+  //   counter++;
   //   if(counter == 60) {
   //    $(".loading-car").attr("src", "images/loading-car.png");
   //   }
   //   $(".loading-page .counter .line").css("width", c + "%");
-  //     if (isLoading) {
+  //     if (counter == 101) {
 
   //       window.location.href='page1.html';
   //       clearInterval(i);
