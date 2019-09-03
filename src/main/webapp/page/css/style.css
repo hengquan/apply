@@ -635,11 +635,11 @@ input[type="radio"]:checked::before{
   font-weight: bold;
 }
 .middle-words {
-  font-size: 0.9rem;
+  font-size: 1rem;
   letter-spacing: 0.1rem;
 }
 .small-words {
-  font-size: 0.4rem;
+  font-size: 0.5rem;
 }
 
 /*适配iphonex*/
@@ -697,6 +697,13 @@ input[type="radio"]:checked::before{
         margin-top: 0.5rem;
     } 
 }
+
+@media only screen and (device-width:414px) {
+    .loading-page .counter hr{
+      margin-bottom: 0.2rem;
+    }
+}
+
 
 /*iphone 5*/
 @media only screen and (device-width:320px) and (device-height:568px) {

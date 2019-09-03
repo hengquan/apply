@@ -21,13 +21,14 @@ function weixinShare() {
           debug:false,// 是否开启调试模式
           appId:_data.appId,//appid
           timestamp:_data.timestamp,// 时间戳
-          nonceStr:_data.nonceStr,// 随机字符串
+          nonceStr:_data.noncestr,// 随机字符串
           signature:_data.signature,// 签名
           jsApiList:[
             'onMenuShareTimeline',   
             'onMenuShareAppMessage',   
             'onMenuShareQQ', 
-            'onMenuShareQZone'
+            'onMenuShareQZone',
+            'translateVoice',
           ]// 需要使用的JS接口列表
         })
 
