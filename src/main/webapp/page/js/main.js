@@ -56,8 +56,8 @@ function share() {
   console.log("share")
   var title="同方威视",
   desc = "高能产品本部2019年您产品推介会",
-  link = "http://ws.ruikj.cn/apply/page/loading.html",
-  imgUrl = "http://ws.ruikj.cn/apply/page/images/page3-checkbox";
+  link = "http://ws.ruikj.cn/page/index.html",
+  imgUrl = "http://ws.ruikj.cn/apply/page/images/page3-checkbox.png";
 
   // 分享给好友
   wx.onMenuShareAppMessage({
