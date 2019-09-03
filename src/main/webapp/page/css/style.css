@@ -43,7 +43,7 @@
   border: none;
   height: 3px;
   box-shadow: 0 0 6px 0.8px #fff;
-  margin-bottom: 0.35rem;;
+  margin-bottom: 6.5px;
 }
 .loading-page .counter {
   position: relative;
@@ -193,10 +193,12 @@
 .wangge {
     position: absolute;
     bottom: -0.6rem;
-    width: 100%;
+    width: 0%;
     z-index: 2;
     opacity: 1;
+    height: 38%
 }
+
 
 /*报名*/
 .page3 {
@@ -643,15 +645,15 @@ input[type="radio"]:checked::before{
 }
 
 /*适配iphonex*/
-@media only screen and (device-width:375px) and (device-height:812px) and (-webkit-device-pixel-ratio:3) {
+@media only screen and (device-width:375px) {
     .shan {
         bottom: -8%;
     }
     .wangge{
-      bottom: 0.2rem;
+      /*bottom: 0.2rem;*/
     }
     .loading-page .counter hr{
-      margin-bottom: 0.32rem;
+      /*margin-bottom: 0.32rem;*/
     }
     .four-words {
       margin-top: 3rem;          
@@ -673,9 +675,9 @@ input[type="radio"]:checked::before{
     }
 }
 /*plus*/
-@media only screen and (device-width:414px) and (device-height:736px) {
+@media only screen and (device-width:414px) {
     .loading-page .counter hr{
-      margin-bottom: 0.2rem;
+      /*margin-bottom: 0.2rem;*/
     }
     .loading-car-box{
 
@@ -684,7 +686,7 @@ input[type="radio"]:checked::before{
         bottom: -8%;
     }
     .wangge{
-      bottom: -0.1rem;
+      /*bottom: -0.1rem;*/
     } 
     .fade-in-words{
       line-height: 2rem;
@@ -696,17 +698,19 @@ input[type="radio"]:checked::before{
         margin-left: -15.5rem;
         margin-top: 0.5rem;
     } 
+    .wangge{
+      bottom: 0rem !important;
+    }
 }
 
 @media only screen and (device-width:414px) {
     .loading-page .counter hr{
-      margin-bottom: 0.2rem;
+      /*margin-bottom: 0.2rem;*/
     }
 }
 
-
 /*iphone 5*/
-@media only screen and (device-width:320px) and (device-height:568px) {
+@media only screen and (device-width:320px) {
    .bootstrap-select:not([class*=col-]):not([class*=form-control]):not(.input-group-btn) {
       width: 18rem !important;
    }
@@ -736,6 +740,44 @@ input[type="radio"]:checked::before{
    .fade-in-words-right {
         top: 10.5rem;
    }
+}
+
+
+/*适配*/
+/*iphone*/
+
+@media screen and (min-width:600px) and (max-width:900px){
+  .wangge{
+    /*bottom: -0.6rem;*/
+  }
+}
+@media screen and (max-width: 600px) {
+
+  
+}
+
+@media screen and (max-device-width: 480px){
+  .wangge{}
+}
+@media screen and (-webkit-min-device-pixel-ratio: 2){
+  .wangge{
+    bottom: -0.6rem;
+  }
+}
+
+/*安卓*/
+@media screen and (max-device-width:240px){
+  .wangge{}
+}
+@media screen and (min-device-width:241px) and (max-device-width:360px){
+  .wangge{
+    bottom: -1.6rem;
+  }
+}
+@media screen and (min-device-width:361px) and (max-device-width:480px){
+  .wangge{
+    bottom: -1.1rem;
+  }
 }
 
 
