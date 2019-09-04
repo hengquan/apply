@@ -2,3 +2,7 @@
 catalina.base_IS_UNDEFINED/
 
 /nodel.txt
+DS_Store
+.DS_Store
+.idea/
+cms.iml
