@@ -7,6 +7,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -72,14 +73,23 @@ public class CmsApiController extends ControllerBase {
 	@RequestMapping(value = "getWxData")
 	@ResponseBody
 	public Map<String, Object> share(HttpServletRequest request) {
+		String url = request.getParameter("url");
 		Map<String, Object> map = new HashMap<String, Object>();
-		String strUrl = "http://ws.ruikj.cn/apply/page/index.html"; // 参数
+		String strUrl = "";
+		if (StringUtils.isNotEmpty(url)) {
+			strUrl = url;
+		} else {
+			strUrl = "http://ws.ruikj.cn/apply/page/sign.html"; // 请求页面或其他地址
+		}
+		System.out.println(strUrl);
 		WinXinEntity wx = WeinXinUtil.getWinXinEntity(strUrl);
 		// 将wx的信息到给页面
 		map.put("data", wx);
 		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
 		System.out.println(JSONObject.fromObject(wx));
 		System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
+		System.out.println(strUrl);
+		System.out.println("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB");
 		return map;
 	}
 }
