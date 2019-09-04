@@ -159,7 +159,7 @@
 			//获取所有部门信息
 			$.ajax({
 				type : 'post',
-				url : '../api/getModuleList',
+				url : 'http://ws.ruikj.cn/apply/api/getModuleList',
 				dataType : 'json',
 				async : false,
 				success : function(data) {
@@ -190,8 +190,20 @@
 		
 		function subData(){
 			var realName = $("#realName").val();
+			if (realName.length == 0) {
+          alert("请填写姓名！");
+          return false;
+      }
 			var phone = $("#phone").val();
+			if (realName.length == 0) {
+          alert("请填写手机号！");
+          return false;
+      }
 			var moduleId = $("#moduleId").val();
+			if (realName.length == 0) {
+          alert("请填写部门！");
+          return false;
+      }
 			var descn = $("#descn").val();
 			var selfProjAuth;
 			var obj = document.getElementsByName("selfProjAuth");
@@ -212,7 +224,7 @@
 			$.ajax({
 				type : 'post',
 				data : data,
-				url : '../api/saveApplyData',
+				url : 'http://ws.ruikj.cn/apply/api/saveApplyData',
 				dataType : 'json',
 				async : false,
 				success : function(data) {

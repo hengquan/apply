@@ -85,7 +85,10 @@
 												<td><input type="checkbox" name="box" class="checkboxes" value="${u.id}" /></td>
 												<td class="hidden-phone">${u.realname}</td>
 												<td class="hidden-phone">${u.phone}</td>
-												<td class="hidden-phone">${u.moduleName}</td>
+												<td class="hidden-phone">
+													<c:if test="${empty u.moduleName}">${u.moduleId }</c:if>
+													<c:if test="${!empty u.moduleName}">${u.moduleName }</c:if>
+												</td>
 												<td class="hidden-phone">
 													<c:if test="${u.selfprojauth eq '0' }">非自驾</c:if>
 													<c:if test="${u.selfprojauth eq '1' }">自驾</c:if>
@@ -409,8 +412,6 @@
 			$("#sample_1_length .js-add").hide();
 			$("#sample_1_length .js-ref").hide();
 			$("#sample_1_length .js-del").hide();
-			//增加站点筛选条件
-			addUserRole();
 		});
 
 		function doRefresh() {
@@ -491,7 +492,6 @@
 			$("#userinfoId").val("");
 			$("#imgDJZS").attr("src",'${appRoot}/static/img/zanwu1.png');
 			$("#userTitle").html("添加用户信息");
-			addRolePage('');
 		}
 		//提交添加用户请求
 		function submitData(){

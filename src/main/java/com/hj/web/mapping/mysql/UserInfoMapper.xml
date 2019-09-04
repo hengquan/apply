@@ -1,25 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.hj.web.mapping.UserInfoMapper">
-	<resultMap id="BaseResultMap" type="com.hj.web.entity.UserInfo">
+	<resultMap id="BaseResultMap"
+		type="com.hj.web.entity.UserInfo">
 		<id column="id" property="id" jdbcType="VARCHAR" />
-		<result column="loginName" property="loginname" jdbcType="VARCHAR" />
-		<result column="password" property="password" jdbcType="VARCHAR" />
-		<result column="realName" property="realname" jdbcType="VARCHAR" />
+		<result column="loginName" property="loginname"
+			jdbcType="VARCHAR" />
+		<result column="password" property="password"
+			jdbcType="VARCHAR" />
+		<result column="realName" property="realname"
+			jdbcType="VARCHAR" />
 		<result column="age" property="age" jdbcType="INTEGER" />
 		<result column="sex" property="sex" jdbcType="VARCHAR" />
 		<result column="phone" property="phone" jdbcType="VARCHAR" />
-		<result column="headimgurl" property="headimgurl" jdbcType="VARCHAR" />
-		<result column="district" property="district" jdbcType="VARCHAR" />
+		<result column="headimgurl" property="headimgurl"
+			jdbcType="VARCHAR" />
+		<result column="district" property="district"
+			jdbcType="VARCHAR" />
 		<result column="address" property="address" jdbcType="VARCHAR" />
-		<result column="language" property="language" jdbcType="VARCHAR" />
-		<result column="selfProjAuth" property="selfprojauth" jdbcType="VARCHAR" />
+		<result column="language" property="language"
+			jdbcType="VARCHAR" />
+		<result column="selfProjAuth" property="selfprojauth"
+			jdbcType="VARCHAR" />
 		<result column="cTime" property="ctime" jdbcType="TIMESTAMP" />
-		<result column="isValidate" property="isvalidate" jdbcType="INTEGER" />
+		<result column="isValidate" property="isvalidate"
+			jdbcType="INTEGER" />
 		<result column="remark" property="remark" jdbcType="VARCHAR" />
 		<result column="descn" property="descn" jdbcType="LONGVARCHAR" />
-		<result column="parentId" property="parentId" jdbcType="VARCHAR" />
-		<result column="moduleId" property="moduleId" jdbcType="VARCHAR" />
+		<result column="parentId" property="parentId"
+			jdbcType="VARCHAR" />
+		<result column="moduleId" property="moduleId"
+			jdbcType="VARCHAR" />
 	</resultMap>
 	<sql id="Base_Column_List">
 		id, loginName, password, realName, age, sex, phone,
@@ -28,7 +39,8 @@
 		language, selfProjAuth, cTime,
 		isValidate, remark,descn,parentId,moduleId
 	</sql>
-	<select id="get" resultMap="BaseResultMap" parameterType="java.lang.String">
+	<select id="get" resultMap="BaseResultMap"
+		parameterType="java.lang.String">
 		select
 		<include refid="Base_Column_List" />
 		from plat_user
@@ -222,27 +234,13 @@
 	<!-- 按条件查找所有的用户分页 -->
 	<select id="getDataList" resultMap="BaseResultMap"
 		parameterType="map">
-		SELECT
-		a.*,b.moduleName
-		FROM
-		plat_user a
-		left JOIN cms_module b ON a.moduleId = b.id
-		WHERE
-		a.isValidate=1 
-		and a.remark != 'admin' 
-		and a.realName != ''
-		and a.realName is not null
-		<if test="userName != null and userName != '' ">
-			and instr(a.realName ,#{userName})
-			or instr(a.phone
-			,#{userName})
-		</if>
-		limit #{page},#{pageSize}
-	</select>
-
-	<select id="getDataListCount" resultType="int" parameterType="map">
-		SELECT
-		count(1)
+		SELECT DISTINCT
+		a.realName,
+		a.phone,
+		a.descn,
+		a.moduleId,
+		a.selfProjAuth,
+		b.moduleName
 		FROM
 		plat_user a
 		left JOIN cms_module b ON a.moduleId = b.id
@@ -256,6 +254,35 @@
 			or instr(a.phone
 			,#{userName})
 		</if>
+		limit #{page},#{pageSize}
+	</select>
+
+	<select id="getDataListCount" resultType="int"
+		parameterType="map">
+		select count(1) from (
+		SELECT DISTINCT
+		a.realName,
+		a.phone,
+		a.descn,
+		a.moduleId,
+		a.selfProjAuth,
+		b.moduleName
+		FROM
+		plat_user a
+		left JOIN
+		cms_module b ON a.moduleId = b.id
+		WHERE
+		a.isValidate=1
+		and a.remark !=
+		'admin'
+		and a.realName != ''
+		and a.realName is not null
+		<if test="userName != null and userName != '' ">
+			and instr(a.realName ,#{userName})
+			or instr(a.phone
+			,#{userName})
+		</if>
+		) data
 	</select>
 
 	<!-- 根据登入帐号查询信息 -->
