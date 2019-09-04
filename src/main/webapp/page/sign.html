@@ -19,6 +19,10 @@
 	.bootstrap-select>.dropdown-toggle {    
 		height: 36px;
 	}
+	.bootstrap-select.btn-group .dropdown-menu.inner{
+	    min-height: 32px !important;
+	    max-height: 130px !important;
+	}
 	.bootstrap-select, .btn-default, .dropdown-toggle, 	.dropdown-menu {
 		background: transparent !important;
 	    border: 0;
@@ -32,12 +36,6 @@
 		-moz-appearance:none; /* Firefox */
 		-webkit-appearance:none; /* Safari 和 Chrome */
 	}
-	.bootstrap-select.btn-group .dropdown-menu li a span.text{
-		color: #fff;
-	}
-	.bootstrap-select.btn-group .dropdown-menu.inner {
-		background-color: rgba(0,0,0,0.5) !important;
-	}
 	.checkboxleft{
 		right: 3rem;
     	top: -1rem;
@@ -49,6 +47,9 @@
 	}
 	.bootstrap-select.btn-group .no-results {
 		background-color: transparent !important;
+	}
+	.checkb {
+		position: relative;
 	}
 </style>
 </head>
@@ -95,16 +96,24 @@
 		<div class="sign-up">
 			<p>预定报名</p>
 			<div class="inp">
-				<span>姓名</span> <input type="text" name="realName" id="realName">
+				<span>姓名</span> <input type="text" name="realName"  placeholder="请输入姓名" id="realName">
 			</div>
 
-			<div class="inp">
+			<!-- <div class="inp inp-select">
 				<span>部门</span> <select class="selectpicker" name="moduleId" id="moduleId" data-live-search="true"></select>
+			</div> -->
+
+			<div class="wyInput inp" id="myInput">
+		      <div class="wyinput-group">
+		         <span>部门</span>  <input type="text" placeholder="请选择部门" name="moduleId" id="moduleId" >
+		      </div>
+		      <div class="wyinput-drop"></div>
 			</div>
+
 			<span class="tips">˙(请输入区域中心/事业部/职能部门)</span>
 
 			<div class="inp">
-				<span>电话</span> <input type="text" name="phone" id="phone">
+				<span>电话</span> <input type="text" name="phone" id="phone" placeholder="请输入电话">
 			</div>
 
 			<div class="inp checkb">
@@ -137,6 +146,7 @@
 
 	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+	<script src="js/wy_select.js"></script>
 	
 	<!-- bootstrap -->
 	<script src="http://cdn.staticfile.org/twitter-bootstrap/3.3.1/js/bootstrap.min.js" type="text/javascript"></script>
@@ -144,6 +154,8 @@
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 	<script type="text/javascript">
 		$(function() {
+			 // $("#myInput").wy_inselect([{name:'紫色'},{name:'yellow'},{name:'pink'},{name:'whrite'},{name:'yellow1'},{name:'yellow2'},{name:'yellow3'},{name:'yellow4'}]); 
+
 			//获取所有部门信息
 			$.ajax({
 				type : 'post',
@@ -154,11 +166,19 @@
 					console.log(data);
 					if (data.code == "200") {
 						var dataList = data.DataList;
-						var html = "";
-						for( var i in dataList){
-							html += '<option value="'+dataList[i].id+'">'+dataList[i].moduleName+'</option>';
+						let _len = data.DataList.length;
+						let dataArr = []
+						for(let i=0; i<_len; i++){
+							dataArr.push({name:dataList[i].moduleName, id: dataList[i].id})
 						}
-						$("#moduleId").html(html);
+						console.log('dataArr:', dataArr) 
+						 $("#myInput").wy_inselect(dataArr); 
+
+						// var html = "";
+						// for( var i in dataList){
+						// 	html += '<option value="'+dataList[i].id+'">'+dataList[i].moduleName+'</option>';
+						// }
+						// $("#moduleId").html(html);
 					} else {
 						console.log(data.msg);
 					}
