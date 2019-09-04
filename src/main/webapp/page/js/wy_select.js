@@ -39,6 +39,7 @@
             $Id.find(".wyinput-drop").hide().html("");
             return;
         }
+        $Id.find(".wyinput-drop").css("height", "8rem");
         $.each(arr,function(idx,obj){
             html+='<p class="drop-line">' + '<a href="#">'+obj.name+'</a></p>';
         })
