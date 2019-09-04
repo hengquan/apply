@@ -14,7 +14,7 @@
                         var arr= searchIndex($Id,options);
                         loadDrop($Id,arr);
                     }
-                },500);
+                },200);
  
             })
             $Id.find(".wyinput-drop").delegate(".drop-line a","click",function(){

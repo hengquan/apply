@@ -1,23 +1,23 @@
 var _url = location.href.split('#')[0];
 
 $(function(){
-   weixinShare()
+   $.ajax({
+      type : "GET",
+      url : "../api/getWxData",
+      dataType : "json",
+      data : {
+        url : _url
+      },
+      success : function(data) {
+        var obj = data.data;
+        wxLoading(obj);
+      }
+    })
 });
+
 function signUp() {
   window.location.href="sign.html";
 }
-$.ajax({
-    type : "GET",
-    url : "../api/getWxData",
-    dataType : "json",
-    data : {
-      url : "http://ws.ruikj.cn/apply/page/index.html"
-    },
-    success : function(data) {
-      var obj = data.data;
-      wxLoading(obj);
-    }
-  })
 
 // method 判断是否为微信浏览器
 let isWeixin = () => {
@@ -37,12 +37,18 @@ function wxLoading(obj) {
   })
 
   wx.ready(function() {
+    var info = {
+      title: "同方威视",
+      desc: "高能产品本部2019年您产品推介会",
+      link: "http://ws.ruikj.cn/apply/page/index.html",
+      imgUrl: "http://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRt8Qia4lv7k3M9J1SKqKCImxJCt7j9rHYicKDI45jRPBxdzdyREWnk0ia0N5TMnMfth7SdxtzMvVgXg/0",// 分享图标
+    }
     // 分享给好友
     wx.onMenuShareAppMessage({
-      title : "同方威视",// 分享标题
-      desc : "高能产品本部2019年您产品推介会",// 分享描述
-      link : "http://ws.ruikj.cn/apply/page/index.html",// 分享链接
-      imgUrl : "http://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRt8Qia4lv7k3M9J1SKqKCImxJCt7j9rHYicKDI45jRPBxdzdyREWnk0ia0N5TMnMfth7SdxtzMvVgXg/0",// 分享图标
+      title : info.title,// 分享标题
+      desc : info.desc,// 分享描述
+      link : info.link,// 分享链接
+      imgUrl : info.imgUrl,// 分享图标
       success : function() {
         doShareDone()
       },
@@ -52,10 +58,10 @@ function wxLoading(obj) {
     })
     // 分享到朋友圈
     wx.onMenuShareTimeline({
-      title : "测试分享标题",// 分享标题
-      desc : "这是描述",// 分享描述
-      link : "http://ws.ruikj.cn/apply/page/test.html",// 分享链接
-      imgUrl : "http://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRt8Qia4lv7k3M9J1SKqKCImxJCt7j9rHYicKDI45jRPBxdzdyREWnk0ia0N5TMnMfth7SdxtzMvVgXg/0",// 分享图标
+      title : info.title,// 分享标题
+      desc : info.desc,// 分享描述
+      link : info.link,// 分享链接
+      imgUrl : info.imgUrl,// 分享图标
       success : function() {
         doShareDone()
       },

@@ -43,13 +43,10 @@ $(function(){
     // 当整个队列变化时展示的进度事件的处理函数
     handleFileProgress: function (event) {
       c = Math.ceil(event.loaded * 100)
-      if(counter > 50) {
+      if(c > 60) {
          $(".loading-car").attr("src", "images/loading-car.png");
       }
       $(".loading-page .counter .line").css("width", c + "%");
-      
-      counter++;
-   
     },
     // 处理preload添加当队列完成全部加载后触发事件
     loadComplete: function () {

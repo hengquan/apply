@@ -148,16 +148,6 @@
 <script type="text/javascript">
 	var dInterval;
 	$(window).load(function() {
-
-		// //网格飘逸
-	    var c = 0;
-	    var i = setInterval(function() {
-           $(".i").css("width","100%");
-           c++;
-          if (c == 1) {
-            clearInterval(i);
-          }
-	    }, 1000);
 	    // 门闪烁
 	    var _door = 0;
 	    dInterval = setInterval(function() {
@@ -186,8 +176,10 @@
     });
     
     function onfuture() {
-    	clearInterval(dInterval);
-    	window.location.href="./page2.html"
+        $(".i").css("width","100%");
+        setTimeout(function(){ 
+            window.location.href="./page2.html"
+        }, 600);
     }
     // 星星
     // 自调用函数，在加载该文件时就开始工作
