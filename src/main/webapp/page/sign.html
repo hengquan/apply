@@ -114,7 +114,7 @@
 				<div class="checkout-box">
 					<div class="checkbox checkboxleft" onclick="showIsbusTime()">
 						<span>是</span> 
-						<input type="radio" name="selfProjAuth" checked value="1">
+						<input type="radio" name="selfProjAuth" value="1">
 							<label for="btn1"></label>
 					</div>
 					<div class="checkbox checkboxright" onclick="hideIsbusTime()">
@@ -149,7 +149,7 @@
 	<script type="text/javascript">
 		$(function() {
 			 // $("#myInput").wy_inselect([{name:'紫色'},{name:'yellow'},{name:'pink'},{name:'whrite'},{name:'yellow1'},{name:'yellow2'},{name:'yellow3'},{name:'yellow4'}]); 
-			 showIsbusTime();
+			 //showIsbusTime();
 
 			//获取所有部门信息
 			$.ajax({
@@ -205,6 +205,12 @@
     			  return false;
     		}
       }
+			var selfProjAuth = $('input[name="selfProjAuth"]:checked').val(); 
+			if (selfProjAuth.length == 0) {
+          alert("请选择是否乘坐班车！");
+          return false;
+      }
+			
 			var descn = $("#descn").val();
 			var selfProjAuth;
 			var obj = document.getElementsByName("selfProjAuth");
