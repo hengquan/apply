@@ -109,7 +109,9 @@
         transition: 1s linear;
       }
       .i img {
-        object-fit: fill
+        object-fit: fill;
+        /*width: 100%;*/
+        margin-bottom: 3%;
       }
 	</style>
 
@@ -136,7 +138,7 @@
 
     <div class="c">
         <div class="i wangge">
-           <img src="images/page-wangge1.png"  >
+           <img src="images/wangge2.png"  >
         </div>
     </div>
     
@@ -179,7 +181,7 @@
         $(".i").css("width","100%");
         setTimeout(function(){ 
             window.location.href="./page2.html"
-        }, 600);
+        }, 500);
     }
     // 星星
     // 自调用函数，在加载该文件时就开始工作

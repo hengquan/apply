@@ -13,6 +13,7 @@ $(function(){
   { src: "images/loading-line.png" },
   { src: "images/loading-zi.png" },
   { src: "images/page-wangge1.png" },
+  { src: "images/wangge2.png" },
   { src: "images/page-wl.png" },
   { src: "images/page03a.png" },
   { src: "images/page1-bg.png" },
