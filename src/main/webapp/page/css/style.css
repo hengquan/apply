@@ -225,7 +225,6 @@
   font-size: 14px;
   color: #00B2DB;
   margin: auto;
-  width: 90%;
 }
 .content-des table tr {
   height: 30px;
@@ -291,6 +290,7 @@
   border: 0px;
   outline: none;
   cursor: pointer;
+  font-size: 12px;
 }
 .tips {
   display: block;
@@ -779,18 +779,22 @@ input[type="radio"]:checked::before{
     position: relative;
   }
   
-input::-webkit-input-placeholder { /* WebKit browsers */
+/* WebKit browsers */
+/*input::-webkit-input-placeholder { 
     color:    #fff;
-}
-input:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+}*/
+/* Mozilla Firefox 4 to 18 */
+/*input:-moz-placeholder { 
     color:    #fff;
-}
-input::-moz-placeholder { /* Mozilla Firefox 19+ */
+}*/
+/* Mozilla Firefox 19+ */
+/*input::-moz-placeholder { 
     color:    #fff;
-}
-input::-ms-input-placeholder { /* Internet Explorer 10+ */
+}*/
+/* Internet Explorer 10+ */
+/*input::-ms-input-placeholder { 
     color:    #fff;
-}
+}*/
   .wyInput .wyinput-group a {
     float: left;
     width: 20%;
