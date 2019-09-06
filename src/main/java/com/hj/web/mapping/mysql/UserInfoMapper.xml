@@ -325,4 +325,31 @@
 		instr(#{boxeditId},id)
 	</update>
 
+
+	<!-- 导出用户信息 -->
+	<select id="upLoadExport" resultMap="BaseResultMap"
+		parameterType="map">
+		SELECT DISTINCT
+		a.realName,
+		a.phone,
+		a.descn,
+		a.moduleId,
+		a.cTime,
+		a.selfProjAuth,
+		b.moduleName
+		FROM
+		plat_user a
+		left JOIN cms_module b ON a.moduleId = b.id
+		WHERE
+		a.isValidate=1
+		and a.remark != 'admin'
+		and a.realName != ''
+		and a.realName is not null
+		<if test="userName != null and userName != '' ">
+			and instr(a.realName ,#{userName})
+			or instr(a.phone
+			,#{userName})
+		</if>
+		order by cTime desc
+	</select>
 </mapper>

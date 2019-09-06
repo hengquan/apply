@@ -55,11 +55,11 @@
 									<a href="javascript:doRefresh();" class="btn mini btn-white"
 										title="刷新"><i class="icon-refresh"></i></a>
 								</div>
-								<!-- <div
+								<div
 									style="float: left; position: relative; margin-top: 16px; margin-left: 20px;">
-									<a href="javascript:doAdd();" class="btn mini btn-white"><i
-										class="icon-plus"></i></a>
-								</div> -->
+									<a href="javascript:download();" class="btn mini btn-white"><i
+										class="glyphicon glyphicon-download-alt"></i></a>
+								</div>
 
 								<input type="hidden" value="${nowPage}" id="nowPageNumber"
 									name="nowPage"> <input type="hidden"
@@ -94,7 +94,9 @@
 													<c:if test="${u.selfprojauth eq '0' }">否</c:if>
 													<c:if test="${u.selfprojauth eq '1' }">是</c:if>
 												</td>
-												<td class="hidden-phone">${u.descn}</td>
+												<td class="hidden-phone">
+													<c:if test="${u.selfprojauth eq '1' }">${u.descn}</c:if>
+												</td>
 												<td class="hidden-phone"><fmt:formatDate
 													value="${u.ctime}" pattern="yyyy-MM-dd HH:mm:ss" />
 												</td>
@@ -603,6 +605,10 @@
     function excptionUrl(obj){
     	var obj = $(obj);
     	obj.attr("src",'${appRoot}/static/img/zanwu1.png');
+    }
+    
+    function download(){
+    	location.href="${appRoot}/api/export";
     }
 	</script>
 </body>

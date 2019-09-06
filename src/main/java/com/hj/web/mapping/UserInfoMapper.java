@@ -25,4 +25,6 @@ public interface UserInfoMapper {
 		UserInfo selectByLoginId(String loginId);
 
 		List<UserInfo> getParentId(String parentId);
+
+		List<UserInfo> upLoadExport(Map<String, Object> map);
 }

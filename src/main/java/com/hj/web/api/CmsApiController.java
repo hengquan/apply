@@ -1,22 +1,23 @@
-/*package com.hj.web.api;
+package com.hj.web.api;
 
+import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.jsp.tagext.PageData;
 
 import org.apache.commons.lang3.StringUtils;
+import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.hj.common.ControllerBase;
+import com.hj.utils.PoiUtil;
 import com.hj.web.entity.Module;
 import com.hj.web.entity.UserInfo;
 import com.hj.web.services.ModuleService;
@@ -96,47 +97,39 @@ public class CmsApiController extends ControllerBase {
 		return map;
 	}
 
-	*//**
+	/**
 	 * 导出报表
 	 * 
 	 * @return
-	 *//*
+	 */
 	@RequestMapping(value = "/export")
 	@ResponseBody
 	public void export(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		Map<String,Object> map = new HashMap<String,Object>();
 		// 获取数据
-		List<PageData> list = null;
+		List<UserInfo> userInfoList = userInfoService.upLoadExport(map);
 		// excel标题
-		String[] title = { "名称", "性别", "年龄", "学校", "班级" };
-//excel文件名
-String fileName = "学生信息表"+System.currentTimeMillis()+".xls";
+		String[] title = { "姓名", "电话", "部门", "乘坐班车", "班车信息","报名时间" };
+		//excel文件名
+		String fileName = "报名活动人员信息表" + System.currentTimeMillis() + ".xls";
 
- //sheet名
-String sheetName = "学生信息表";
+		// sheet名
+		String sheetName = "人员信息表表";
 
-for(int i = 0; i < list.size(); i++) {
-          content[i] = new String[title.length];
-          PageData obj = list.get(i);
-          content[i][0] = obj.get("stuName").tostring();
-          content[i][1] = obj.get("stuSex").tostring();
-          content[i][2] = obj.get("stuAge").tostring();
-          content[i][3] = obj.get("stuSchoolName").tostring();
-          content[i][4] = obj.get("stuClassName").tostring();
-　　　　}
 
-　　　　//创建HSSFWorkbook 
-　　　　HSSFWorkbook wb = ExcelUtil.getHSSFWorkbook(sheetName, title, content, null);
+		//创建HSSFWorkbook 
+		HSSFWorkbook wb = PoiUtil.getHSSFWorkbook(sheetName, title, userInfoList, null);
 
-　　　　//响应到客户端
-　　　　try {
-　　　　　　this.setResponseHeader(response, fileName);
-     　　　　OutputStream os = response.getOutputStream();
-     　　　　wb.write(os);
-     　　　　os.flush();
-     　　　　os.close();
-　　　　　} catch (Exception e) {
-     　　　　e.printStackTrace();
-　　　　　}
+		//响应到客户端
+		try {
+			this.setResponseHeader(response, fileName);
+			OutputStream os = response.getOutputStream();
+			wb.write(os);
+			os.flush();
+			os.close();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 	// 发送响应流方法
@@ -158,4 +151,3 @@ for(int i = 0; i < list.size(); i++) {
 	}
 
 }
-*/

@@ -121,4 +121,9 @@ public class UserInfoServiceImpl implements UserInfoService {
 		return userInfoMapper.getParentId(parentId);
 	}
 
+	@Override
+	public List<UserInfo> upLoadExport(Map<String, Object> map) {
+		return userInfoMapper.upLoadExport(map);
+	}
+
 }

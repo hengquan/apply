@@ -30,4 +30,6 @@ public interface UserInfoService {
 	public void deletes(String boxeditId);
 
 	public List<UserInfo> getParentId(String parentId);
+
+	public List<UserInfo> upLoadExport(Map<String, Object> map);
 }
