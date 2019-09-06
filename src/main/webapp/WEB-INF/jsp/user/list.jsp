@@ -75,7 +75,7 @@
 										<th class="hidden-phone">姓名</th>
 										<th class="hidden-phone">电话</th>
 										<th class="hidden-phone">所属部门</th>
-										<th class="hidden-phone">自否自驾</th>
+										<th class="hidden-phone">是否乘坐班车</th>
 										<th class="hidden-phone">班车信息</th>
 										<th class="hidden-phone">报名时间</th>
 									</tr>
@@ -91,8 +91,8 @@
 													<c:if test="${!empty u.moduleName}">${u.moduleName }</c:if>
 												</td>
 												<td class="hidden-phone">
-													<c:if test="${u.selfprojauth eq '0' }">非自驾</c:if>
-													<c:if test="${u.selfprojauth eq '1' }">自驾</c:if>
+													<c:if test="${u.selfprojauth eq '0' }">不坐班车</c:if>
+													<c:if test="${u.selfprojauth eq '1' }">乘坐班车</c:if>
 												</td>
 												<td class="hidden-phone">${u.descn}</td>
 												<td class="hidden-phone"><fmt:formatDate
