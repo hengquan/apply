@@ -239,6 +239,7 @@
 		a.phone,
 		a.descn,
 		a.moduleId,
+		a.cTime,
 		a.selfProjAuth,
 		b.moduleName
 		FROM
@@ -264,6 +265,7 @@
 		a.realName,
 		a.phone,
 		a.descn,
+		a.cTime,
 		a.moduleId,
 		a.selfProjAuth,
 		b.moduleName
