@@ -107,9 +107,9 @@
   bottom: 0.4rem;
   width: 80%;
   height: 90%;
-  border-left: 5px solid #fff;
-  border-top: 5px solid #fff;
-  border-right: 5px solid #fff;
+  border-left: 3px solid rgba(255,255,255,0.9);
+  border-top: 3px solid rgba(255,255,255,0.9);
+  border-right: 3px solid rgba(255,255,255,0.9);
 
   margin: auto;
   border-radius: 4px;
@@ -214,6 +214,7 @@
 }
 .content-des {
   color: #fff;
+  margin-top: 1.5rem;
 }
 .content-des .title{
   color: #fff;
@@ -379,8 +380,8 @@ input[type="radio"]:checked::before{
 }
 .triangle-down {
   position: absolute;
-  top: 16px;
-  right: 12px;
+  top: 13px;
+  right: 9px;
   border-top: 7px solid #00b2d8 ;
   border-left: 7px solid transparent;
   border-right: 7px solid transparent;
@@ -414,8 +415,10 @@ input[type="radio"]:checked::before{
     position: absolute;
     height: 8rem !important;
     top: 10rem;
-    left: 41%;
-    animation: bounceInLeft 2s ease;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    animation: fadeInLeft 1s ease;
+
 }
 .feiji {
     position: absolute;
@@ -531,11 +534,11 @@ input[type="radio"]:checked::before{
     margin-left: 2rem;
     text-align: left;
     opacity: 0;      /*实先规定文字的状态是不显示的*/
-    animation: fade-in 4s ease 0s 1;    /*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*/
-    -webkit-animation: fade-in 4s ease 0s 1;
-    -moz-animation: fade-in 4s ease 0s 1;
-    -o-animation: fade-in 4s ease 0s 1;
-    -ms-animation: fade-in 4s ease 0s 1;
+    animation: fade-in 1s ease 0s 1;    /*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*/
+    -webkit-animation: fade-in 1s ease 0s 1;
+    -moz-animation: fade-in 1s ease 0s 1;
+    -o-animation: fade-in 1s ease 0s 1;
+    -ms-animation: fade-in 1s ease 0s 1;
     
     /*规定动画的最后状态为结束状态*/
     animation-fill-mode:forwards;
@@ -547,11 +550,11 @@ input[type="radio"]:checked::before{
 .second-words{ 
     text-align: center;
     opacity: 0;    
-    animation: fade-in 4s ease 2s 1;
-    -webkit-animation: fade-in 4s ease 2s 1;
-    -moz-animation: fade-in 4s ease 2s 1;
-    -o-animation: fade-in 4s ease 2s 1;
-    -ms-animation: fade-in 4s ease 2s 1;
+    animation: fade-in 1s ease 1s 1;
+    -webkit-animation: fade-in 1s ease 1s 1;
+    -moz-animation: fade-in 1s ease 1s 1;
+    -o-animation: fade-in 1s ease 1s 1;
+    -ms-animation: fade-in 1s ease 1s 1;
     
     /*规定动画的最后状态为结束状态*/
     animation-fill-mode:forwards;
@@ -562,11 +565,11 @@ input[type="radio"]:checked::before{
 }
 .third-words{ 
     opacity: 0;    
-    animation: fade-in 4s ease 4s 1;
-    -webkit-animation: fade-in 4s ease 4s 1;
-    -moz-animation: fade-in 4s ease 4s 1;
-    -o-animation: fade-in 4s ease 4s 1;
-    -ms-animation: fade-in 4s ease 4s 1;
+    animation: fade-in 1s ease 2s 1;
+    -webkit-animation: fade-in 41 ease 2s 1;
+    -moz-animation: fade-in 1s ease 2s 1;
+    -o-animation: fade-in 1s ease 2s 1;
+    -ms-animation: fade-in 1s ease 2s 1;
     
     /*规定动画的最后状态为结束状态*/
     animation-fill-mode:forwards;
@@ -579,11 +582,11 @@ input[type="radio"]:checked::before{
     margin-right: -3rem;
     margin-top: 1rem;
     opacity: 0;    
-    animation: fade-in 4s ease 6s 1;
-    -webkit-animation: fade-in 4s ease 6s 1;
-    -moz-animation: fade-in 4s ease 6s 1;
-    -o-animation: fade-in 4s ease 6s 1;
-    -ms-animation: fade-in 4s ease 6s 1;
+    animation: fade-in 1s ease 3s 1;
+    -webkit-animation: fade-in 1s ease 3s 1;
+    -moz-animation: fade-in 1s ease 3s 1;
+    -o-animation: fade-in 1s ease 3s 1;
+    -ms-animation: fade-in 1s ease 3s 1;
     
     /*规定动画的最后状态为结束状态*/
     animation-fill-mode:forwards;
@@ -595,11 +598,11 @@ input[type="radio"]:checked::before{
 .five-words{ 
     margin-right: -4rem;
     opacity: 0;    
-    animation: fade-in 4s ease 8s 1;
-    -webkit-animation: fade-in 4s ease 8s 1;
-    -moz-animation: fade-in 4s ease 8s 1;
-    -o-animation: fade-in 4s ease 8s 1;
-    -ms-animation: fade-in 4s ease 8s 1;
+    animation: fade-in 1s ease 4s 1;
+    -webkit-animation: fade-in 1s ease 4s 1;
+    -moz-animation: fade-in 1s ease 4s 1;
+    -o-animation: fade-in 1s ease 4s 1;
+    -ms-animation: fade-in 1s ease 4s 1;
     
     /*规定动画的最后状态为结束状态*/
     animation-fill-mode:forwards;
@@ -610,11 +613,11 @@ input[type="radio"]:checked::before{
 }
 .six-words{ 
     opacity: 0;    
-    animation: fade-in 4s ease 10s 1;
-    -webkit-animation: fade-in 4s ease 10s 1;
-    -moz-animation: fade-in 4s ease 10s 1;
-    -o-animation: fade-in 4s ease 10s 1;
-    -ms-animation: fade-in 4s ease 10s 1;
+    animation: fade-in 1s ease 5s 1;
+    -webkit-animation: fade-in 1s ease 5s 1;
+    -moz-animation: fade-in 1s ease 5s 1;
+    -o-animation: fade-in 1s ease 5s 1;
+    -ms-animation: fade-in 1s ease 5s 1;
     
     /*规定动画的最后状态为结束状态*/
     animation-fill-mode:forwards;
@@ -625,7 +628,7 @@ input[type="radio"]:checked::before{
 }
 
 .big-words{
-  font-size: 1.3rem;
+  font-size: 1.2rem;
 }
 .bold-words {
   font-weight: bold;
@@ -635,7 +638,7 @@ input[type="radio"]:checked::before{
   letter-spacing: 0.1rem;
 }
 .small-words {
-  font-size: 0.5rem;
+ font-size: 0.9rem;
 }
 
 /*适配iphonex*/
@@ -665,7 +668,8 @@ input[type="radio"]:checked::before{
         margin-left: -2rem;
     }
     .wl {
-      left: 43%;
+      left: 50%;
+        -webkit-transform: translateX(-50%);
     }
 }
 /*plus*/
@@ -715,7 +719,8 @@ input[type="radio"]:checked::before{
       height: 120%;
    }
    .wl {
-    left: 40%;
+      left: 50%;
+       -webkit-transform: translateX(-50%);
    }
    .view .top .img {
     margin-left: 1rem !important;

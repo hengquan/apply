@@ -51,6 +51,13 @@
 	.checkb {
 		position: relative;
 	}
+	.spanlab{
+		background-color: transparent;
+	    width: 1.4rem;
+	    height: 1.6rem;
+	    position: absolute;
+	    top: 1rem;
+	}
 </style>
 </head>
 <body onresize="document.activeElement.scrollIntoView(true);">
@@ -104,13 +111,13 @@
 		      <div class="wyinput-drop"></div>
 			</div>
 
-			<span class="tips">˙(请输入区域中心/事业部/职能部门)</span>
+			<span class="tips">˙(请输入区域中心/事业部/职能部门，请勿输入二级部门)</span>
 
 			<div class="inp">
-				<span>电话</span> <input type="text" name="phone" id="phone" placeholder="请输入电话">
+				<span>电话</span> <input type="text" maxlength="11" name="phone" id="phone" placeholder="请输入电话">
 			</div>
 			<div class="inp checkb">
-				<span>否乘坐班车</span>
+				<span>是否乘坐班车</span>
 				<div class="checkout-box">
 					<div class="checkbox checkboxleft" onclick="showIsbusTime()">
 						<span>是</span> 
@@ -130,7 +137,9 @@
 				<select name="descn" id="descn">
 					<option value="9月19日发车13:00,返程17:00">9月19日发车13:00,返程17:00</option>
 					<option value="9月20日发车8:30,返程12:30">9月20日发车8:30,返程12:30</option>
-				</select> <span class="triangle-right triangle-down"></span>
+				</select> 
+				<span class="triangle-right triangle-down" >
+					<label for="descn" class="spanlab"></label></span>
 			</div>
 			<div class="btn-save" onclick="subData()">提交</div>
 		</div>
@@ -147,6 +156,12 @@
 	<!-- bootstrap-select -->
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.4/js/bootstrap-select.min.js"></script>
 	<script type="text/javascript">
+        if(/os 12/ig.test(navigator.userAgent)){
+            document.body.addEventListener('blur',function(){
+                window.scrollTo(0,0);
+            },true);
+        }
+        $('body').height($('body')[0].clientHeight);//填写表单时候的bug
 		$(function() {
 			 // $("#myInput").wy_inselect([{name:'紫色'},{name:'yellow'},{name:'pink'},{name:'whrite'},{name:'yellow1'},{name:'yellow2'},{name:'yellow3'},{name:'yellow4'}]); 
 			 //showIsbusTime();
@@ -238,7 +253,7 @@
 					console.log(data);
 					if (data.code == "200") {
 						//渲染首页频道列表
-						alert("报名成功！后续工作人员与您联系。")
+						alert("您已成功报名！我们将会与您联系确认参会事宜。")
 					} else {
 						console.log(data.msg);
 					}

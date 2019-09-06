@@ -89,114 +89,22 @@
     	 <img class="phone-img shouji" src="./images/bg_fdj.png" alt="">
     	 <p class="page3-tips">旋转观看更多</p>
      </div>
-<!-- <script src="http://cdn.happy-share.cn/vconsole.min.js"></script> -->
+<script src="http://cdn.happy-share.cn/vconsole.min.js"></script>
 
 <script type="text/javascript">
-	function readyFn() {
-	  'use strict';
-
-	  var dom = document.querySelector('.big-bg'),
-	      img = dom.querySelector('img');
-	  var IMG_W = img.width,
-	      IMG_H = img.height;
-	  var WIN_W = document.documentElement.clientWidth,
-	      WIN_H = document.documentElement.clientHeight;
-	  var timefragment = 0,               // 时间片计时
-	      nowts = 0;                      // 当前时间
-
-	  // 设置默认的left/top
-	  // dom.style.top = -(IMG_W - WIN_W) / 2 + 'px';
-
-	  $('.view').scrollLeft((IMG_W - WIN_W)/2)
-	  console.log('11-----', IMG_W - WIN_W);
-
-	  //手动滑动
-        $(".view").scroll(function() {
-            if($('.view').scrollLeft() < 125 ) {
-                // $(".feiji").addClass("feijixg");
-                $(".fade-in-words-box").css("display", "block");
-            } else {
-                // $(".feiji").removeClass("feijixg");
-                // $(".fade-in-words-box").css("display", "none");
-            }
-            // 右边字显示效果
-            if(IMG_W-$('.view').scrollLeft() < 535) {
-                $(".fade-in-words-right-box").css("display", "block");
-            }
-
-            $('.shouji').attr('src', './images/page3-dianji.png')
-            $('.phone-more').attr('onclick', `signUp()`)
-            $('.page3-tips').html("速速报名")
-        });
-	  window.addEventListener('touchend', function(evt) {
-	      console.log('in')
-	  	nowts = new Date().getTime();
-		  // console.log( $('.view').scrollLeft())
-	      // 控制时间片
-	    /*  if (nowts  - timefragment > 37) {
-	          timefragment = nowts;
-	          var beta = evt.touches[0].clientX,            //横向 X 轴 -180 ~ 180
-	              gamma = evt.touches[0].clientY;          //纵向 Y 轴 -90 ~ 90
-	          var top = parseInt(dom.style.top, 10) || 0,
-	              left = parseInt(dom.style.left, 10) || 0;
-	          var _top, _left;
-	          _top = top + (beta / 180 * 30);
-	          _left = left + (gamma / 90 * 30);
-	          _top = _top >= 0 ? 0 : (_top < (WIN_H - IMG_H) ? (WIN_H - IMG_H) : _top);
-			  _left = _left <= 0 ? 0 : (_left < (IMG_W-WIN_W ) ?_left: (IMG_W - WIN_W ) );
-			  console.log('_left: ', _left)
-			  // 左边字显示效果
-
-	       /!*   dom.style.top = _top + 'px';
-	          dom.style.left = _left + 'px';*!/
-	      }*/
-
-	  }, false)
-
-	  //重力感应
-	  window.addEventListener('deviceorientation', function (evt) {
-	      nowts = new Date().getTime();
-	      // 控制时间片
-		  var sL = $('.view').scrollLeft()
-	      if (nowts  - timefragment > 37) {
-	          timefragment = nowts;
-	          var alpha = evt.alpha,          //垂直于屏幕的轴 0 ~ 360
-	              beta = evt.beta,            //横向 X 轴 -180 ~ 180
-	              gamma = evt.gamma;          //纵向 Y 轴 -90 ~ 90
-	          var top = parseInt(dom.style.top, 10) || 0,
-	              left = parseInt(dom.style.left, 10) || 0;
-	          var _top, _left;
-			   sL -=(left +(gamma / 90 * 30))
-			  sL = sL<= 0 ? 0 : (sL < (IMG_W-WIN_W )?sL:IMG_W-WIN_W ) ;
-	           
-	          console.log('==重力==', sL);
-
-	             // 左边字显示效果
-	          if(sL < 50) {
-	          	// $(".feiji").addClass("feijixg");
-	          	$(".fade-in-words-box").css("display", "block");
-	          } else {
-	          	// $(".feiji").removeClass("feijixg");
-	          	// $(".fade-in-words-box").css("display", "none");
-	          }
-	          // 右边字显示效果
-	          if(sL > 1000) {
-	          	$(".fade-in-words-right-box").css("display", "block");
-	          }
-
-			  // console.log(sL,'_')
-			  $('.view').scrollLeft(sL)
-	      }
-
-	      $('.shouji').attr('src', './images/page3-dianji.png')
-	      $('.shouji').attr('onclick', `signUp()`)
-	      $('.page3-tips').html("速速报名")
-
+	if (window.DeviceOrientationEvent) {
+	  window.addEventListener('deviceorientation', function (event) {
+	    var alpha = event.alpha,
+	      beta = event.beta,
+	      gamma = event.gamma;
+		    var translateX=parseInt(Math.round(alpha)*10);
+		    $(".big-bg").css({
+		      'transform':'translateX('+translateX+'px)'
+		          // 'transform': 'translateX(10px)'
+		    })	
 	  }, false);
-	}
-	
-	window.onload=function () {
-		readyFn()
+	} else {
+	    // document.querySelector('body').innerHTML = '你的浏览器不支持陀螺仪';
 	}
 	
 
