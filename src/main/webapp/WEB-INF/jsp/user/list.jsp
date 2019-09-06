@@ -91,8 +91,8 @@
 													<c:if test="${!empty u.moduleName}">${u.moduleName }</c:if>
 												</td>
 												<td class="hidden-phone">
-													<c:if test="${u.selfprojauth eq '0' }">不坐班车</c:if>
-													<c:if test="${u.selfprojauth eq '1' }">乘坐班车</c:if>
+													<c:if test="${u.selfprojauth eq '0' }">否</c:if>
+													<c:if test="${u.selfprojauth eq '1' }">是</c:if>
 												</td>
 												<td class="hidden-phone">${u.descn}</td>
 												<td class="hidden-phone"><fmt:formatDate
