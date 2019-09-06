@@ -67,24 +67,23 @@
 			</div>
 
 			<div class="content-des">
-				<p class="title">同方威视高能产品本部2019年新产品推介会</p>
 				<table>
 					<tr>
-						<td><span class="triangle-right"></span> <span>
-								活动时间： </span></td>
+						<td><span class="triangle-right"></span>
+						 <span>活动时间:</span></td>
 						<td>
 							<p>9月19日 下午13:00-17:00</p>
 							<p>9月20日 上午09:30-12:00</p>
 						</td>
 					</tr>
 					<tr>
-						<td><span class="triangle-right"></span> <span>活动地点：</span>
+						<td><span class="triangle-right"></span> <span>活动地点:</span>
 
 						</td>
 						<td>同方威视密云厂区9号厂房</td>
 					</tr>
 					<tr>
-						<td><span class="triangle-right"></span> <span>活动地址：</span>
+						<td><span class="triangle-right"></span> <span>活动地址:</span>
 						</td>
 						<td>北京市密云区园林路18号</td>
 					</tr>
@@ -98,11 +97,6 @@
 			<div class="inp">
 				<span>姓名</span> <input type="text" name="realName"  placeholder="请输入姓名" id="realName">
 			</div>
-
-			<!-- <div class="inp inp-select">
-				<span>部门</span> <select class="selectpicker" name="moduleId" id="moduleId" data-live-search="true"></select>
-			</div> -->
-
 			<div class="wyInput inp" id="myInput">
 		      <div class="wyinput-group">
 		         <span>部门</span>  <input type="text" placeholder="请选择部门" name="moduleId" id="moduleId" >
@@ -115,19 +109,18 @@
 			<div class="inp">
 				<span>电话</span> <input type="text" name="phone" id="phone" placeholder="请输入电话">
 			</div>
-
 			<div class="inp checkb">
-				<span>是否自驾</span>
+				<span>否乘坐班车</span>
 				<div class="checkout-box">
-					<div class="checkbox checkboxleft" onclick="hideIsbusTime()">
+					<div class="checkbox checkboxleft" onclick="showIsbusTime()">
 						<span>是</span> 
-						<input type="radio" name="selfProjAuth" value="1">
+						<input type="radio" name="selfProjAuth" checked value="1">
 							<label for="btn1"></label>
 					</div>
-					<div class="checkbox checkboxright" onclick="showIsbusTime()">
-						<span>否</span> <input type="radio" name="selfProjAuth"
-							value="2"><label for="btn1"></label>
-
+					<div class="checkbox checkboxright" onclick="hideIsbusTime()">
+						<span>否</span> 
+						<input type="radio"  name="selfProjAuth"
+							value="0"><label for="btn1"></label>
 					</div>
 				</div>
 				<div style="clear: both;"></div>
@@ -156,6 +149,7 @@
 	<script type="text/javascript">
 		$(function() {
 			 // $("#myInput").wy_inselect([{name:'紫色'},{name:'yellow'},{name:'pink'},{name:'whrite'},{name:'yellow1'},{name:'yellow2'},{name:'yellow3'},{name:'yellow4'}]); 
+			 showIsbusTime();
 
 			//获取所有部门信息
 			$.ajax({
