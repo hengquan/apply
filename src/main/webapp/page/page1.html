@@ -155,14 +155,14 @@
 	    dInterval = setInterval(function() {
 	    	_door++;
 	      if(_door == 1) {
-	      	$(".max-door").css("box-shadow", "0 0 30px #261555, 0 0 30px #261555, 0 0 30px #261555, 0 0 30px #261555");
-	        $(".max-door").css("-webkit-box-shadow", "0 0 30px #261555, 0 0 30px #261555, 0 0 30px #261555, 0 0 30px #261555");
+	      	$(".max-door").css("box-shadow", "0 0 12px #261555, 0 0 12px #261555, 0 0 12px #261555");
+	        $(".max-door").css("-webkit-box-shadow", "0 0 12px #261555, 0 0 12px #261555, 0 0 12px #261555");
 	      }else if (_door == 2) {
-	        $(".middle-door").css("box-shadow", "0 0 30px #0191d3, 0 0 30px #0191d3, 0 0 30px #0191d3, 0 0 30px #0191d3");
-	        $(".middle-door").css("-webkit-box-shadow", "0 0 30px #0191d3, 0 0 30px #0191d3, 0 0 30px #0191d3, 0 0 30px #0191d3");
+	        $(".middle-door").css("box-shadow", "0 0 12px #0191d3, 0 0 12px #0191d3, 0 0 12px #0191d3");
+	        $(".middle-door").css("-webkit-box-shadow", "0 0 12px #0191d3, 0 0 12px #0191d3, 0 0 12px #0191d3");
 	      } else if (_door == 3) {
- 			$(".mix-door").css("box-shadow", "0 0 30px #d81671, 0 0 30px #d81671, 0 0 30px #d81671, 0 0 30px #d81671");
-	        $(".mix-door").css("-webkit-box-shadow", "0 0 30px #d81671, 0 0 30px #d81671, 0 0 30px #d81671, 0 0 30px #d81671");
+ 			$(".mix-door").css("box-shadow", "0 0 12px #d81671, 0 0 12px #d81671, 0 0 12px #d81671,");
+	        $(".mix-door").css("-webkit-box-shadow", "0 0 12px #d81671, 0 0 12px #d81671, 0 0 12px #d81671");
 	      } else if(_door == 4) {
 	      	$(".max-door").css("box-shadow", "");
 	        $(".max-door").css("-webkit-box-shadow", "");
@@ -174,14 +174,14 @@
 	        $(".mix-door").css("-webkit-box-shadow", "");
 			_door = 0
 	      }
-	    }, 400);
+	    }, 600);
     });
     
     function onfuture() {
         $(".i").css("width","100%");
         setTimeout(function(){ 
             window.location.href="./page2.html"
-        }, 500);
+        }, 1000);
     }
     // 星星
     // 自调用函数，在加载该文件时就开始工作
