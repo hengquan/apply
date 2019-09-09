@@ -147,7 +147,7 @@
   margin-top: -3rem;
 }
 .wordss { 
-    font-size: 24px; 
+    font-size: 36px;
     color:#fff; 
     margin: 10px;
     animation: changeshadow 1s  ease-in  infinite ;
@@ -286,7 +286,7 @@
   color: #fff;
   font-size: 16px;
   padding: 6px 0;
-  width: 15.6rem;
+  width: 66%;
   margin-left: 2%;
   border: 0px;
   outline: none;
@@ -296,9 +296,10 @@
 .tips {
   display: block;
   text-align: left;
-  margin-left: 2rem;
+  margin-left: 1.5rem;
   font-size: 10px;
-  margin-top: -12px;
+  margin-top: -4px;
+  width: 91%;
 }
 .checkb {
     display: flex;
@@ -308,7 +309,7 @@
   overflow:hidden; 
   white-space:nowrap; 
   text-overflow:ellipsis;
-  margin: 6px 0;
+  margin: 6px 3px;
 }
 .checkbox {
   width: 60px;
@@ -379,6 +380,7 @@ input[type="radio"]:checked::before{
   font-weight: bold;
 }
 .triangle-down {
+    pointer-events: none;
   position: absolute;
   top: 13px;
   right: 9px;
@@ -414,7 +416,7 @@ input[type="radio"]:checked::before{
 .wl{
     position: absolute;
     height: 8rem !important;
-    top: 10rem;
+    top: 8rem;
     left: 50%;
     -webkit-transform: translateX(-50%);
     animation: fadeInLeft 1s ease;
@@ -478,8 +480,8 @@ input[type="radio"]:checked::before{
     margin: 0 auto;
     text-align: right;
     position: absolute;
-    left: 6rem;
-    top: 12rem;
+    left: 50px;
+    top: 40px;
     width: 27rem;
     color: #fff;
     text-shadow: 0 0 0.2em #FFF, 0 0 1em #FFF;
@@ -491,7 +493,7 @@ input[type="radio"]:checked::before{
     text-align: right;
     position: absolute;
     right: 6rem;
-    top: 14rem;
+    top: 7rem;
     width: 15rem;
     color: #fff;
     text-shadow: 0 0 0.2em #FFF, 0 0 1em #FFF;
@@ -534,66 +536,66 @@ input[type="radio"]:checked::before{
     margin-left: 2rem;
     text-align: left;
     opacity: 0;      /*实先规定文字的状态是不显示的*/
-    animation: fade-in 1s ease 0s 1;    /*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*/
+/*    animation: fade-in 1s ease 0s 1;    !*调用名称为fade-in的动画，全程动画显示时间4S，进入方式为ease，延时0S进入，播放次数1次*!
     -webkit-animation: fade-in 1s ease 0s 1;
     -moz-animation: fade-in 1s ease 0s 1;
     -o-animation: fade-in 1s ease 0s 1;
     -ms-animation: fade-in 1s ease 0s 1;
     
-    /*规定动画的最后状态为结束状态*/
+    !*规定动画的最后状态为结束状态*!
     animation-fill-mode:forwards;
     -webkit-animation-fill-mode: forwards;  
       -o-animation-fill-mode: forwards; 
       -ms-animation-fill-mode: forwards;   
-      -moz-animation-fill-mode: forwards; 
+      -moz-animation-fill-mode: forwards; */
 }
 .second-words{ 
     text-align: center;
     opacity: 0;    
-    animation: fade-in 1s ease 1s 1;
+/*    animation: fade-in 1s ease 1s 1;
     -webkit-animation: fade-in 1s ease 1s 1;
     -moz-animation: fade-in 1s ease 1s 1;
     -o-animation: fade-in 1s ease 1s 1;
     -ms-animation: fade-in 1s ease 1s 1;
     
-    /*规定动画的最后状态为结束状态*/
+    !*规定动画的最后状态为结束状态*!
     animation-fill-mode:forwards;
     -webkit-animation-fill-mode: forwards;  
       -o-animation-fill-mode: forwards; 
       -ms-animation-fill-mode: forwards;   
-      -moz-animation-fill-mode: forwards; 
+      -moz-animation-fill-mode: forwards; */
 }
 .third-words{ 
-    opacity: 0;    
+/*    opacity: 0;
     animation: fade-in 1s ease 2s 1;
     -webkit-animation: fade-in 41 ease 2s 1;
     -moz-animation: fade-in 1s ease 2s 1;
     -o-animation: fade-in 1s ease 2s 1;
     -ms-animation: fade-in 1s ease 2s 1;
     
-    /*规定动画的最后状态为结束状态*/
+    !*规定动画的最后状态为结束状态*!
     animation-fill-mode:forwards;
     -webkit-animation-fill-mode: forwards;  
       -o-animation-fill-mode: forwards; 
       -ms-animation-fill-mode: forwards;   
-      -moz-animation-fill-mode: forwards; 
+      -moz-animation-fill-mode: forwards; */
 }
 .four-words{ 
     margin-right: -3rem;
     margin-top: 1rem;
-    opacity: 0;    
+/*    opacity: 0;
     animation: fade-in 1s ease 3s 1;
     -webkit-animation: fade-in 1s ease 3s 1;
     -moz-animation: fade-in 1s ease 3s 1;
     -o-animation: fade-in 1s ease 3s 1;
     -ms-animation: fade-in 1s ease 3s 1;
     
-    /*规定动画的最后状态为结束状态*/
+    !*规定动画的最后状态为结束状态*!
     animation-fill-mode:forwards;
     -webkit-animation-fill-mode: forwards;  
       -o-animation-fill-mode: forwards; 
       -ms-animation-fill-mode: forwards;   
-      -moz-animation-fill-mode: forwards; 
+      -moz-animation-fill-mode: forwards; */
 }
 .five-words{ 
     margin-right: -4rem;
@@ -656,10 +658,10 @@ input[type="radio"]:checked::before{
       margin-top: 3rem;          
     }
     .fade-in-words{
-      top: 14rem;
+      top: 4rem;
     }
    .fade-in-words-right {
-      top: 17.5rem;
+      top: 9.5rem;
       width: 15rem;
       margin-right: 3rem;
     }

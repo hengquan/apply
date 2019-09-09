@@ -1,4 +1,4 @@
-var _url = location.href.split('#')[0];
+﻿var _url = location.href.split('#')[0];
 
 $(function(){
    $.ajax({
@@ -38,10 +38,10 @@ function wxLoading(obj) {
 
   wx.ready(function() {
     var info = {
-      title: "同方威视",
-      desc: "高能产品本部2019年您产品推介会",
+      title: "未来已来",
+      desc: "同方威视高能产品本部2019年新产品推介会",
       link: "http://ws.ruikj.cn/apply/page/index.html",
-      imgUrl: "http://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRt8Qia4lv7k3M9J1SKqKCImxJCt7j9rHYicKDI45jRPBxdzdyREWnk0ia0N5TMnMfth7SdxtzMvVgXg/0",// 分享图标
+      imgUrl: "http://ws.ruikj.cn/apply/page/images/share.jpeg?1",// 分享图标
     }
     // 分享给好友
     wx.onMenuShareAppMessage({

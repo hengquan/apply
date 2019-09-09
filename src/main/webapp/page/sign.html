@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport"
 	content="widt=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-<title>威视</title>
+<title>同方威视</title>
 <link type="text/css" rel="stylesheet" href="css/main.css">
 
 <!-- bootstrap -->
@@ -39,7 +39,7 @@
 	.checkboxleft{
 		right: 3rem;
     	top: -1rem;
-    	margin-right: 10px;
+    	margin-right: 20px;
 	}
 	.checkboxright{
 		right: 0;
@@ -58,6 +58,12 @@
 	    position: absolute;
 	    top: 1rem;
 	}
+	 input {
+    	outline:none;
+	    border:none;
+	    /**修改颜色*/
+	    outline-color: transparent !important;
+    }
 </style>
 </head>
 <body onresize="document.activeElement.scrollIntoView(true);">
@@ -87,7 +93,7 @@
 						<td><span class="triangle-right"></span> <span>活动地点:</span>
 
 						</td>
-						<td>同方威视密云厂区9号厂房</td>
+						<td>同方威视密云厂区</td>
 					</tr>
 					<tr>
 						<td><span class="triangle-right"></span> <span>活动地址:</span>
@@ -106,19 +112,19 @@
 			</div>
 			<div class="wyInput inp" id="myInput">
 		      <div class="wyinput-group">
-		         <span>部门</span>  <input type="text" placeholder="请选择部门" name="moduleId" id="moduleId" >
+		         <span>部门</span>  <input type="text" placeholder="请填写部门" name="moduleId" id="moduleId" >
 		      </div>
 		      <div class="wyinput-drop"></div>
 			</div>
 
-			<span class="tips">˙(请输入区域中心/事业部/职能部门，请勿输入二级部门)</span>
+			<span class="tips">(请输入区域中心/事业部/本部/职能部门名称，无需输入二级部门名称)</span>
 
 			<div class="inp">
 				<span>电话</span> <input type="text" maxlength="11" name="phone" id="phone" placeholder="请输入电话">
 			</div>
 			<div class="inp checkb">
-				<span>是否乘坐班车</span>
-				<div class="checkout-box">
+				<span>是否预订活动班车</span>
+				<div class="checkout-box" style="width: 60%;">
 					<div class="checkbox checkboxleft" onclick="showIsbusTime()">
 						<span>是</span> 
 						<input type="radio" name="selfProjAuth" value="1">
@@ -133,13 +139,29 @@
 				<div style="clear: both;"></div>
 			</div>
 			<div class="inp isbus" style="position: relative;">
-				<span>您想乘坐哪班车</span> 
-				<select name="descn" id="descn">
-					<option value="9月19日发车13:00,返程17:00">9月19日发车13:00,返程17:00</option>
-					<option value="9月20日发车8:30,返程12:30">9月20日发车8:30,返程12:30</option>
-				</select> 
-				<span class="triangle-right triangle-down" >
-					<label for="descn" class="spanlab"></label></span>
+				<!-- <span>您想乘坐哪班车</span>  -->
+				<!-- <select name="descn" id="descn">
+					<option value="9月19日 发车 13:00,返程 17:00">9月19日 发车 13:00,返程 17:00</option>
+					<option value="9月20日 发车 8:00,返程 12:30">9月20日 发车 8:00,返程 12:30</option>
+				</select>  -->
+
+
+				<div class="checkout-box" style=" margin: 10px 20px; line-height: 20px; width: 93%;margin: 12px auto;">
+					<span style="margin-left: 0rem;">您想乘坐哪班班车</span>
+					<div>
+						<input type="radio" name="descn" value="9月19日 发车&nbsp; 12:30,返程 17:00">
+							<label for="btn1"></label>
+							<span style="margin-left: 7px;">9月19日 发车&nbsp; 12:30，返程 17:00</span> 
+					</div>
+					<div>
+						<input type="radio"  name="descn" value="9月20日 发车 8:00,返程 12:30"><label for="btn1"></label>
+							<span>9月20日 发车&nbsp; 08:00，返程 12:30</span>
+					</div>
+				</div>
+
+
+				<!-- <span class="triangle-right triangle-down" >
+					<label for="descn" class="spanlab"></label></span> -->
 			</div>
 			<div class="btn-save" onclick="subData()">提交</div>
 		</div>
@@ -226,9 +248,10 @@
           return false;
       }
 			
-			var descn = $("#descn").val();
+			// var descn = $("#descn").val();
 			var selfProjAuth;
 			var obj = document.getElementsByName("selfProjAuth");
+			var descn =  $('input[name="descn"]:checked').val();
 			var check_val = [];
 			for (var k in obj) {
 				if (obj[k].checked)
@@ -242,6 +265,7 @@
 					"descn" : descn,
 					"selfprojauth" : selfProjAuth
 			}
+		
 			//提交信息
 			$.ajax({
 				type : 'post',
@@ -253,7 +277,7 @@
 					console.log(data);
 					if (data.code == "200") {
 						//渲染首页频道列表
-						alert("您已成功报名！我们将会与您联系确认参会事宜。")
+						alert("您已成功报名！我们将会与您联系确认参会事宜")
 					} else {
 						console.log(data.msg);
 					}

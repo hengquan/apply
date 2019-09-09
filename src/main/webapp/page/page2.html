@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<title>威视</title>
+	<title>同方威视</title>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><!-- 默认使用最新浏览器 -->
     <meta http-equiv="Cache-Control" content="no-siteapp"><!-- 不被网页(加速)转码 -->
@@ -41,6 +41,170 @@
 	    .top .img:first-child {
 		    margin-right: 12rem;
 		}
+		.fade-in-words{
+			width: 397px;
+			height: 351px;
+		}
+		.fade-in-words img{
+			width: 100%;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			left: 0;
+		}
+		.delay-1{
+			-webkit-animation-delay: 0.2s;
+		}
+		.delay-2{
+			-webkit-animation-delay: 0.4s;
+		}
+		.delay-3{
+			-webkit-animation-delay: 0.6s;
+		}
+		.delay-4{
+			-webkit-animation-delay: 0.8s;
+		}
+		.delay-5{
+			-webkit-animation-delay: 1s;
+		}
+		.delay-6{
+			-webkit-animation-delay: 1.2s;
+		}
+		.delay-7{
+			-webkit-animation-delay: 1.4s;
+		}
+		.left{
+			width: 45px;
+			height: 52px;
+			position: fixed;
+			top: 50%;
+			margin-top: -26px;
+			left: 20px;
+			-webkit-animation: left 1s linear infinite ;
+		}
+		@keyframes left {
+			0%{
+				-webkit-transform: translateX(0);
+			}
+
+			50%{
+				-webkit-transform: translateX(-20px);
+			}
+			100%{
+				-webkit-transform: translateX(0px);
+			}
+		}
+		@keyframes right {
+			0%{
+				-webkit-transform: translateX(0);
+			}
+
+			50%{
+				-webkit-transform: translateX(20px);
+			}
+			100%{
+				-webkit-transform: translateX(0px);
+			}
+		}
+
+		.right{
+			width: 45px;
+			height: 52px;
+			position: fixed;
+			top: 50%;
+			margin-top: -26px;
+			right: 20px;
+			-webkit-animation: right 1s linear infinite;
+		}
+		.notice{
+			height: 35px;
+			width: auto;
+			display: none;
+			color: #fff;
+			font-size: 16px;
+			-webkit-animation: notice 1s linear infinite;
+		}
+		@keyframes notice {
+			0%{
+				-webkit-transform: scale(1);
+			}
+			50%{
+				-webkit-transform: scale(1.1);
+			}
+			100%{
+				-webkit-transform: scale(1);
+			}
+		}
+		.feiji{
+			width: 210px;
+			height: auto;
+			top: -100px;
+			left: 200px;
+			-webkit-animation: feiji  0.5s linear ;
+			-webkit-transform: translate(250px,150px);
+			display: none;
+			-webkit-animation-fill-mode: forwards;
+		}
+		@keyframes feiji {
+			0%{
+				-webkit-transform: translate(50px,100px);
+			}
+			100%{
+				-webkit-transform: translate(0px,0px);
+			}
+		}
+		.bg{
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			-webkit-animation: bg 1s linear infinite;
+		}
+		@keyframes bg {
+			0%{
+				opacity: 0;
+			}
+			50%{
+				opacity: 1;
+			}
+			100%{
+				opacity: 0;
+			}
+		}
+		.android{
+            display: none;
+			height: 30px;
+			color: #fff;
+			font-size: 16px;
+			-webkit-animation: notice 1s linear infinite;
+		}
+		.leftTxt{
+			position: fixed;
+			left: 5px;
+			top: 50%;
+			margin-top: 30px;
+			text-align: left;
+		}
+		.rightTxt{
+			position: fixed;
+			right: 5px;
+			top: 50%;
+			margin-top: 30px;
+			text-align: right;
+		}
+		.androidTxt1{
+			position: fixed;
+			left: 5px;
+			top: 50%;
+			margin-top: 30px;
+			text-align: left;
+		}
+		.androidTxt2{
+			position: fixed;
+			right: 5px;
+			top: 50%;
+			margin-top: 30px;
+			text-align: left;
+		}
 	</style>
 
 <body>
@@ -55,33 +219,49 @@
 		</div>
 	    <div class="big-bg" >
 	        <img src="./images/page03a.jpg" alt="" />
+	        <img src="./images/bg.png" class="bg" />
 	        <!-- <img src="./images/page2-feiji.png" class="feiji feijixg"> -->
 	        <!-- 文字淡入 -->
 	        <div class="fade-in-words-box">
-	        	<div class="fade-in-words">
-		            <div class="first-words small-words">高能产品本部 <span class="middlewords middle-words">诚邀您亲临</span></div>
-		            <div class="second-words big-words bold-words">2019年新产品推介会，</div>
-		            <div class="third-words small-words">届时可现场体验与参观：</div>
-		            <div class="four-words middle-words">新产品实物发布区及展示区<span class="">（9号厂房北侧）</span></div>
-		            <div class="five-words middle-words " style="margin-top: 1rem;">职能制造全流程<span class="">（10号厂房脉动生产线 —></span> </div>
-		            <div class="five-words middle-words">4号厂加速器车间 —> </div>
-		            <div class="five-words middle-words">9号厂房探测器车间） </div>
-		            <div class="six-words middle-words">宽能谱展示中心 <span class="">（9号厂房南侧）</span></div>
+	        	<div class="fade-in-words" style="line-height: 2.2rem;    margin-top: 6rem;" >
+	        		<p class="first-words animated fadeInUp" style="font-size: 1.7rem;">诚邀您亲临</p>
+	        		<p class="first-words animated fadeInUp delay-2" style="    margin-left: 3rem;margin-top: 1rem;">·新产品发布及展示区(9号厂房)</p>
+	        		<p class="first-words animated fadeInUp delay-3" style="    margin-left: 4rem;">·宽能谱展示中心(9号厂房)</p>
+	        		<p class="first-words animated fadeInUp delay-4" style="    margin-left: 5rem;">·智造100展示区(10号厂房)</p>
+	        		<p class="first-words animated fadeInUp delay-5" style="    margin-left: 6rem;">·加速器智能产线(4号厂房)</p>
+	        		<p class="first-words animated fadeInUp delay-6" style="    margin-left: 7rem;">·探测器智能产线(9号厂房)</p>
+					<!-- <img src="images/t1.png?v=1" />
+					<img src="images/t3.png"/>
+					<img src="images/t4.png" />
+					<img src="images/t5.png" />
+					<img src="images/t6.png" />
+					<img src="images/t7.png" "/> -->
 		        </div>
 	        </div>
-
 	        <div class="fade-in-words-right-box">
 	        	<div class="fade-in-words-right">
-		            <div class="first-words small-words">•多款产品 <span class="middlewords big-words">首次发布</span></div>
-		             <div class="second-words big-words">•智能创造 <span class="middlewords small-words">流程展示</span></div>
-		            <div class="third-words small-words">•产品实物 <span class="middlewords big-words">操作演示</span></div>
+		            <div class="first-words small-words animated fadeInUp ">
+		            	多款产品 
+		            	<span style="margin-left: 4rem;">产品实物</span>
+		            </div>
+		             <div class="second-words big-words animated fadeInUp delay-1" style="margin-top:-1rem;    margin-left: -3rem; font-size: 1.5rem; width: 140%;">
+		             	<span >首次发布</span>
+		             	
+		             	<span style="margin-left: 1.3rem;">操作演示</span>
+		             </div>
+		            <div class="third-words small-words animated fadeInUp delay-2" style="margin-top:0.4rem;font-size: 1.6rem;font-size: 1.5rem; width: 140%; margin-left: -2rem;">		            	 <span >	智能制造</span>
+		            	 <span style="margin-left: 1.3rem;">技术专家</span>
+		            	</div>
 
-		            <div class="four-words big-words">•技术专家 <span class="middlewords small-words">现场交流</span></div>  
+		            <div class="four-words big-words animated fadeInUp delay-3" style="margin-top:-1rem;margin-left: 1rem;font-size: 1.6rem;">		             
+		            	<span class="middlewords small-words">流程展示</span>
+		            	<span class="middlewords small-words" style="margin-left: 4rem;">现场交流</span>
+		            </div>
 		        </div>
 	        </div>
-	        
 	        <img src="./images/page-wl.png" class="wl">
-	        <p class="wl word" style="top: 18rem">同方威视高能产品本部2019年产品推介会</p>
+	        <p class="wl word" style="top: 16rem">同方威视高能产品本部2019年新产品推介会</p>
+			<img src="images/feiji.png" class="feiji"/>
 	    </div>
 	</div>
 
@@ -89,9 +269,32 @@
     	 <img class="phone-img shouji" src="./images/bg_fdj.png" alt="">
     	 <p class="page3-tips">旋转观看更多</p>
      </div>
-<!-- <script src="http://cdn.happy-share.cn/vconsole.min.js"></script> -->
 
-<script type="text/javascript">
+	<img src="images/left.png" class="left"/>
+	<img src="images/right.png" class="right"/>
+	<img class="notice leftTxt" src="images/lTxt.png"/>
+	<img class="notice rightTxt" src="images/rTxt.png"/>
+	<img class="android androidTxt1" src="images/xLtxt.png"/>
+	<img class="android androidTxt2" src="images/xRtxt.png"/>
+<!-- <script src=http://cdn.happy-share.cn/vconsole.min.js"></script> -->
+	<script type="text/javascript" src="js/jquery.min.js"></script>
+	<script type="text/javascript">
+
+
+	var u = navigator.userAgent;
+	var isAndroid = u.indexOf('Android') > -1 || u.indexOf('Adr') > -1;
+	if(isAndroid){
+		$('.android').css('display','block')
+		setTimeout(function(){
+			$('.android').css('display','none')
+		},5000)
+	}else{
+		$('.notice').css('display','block')
+		setTimeout(function(){
+			$('.leftTxt').css('display','none')
+		 $('.rightTxt').css('display','none')
+		},3000)
+	}
 	function readyFn() {
 	  'use strict';
 
@@ -108,50 +311,27 @@
 	  // dom.style.top = -(IMG_W - WIN_W) / 2 + 'px';
 
 	  $('.view').scrollLeft((IMG_W - WIN_W)/2)
-	  console.log('11-----', IMG_W - WIN_W);
 
 	  //手动滑动
         $(".view").scroll(function() {
             if($('.view').scrollLeft() < 125 ) {
-                // $(".feiji").addClass("feijixg");
+				$('.left').css('display','none')
                 $(".fade-in-words-box").css("display", "block");
-            } else {
-                // $(".feiji").removeClass("feijixg");
-                // $(".fade-in-words-box").css("display", "none");
-            }
-            // 右边字显示效果
-            if(IMG_W-$('.view').scrollLeft() < 535) {
+            } else if(IMG_W-$('.view').scrollLeft() < 535) {
                 $(".fade-in-words-right-box").css("display", "block");
-            }
+				$('.right').css('display','none')
+            }else{
+				$('.right').css('display','block')
+				$('.left').css('display','block')
+			}
+			if($('.view').scrollLeft() < 380){
+				$('.feiji').css('display','block')
+			}
 
             $('.shouji').attr('src', './images/page3-dianji.png')
             $('.phone-more').attr('onclick', `signUp()`)
             $('.page3-tips').html("速速报名")
         });
-	  window.addEventListener('touchend', function(evt) {
-	      console.log('in')
-	  	nowts = new Date().getTime();
-		  // console.log( $('.view').scrollLeft())
-	      // 控制时间片
-	    /*  if (nowts  - timefragment > 37) {
-	          timefragment = nowts;
-	          var beta = evt.touches[0].clientX,            //横向 X 轴 -180 ~ 180
-	              gamma = evt.touches[0].clientY;          //纵向 Y 轴 -90 ~ 90
-	          var top = parseInt(dom.style.top, 10) || 0,
-	              left = parseInt(dom.style.left, 10) || 0;
-	          var _top, _left;
-	          _top = top + (beta / 180 * 30);
-	          _left = left + (gamma / 90 * 30);
-	          _top = _top >= 0 ? 0 : (_top < (WIN_H - IMG_H) ? (WIN_H - IMG_H) : _top);
-			  _left = _left <= 0 ? 0 : (_left < (IMG_W-WIN_W ) ?_left: (IMG_W - WIN_W ) );
-			  console.log('_left: ', _left)
-			  // 左边字显示效果
-
-	       /!*   dom.style.top = _top + 'px';
-	          dom.style.left = _left + 'px';*!/
-	      }*/
-
-	  }, false)
 
 	  //重力感应
 	  window.addEventListener('deviceorientation', function (evt) {
@@ -175,14 +355,17 @@
 	          if(sL < 50) {
 	          	// $(".feiji").addClass("feijixg");
 	          	$(".fade-in-words-box").css("display", "block");
-	          } else {
-	          	// $(".feiji").removeClass("feijixg");
-	          	// $(".fade-in-words-box").css("display", "none");
-	          }
-	          // 右边字显示效果
-	          if(sL > 1000) {
+				  $('.left').css('display','none')
+	          } else  if(sL > (IMG_W - WIN_W-400)) {
 	          	$(".fade-in-words-right-box").css("display", "block");
-	          }
+				  $('.right').css('display','none')
+	          }else{
+				  $('.right').css('display','block')
+				  $('.left').css('display','block')
+			  }
+			  if(sL < 380){
+			  	$('.feiji').css('display','block')
+			  }
 
 			  // console.log(sL,'_')
 			  $('.view').scrollLeft(sL)
@@ -201,7 +384,6 @@
 	
 
 </script>
-<script type="text/javascript" src="js/jquery.min.js"></script> 
 <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
 <script type="text/javascript" src="js/main.js"></script> 
 

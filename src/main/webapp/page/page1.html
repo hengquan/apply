@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-	<title>威视</title>
+	<title>同方威视</title>
 	<link rel="stylesheet" type="text/css" href="css/animate.min.css">
 	<link type="text/css" rel="stylesheet" href="css/main.css">
 	<link type="text/css" rel="stylesheet" href="css/style.css">
@@ -102,17 +102,34 @@
         left: 0;
       }
       .i {
-        width: 0;
-        height: auto;
+        width: 100%;
+        height: 100%;
         overflow: hidden;
-        position: absolute;       
-        transition: 1s linear;
+        position: absolute;
+		  bottom: 0!important;
       }
+		@keyframes i {
+			0% {
+				width: 0;
+			}
+			100% {
+				width:100%
+			}
+		}
       .i img {
-        object-fit: fill;
-        /*width: 100%;*/
-        margin-bottom: 3%;
+        width: 100%;
+		  bottom: -3px!important;
       }
+		.notice{
+			position: fixed;
+			width: 100px;
+			top: 30px;
+			color: #fff;
+		}
+		.start{
+			width: 165px;
+			height: auto;
+		}
 	</style>
 
 </head>
@@ -128,7 +145,7 @@
 				<div class="door middle-door">
 					<div class="door mix-door">
 						<div class="wordss word" onclick="onfuture()">
-							点击未来
+						    <img src="images/start.png" class="start"/>
 						</div>
 					</div>
 				</div>
@@ -138,9 +155,21 @@
 
     <div class="c">
         <div class="i wangge">
-           <img src="images/wangge2.png"  >
+           <img src="images/cg/i1.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
+           <img src="images/cg/i2.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
+           <img src="images/cg/i3.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
+           <img src="images/cg/i4.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
+           <img src="images/cg/i5.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
+           <img src="images/cg/i6.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
+           <img src="images/cg/i7.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
+           <img src="images/cg/i8.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
+           <img src="images/cg/i9.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
+           <img src="images/cg/i10.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
+           <img src="images/cg/i11.png"  class="cg"  style="display:none;width: 100%;position: absolute; bottom: 0;left: 0" >
         </div>
     </div>
+
+
     
 
 <script type="text/javascript" src="js/jquery.min.js"></script> 
@@ -155,14 +184,14 @@
 	    dInterval = setInterval(function() {
 	    	_door++;
 	      if(_door == 1) {
-	      	$(".max-door").css("box-shadow", "0 0 12px #261555, 0 0 12px #261555, 0 0 12px #261555");
-	        $(".max-door").css("-webkit-box-shadow", "0 0 12px #261555, 0 0 12px #261555, 0 0 12px #261555");
+	      	$(".max-door").css("box-shadow", "0 0 20px #261555, 0 0 20px #261555, 0 0 20px #261555");
+	        $(".max-door").css("-webkit-box-shadow", "0 0 20px #261555, 0 0 20px #261555, 0 0 20px #261555");
 	      }else if (_door == 2) {
-	        $(".middle-door").css("box-shadow", "0 0 12px #0191d3, 0 0 12px #0191d3, 0 0 12px #0191d3");
-	        $(".middle-door").css("-webkit-box-shadow", "0 0 12px #0191d3, 0 0 12px #0191d3, 0 0 12px #0191d3");
+	        $(".middle-door").css("box-shadow", "0 0 20px #0191d3, 0 0 20px #0191d3, 0 0 20px #0191d3");
+	        $(".middle-door").css("-webkit-box-shadow", "0 0 20px #0191d3, 0 0 20px #0191d3, 0 0 20px #0191d3");
 	      } else if (_door == 3) {
- 			$(".mix-door").css("box-shadow", "0 0 12px #d81671, 0 0 12px #d81671, 0 0 12px #d81671,");
-	        $(".mix-door").css("-webkit-box-shadow", "0 0 12px #d81671, 0 0 12px #d81671, 0 0 12px #d81671");
+ 			$(".mix-door").css("box-shadow", "0 0 20px #d81671, 0 0 20px #d81671, 0 0 20px #d81671,");
+	        $(".mix-door").css("-webkit-box-shadow", "0 0 20px #d81671, 0 0 20px #d81671, 0 0 20px #d81671");
 	      } else if(_door == 4) {
 	      	$(".max-door").css("box-shadow", "");
 	        $(".max-door").css("-webkit-box-shadow", "");
@@ -178,9 +207,17 @@
     });
     
     function onfuture() {
-        $(".i").css("width","100%");
+        $(".i").css({
+        	'display':'block'
+		});
+		var m = 0;
+	var cg = setInterval(function(){
+			$('.cg').eq(m).css('display','block')
+			m++;
+		},80)
         setTimeout(function(){ 
             window.location.href="./page2.html"
+			clearInterval(cg)
         }, 1000);
     }
     // 星星
